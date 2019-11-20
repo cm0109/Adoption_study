@@ -1,0 +1,74 @@
+spOTU	ISR_types	Counts	Prevalence	prev_perc	per_tot
+Streptococcus mitis pneumoniae infantis oralis	179	3385120	262	100	54.61
+Rothia mucilaginosa	200	1184568	259	98.85	19.11
+Streptococcus vestibularis salivarius	32	341165	249	95.04	5.5
+Streptococcus parasanguinis	85	327195	250	95.42	5.28
+Granulicatella adiacens	197	277379	259	98.85	4.47
+Streptococcus australis	11	146765	216	82.44	2.37
+Streptococcus sanguinis	43	112210	216	82.44	1.81
+Gemella sanguinis	29	83620	232	88.55	1.35
+Atopobium parvulum	9	49205	191	72.9	0.79
+Veillonella atypica dispar parvula	102	39609	218	83.21	0.64
+Moraxella osloensis	109	38024	119	45.42	0.61
+Streptococcus gordonii	16	37873	92	35.11	0.61
+Neisseria meningitidis polysaccharea	13	37156	152	58.02	0.6
+Haemophilus parainfluenzae	43	28080	177	67.56	0.45
+Gemella haemolysans	45	24061	124	47.33	0.39
+Streptococcus cristatus	14	15866	114	43.51	0.26
+Rothia aeria	27	14022	119	45.42	0.23
+Gemella morbillorum	21	14174	78	29.77	0.23
+Rothia dentocariosa	27	8977	52	19.85	0.14
+Streptococcus intermedius constellatus	10	6948	47	17.94	0.11
+Dialister invisus	13	3904	19	7.25	0.06
+Solobacterium moorei	26	3397	82	31.3	0.05
+Actinomyces graevenitzii	9	2936	16	6.11	0.05
+Actinomyces odontolyticus lingnae	34	1724	50	19.08	0.03
+Streptococcus AY020	5	1634	23	8.78	0.03
+Propionibacterium acnes	2	1728	62	23.66	0.03
+Stomatobaculum longum	13	1065	25	9.54	0.02
+Streptococcus mutans	4	1003	20	7.63	0.02
+Actinomyces IP073	2	981	6	2.29	0.02
+Leptotrichia hofstadii	14	612	24	9.16	0.01
+Eubacterium sulci infirmum	9	456	28	10.69	0.01
+Selenomonas FT050	6	352	4	1.53	0.01
+Atopobium rimae	5	926	16	6.11	0.01
+Prevotella melaninogenica	4	361	9	3.44	0.01
+Lactobacillus lactis	3	514	11	4.2	0.01
+Neisseria flava mucosa pharyngis	3	856	8	3.05	0.01
+Corynebacterium argentoratense	2	313	4	1.53	0.01
+Pseudomonas monteilii	2	638	1	0.38	0.01
+Actinobaculum 12B759	1	336	13	4.96	0.01
+Veillonella HB016	13	182	11	4.2	0
+Dialister pneumosintes	7	261	10	3.82	0
+Streptococcus anginosus	5	214	8	3.05	0
+Actinomyces viscosus naeslundii oris	4	220	4	1.53	0
+Leptotrichia BU064	4	68	5	1.91	0
+Novosphingobium panipatense	4	111	4	1.53	0
+Acinetobacter haemolyticus	3	125	5	1.91	0
+Actinomyces massiliensis	2	54	2	0.76	0
+Comamonadaceae FX006	2	85	3	1.15	0
+Kingella oralis	2	62	3	1.15	0
+Lachnoanaerobaculum umeaense	2	16	2	0.76	0
+Moraxella nonliqufaciens	2	63	2	0.76	0
+Neisseria elongata	2	32	2	0.76	0
+Neisseria oralis	2	209	8	3.05	0
+Prevotella oral taxon 299	2	41	4	1.53	0
+Propionibacterium propionicus	2	213	3	1.15	0
+Selenomonas EY047	2	82	2	0.76	0
+Treponema socranskii subsp. buccale paredis socranskii	2	47	2	0.76	0
+Actinomyces johnsonii	1	88	1	0.38	0
+Aggregatibacter AY349380	1	21	2	0.76	0
+Campylobacter HB035	1	38	4	1.53	0
+Haemophilus oral taxon 036	1	7	1	0.38	0
+Kingella denitrificans	1	6	1	0.38	0
+Lactobacillus casei rhamnosus	1	15	2	0.76	0
+Lactobacillus salivarius	1	94	1	0.38	0
+Mogibacterium timidum	1	65	7	2.67	0
+Neisseria FJ557362	1	86	1	0.38	0
+Neisseria lactamica	1	244	3	1.15	0
+Prevotella IK053	1	4	1	0.38	0
+Propionibacterium acidifaciens	1	6	1	0.38	0
+Scardovia wiggsiae	1	38	1	0.38	0
+Selenomonas infelix	1	76	1	0.38	0
+Selenomonas sputigena	1	10	1	0.38	0
+Staphylococcus epidermidis	1	19	1	0.38	0

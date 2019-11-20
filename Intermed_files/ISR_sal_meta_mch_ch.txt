@@ -1,0 +1,104 @@
+sample	subject_code	sample_date	DOB	age	gender	sub_type	del_mode	feed_mode	race	ethnicity	type	Number.Teeth.Present	Number.Teeth.Restored	Number.Teeth.With.Decay	plaque_level	tongue_biofilm	gingivitis	School	caries_level	antibiotics_past_month	family_id	status	subject_type	dist
+AD_102_C2	102_C2	2014-08-15	2014-01-20	0.567123287671233	Female	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	N/A	NA	NA	Daycare	0	No	41	Biological	Biological Child	0.725
+AD_103_C	103_C	2015-01-07	2013-06-27	1.53150684931507	Male	Biological Child	Vaginally	Combination	White	NA	Child	12	0	0	N/A	NA	NA	Daycare	0	No	42	Biological	Biological Child	0.9
+AD_105_C	105_C	2015-07-30	2011-12-28	3.58904109589041	Female	Biological Child	C-Section	Breast-fed	White	NA	Child	16	1	3	Moderate	Light	Moderate	None	4	No	44	Biological	Biological Child	0.681818181818182
+AD_109_C	109_C	2015-07-21	2013-01-22	2.49315068493151	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	Mild	None	None	NA	0	No	45	Biological	Biological Child	0.885714285714286
+AD_110_C	110_C	2017-08-12	2007-08-01	10.0383561643836	Male	Biological Child	Vaginally	Formula-fed	White	NA	Child	24	2	0	Mild	None	Mild	None	2	No	55	Biological	Biological Child	0.63302752293578
+AD_111_C2	111_C2	2018-03-04	2016-09-07	1.48767123287671	Male	Biological Child	Vaginally	Combination	White	NA	Child	11	0	0	Mild	None	Mild	Daycare	0	No	56	Biological	Biological Child	0.661971830985915
+AD_112_C1	112_C1	2018-03-04	2014-06-23	3.6986301369863	Male	Biological Child	Vaginally	Combination	White	Hispanic	Child	20	0	0	None	None	None	Pre School	0	No	57	Biological	Biological Child	0.73469387755102
+AD_113_C1	113_C1	2018-03-11	2013-03-08	5.01095890410959	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	None	None	Daycare	0	No	58	Biological	Biological Child	0.745098039215686
+AD_114_C1	114_C1	2018-03-04	2015-11-07	2.32328767123288	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	59	Biological	Biological Child	0.69047619047619
+AD_115_C1	115_C1	2018-03-04	2013-03-26	4.94246575342466	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	2	Mild	None	Mild	Pre School	2	No	60	Biological	Biological Child	0.407407407407407
+AD_117_C1	117_C1	2018-03-04	2016-11-01	1.33698630136986	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	None	None	0	No	62	Biological	Biological Child	0.811965811965812
+AD_118_C2	118_C2	2018-03-04	2017-05-26	0.772602739726027	Male	Biological Child	Vaginally	Combination	White	NA	Child	4	0	0	None	None	None	Daycare	0	No	63	Biological	Biological Child	0.925
+AD_120_C2	120_C2	2018-03-04	2014-10-26	3.35616438356164	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	65	Biological	Biological Child	0.813953488372093
+AD_122_C1	122_C1	2018-03-04	2017-03-04	1	Male	Biological Child	C-Section	Formula-fed	White	NA	Child	6	0	0	Mild	None	Mild	Daycare	0	Yes	67	Biological	Biological Child	0.795918367346939
+AD_124_C2	124_C2	2018-03-04	2016-08-24	1.52602739726027	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	Light	Mild	None	0	Yes	69	Biological	Biological Child	0.753424657534247
+AD_125_C2	125_C2	2018-03-04	2016-06-24	1.69315068493151	Male	Biological Child	Vaginally	Combination	White	NA	Child	15	0	0	None	None	None	Daycare	0	Yes	70	Biological	Biological Child	0.655172413793103
+AD_126_C1	126_C1	2018-03-04	2014-08-25	3.52602739726027	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	4	None	None	Mild	None	4	No	71	Biological	Biological Child	0.707865168539326
+AD_127_C1	127_C1	2018-03-11	2015-12-03	2.27123287671233	Female	Biological Child	C-Section	Combination	White	Hispanic	Child	16	0	0	Moderate	None	Mild	NA	0	No	72	Biological	Biological Child	0.821428571428571
+AD_128_C1	128_C1	2018-03-11	2012-10-11	5.41643835616438	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	20	0	0	Mild	None	None	Daycare	0	No	73	Biological	Biological Child	0.844660194174757
+AD_129_C2	129_C2	2018-03-11	2017-06-08	0.756164383561644	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	None	None	None	NA	0	No	74	Biological	Biological Child	0.820224719101124
+AD_131_C1	131_C1	2018-03-11	2012-02-19	6.06027397260274	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	22	0	0	None	None	None	kindergarten	0	No	76	Biological	Biological Child	0.742574257425743
+AD_132_C1	132_C1	2018-03-11	2014-06-27	3.70684931506849	Male	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	77	Biological	Biological Child	0.9
+AD_133_C2	133_C2	2018-03-11	2016-04-15	1.9041095890411	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	16	0	0	None	Light	None	Daycare	0	No	78	Biological	Biological Child	0.677966101694915
+AD_134_C2	134_C2	2018-03-11	2013-07-13	4.66301369863014	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	21	0	0	None	None	None	Pre School	0	Yes	79	Biological	Biological Child	0.730337078651685
+AD_135_C1	135_C1	2018-03-11	2014-07-24	3.63287671232877	Female	Biological Child	Vaginally	Breast-fed	White and Arabic	NA	Child	20	0	0	Moderate	None	Mild	Pre School	0	No	80	Biological	Biological Child	0.900826446280992
+AD_136_C1	136_C1	2018-03-18	2015-09-15	2.50684931506849	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	81	Biological	Biological Child	0.804347826086957
+AD_137_C1	137_C1	2018-03-18	2015-05-24	2.81917808219178	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	2	Mild	None	None	Daycare	2	No	82	Biological	Biological Child	0.827160493827161
+AD_138_C1	138_C1	2018-03-18	2013-03-06	5.03561643835616	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	83	Biological	Biological Child	0.594202898550725
+AD_142_C1	142_C1	2018-03-18	2012-04-10	5.93972602739726	Female	Biological Child	C-Section	Combination	White	NA	Child	21	0	0	Moderate	None	Moderate	kindergarten	0	No	87	Biological	Biological Child	0.721739130434783
+AD_144_C1	144_C1	2018-03-18	2013-11-21	4.32328767123288	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	89	Biological	Biological Child	0.669902912621359
+AD_146_C1	146_C1	2018-03-18	2016-06-06	1.78082191780822	Male	Biological Child	C-Section	Combination	White	NA	Child	16	0	0	Mild	None	Mild	None	0	No	91	Biological	Biological Child	0.757009345794392
+AD_148_C3	148_C3	2018-03-30	2017-03-02	1.07671232876712	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	6	0	0	Mild	None	Mild	Daycare	0	No	93	Biological	Biological Child	0.90625
+AD_149_C1	149_C1	2018-03-30	2017-06-14	0.791780821917808	Male	Biological Child	C-Section	Combination	White	NA	Child	6	0	0	None	None	None	None	0	No	94	Biological	Biological Child	0.653333333333333
+AD_150_C1	150_C1	2018-04-08	2015-11-16	2.39452054794521	Male	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	95	Biological	Biological Child	0.827956989247312
+AD_151_C1	151_C1	2018-04-08	2016-04-19	1.96986301369863	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	Mild	None	0	No	96	Biological	Biological Child	0.650485436893204
+AD_152_C1	152_C1	2018-04-08	2016-10-10	1.49315068493151	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	None	None	0	No	97	Biological	Biological Child	0.818181818181818
+AD_153_C1	153_C1	2018-04-08	2013-10-05	4.50958904109589	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	98	Biological	Biological Child	0.829787234042553
+AD_154_C1	154_C1	2018-04-08	2015-03-07	3.09041095890411	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	1	Mild	None	None	Daycare	1	No	99	Biological	Biological Child	0.702970297029703
+AD_156_C1	156_C1	2018-04-08	2016-03-31	2.02191780821918	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	Mild	None	Mild	Daycare	0	No	101	Biological	Biological Child	0.813953488372093
+AD_158_C2	158_C2	2018-04-08	2014-03-02	4.1041095890411	Female	Biological Child	C-Section	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	None	0	No	103	Biological	Biological Child	0.629032258064516
+AD_160_C1	160_C1	2018-04-08	2013-11-18	4.38904109589041	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	2	0	Mild	Light	Mild	Pre School	2	No	105	Biological	Biological Child	0.666666666666667
+AD_163_C4	163_C4	2018-04-15	2016-07-19	1.73972602739726	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	Mild	Light	None	None	0	Yes	108	Biological	Biological Child	0.619047619047619
+AD_164_C1	164_C1	2018-04-15	2015-05-02	2.95616438356164	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	109	Biological	Biological Child	0.682926829268293
+AD_166_C1	166_C1	2018-04-15	2011-12-05	6.36438356164384	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	19	0	0	Mild	Light	Mild	kindergarten	0	No	111	Biological	Biological Child	0.676470588235294
+AD_167_C1	167_C1	2018-04-15	2016-12-11	1.34246575342466	Female	Biological Child	Vaginally	Combination	White	NA	Child	14	0	0	None	None	None	None	0	No	112	Biological	Biological Child	0.790697674418605
+AD_168_C1	168_C1	2018-04-15	2015-01-05	3.27671232876712	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	Mild	None	Mild	None	0	No	113	Biological	Biological Child	0.747368421052632
+AD_169_C1	169_C1	2018-04-15	2012-12-21	5.31780821917808	Female	Biological Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	114	Biological	Biological Child	0.651376146788991
+AD_170_C2	170_C2	2018-04-15	2014-02-10	4.17808219178082	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	115	Biological	Biological Child	0.695238095238095
+AD_172_C4	172_C4	2018-04-15	2015-12-14	2.33698630136986	Male	Biological Child	Vaginally	Breast-fed	Black or African American	NA	Child	20	0	0	Mild	None	Mild	None	0	No	117	Biological	Biological Child	0.654320987654321
+AD_173_C2	173_C2	2018-04-15	2017-02-01	1.2	Female	Biological Child	C-Section	Formula-fed	White	NA	Child	9	0	0	None	None	None	Daycare	0	No	118	Biological	Biological Child	0.863013698630137
+AD_174_C1	174_C1	2018-04-15	2013-05-02	4.95616438356164	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	119	Biological	Biological Child	0.704545454545455
+AD_175_C1	175_C1	2018-04-15	2014-10-23	3.47945205479452	Female	Biological Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	None	0	No	120	Biological	Biological Child	0.75
+AD_176_C1	176_C1	2018-04-15	2012-03-21	6.07123287671233	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	Mild	None	Mild	kindergarten	0	No	121	Biological	Biological Child	0.617021276595745
+AD_181_C1	181_C1	2018-04-22	2014-03-20	4.09315068493151	Female	Biological Child	C-Section	Combination	White	NA	Child	20	1	0	Mild	None	Mild	Daycare	1	No	125	Biological	Biological Child	0.80952380952381
+AD_202_C	202_C	2014-07-02	2012-08-27	1.84657534246575	Male	Adopted Child	C-Section	Formula-fed	Other (both black and white)	NA	Child	10	0	0	Mild	Light	None	Daycare	0	No	2	Adopted	Adopted Child	0.789473684210526
+AD_203_C	203_C	2014-07-07	2012-07-26	1.94794520547945	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	3	Adopted	Adopted Child	0.911111111111111
+AD_204_C	204_C	2014-07-14	2012-10-12	1.75342465753425	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	15	0	0	Mild	Light	None	Daycare	0	No	4	Adopted	Adopted Child	0.813333333333333
+AD_205_C1	205_C1	2014-07-10	2014-02-13	0.402739726027397	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	0	0	0	Mild	Light	None	Daycare	0	No	5	Adopted	Adopted Child	0.866666666666667
+AD_206_C	206_C	2014-07-23	2013-10-15	0.76986301369863	Female	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	7	0	0	Mild	Light	None	None	0	No	6	Adopted	Adopted Child	0.67816091954023
+AD_207_C1	207_C1	2014-07-25	2009-01-24	5.5013698630137	Male	Adopted Child	C-Section	Formula-fed	White	NA	Child	10	0	0	None	Light	None	Daycare	0	No	7	Adopted	Adopted Child	0.910714285714286
+AD_208_C1	208_C1	2014-09-25	2012-05-31	2.32054794520548	Male	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	20	0	0	Moderate	Light	Moderate	Daycare	0	No	8	Adopted	Adopted Child	0.675
+AD_209_C1	209_C1	2014-08-28	2011-12-22	2.68493150684932	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	Light	Mild	None	0	No	9	Adopted	Adopted Child	0.726315789473684
+AD_210_C	210_C	2015-07-21	2012-11-09	2.6958904109589	Female	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	20	0	0	Mild	None	None	None	0	No	10	Adopted	Adopted Child	0.707865168539326
+AD_211_C1	211_C1	2014-08-17	2014-01-25	0.558904109589041	Male	Adopted Child	NA	NA	White	NA	Child	0	0	0	None	Light	None	None	0	No	11	Adopted	Adopted Child	0.505154639175258
+AD_212_C	212_C	2014-08-17	2013-01-07	1.60821917808219	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	NA	Light	Mild	None	0	No	43	Adopted	Adopted Child	0.816326530612245
+AD_213_C	213_C	2014-08-17	2014-01-12	0.594520547945205	Female	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	0	0	0	None	Light	None	None	0	No	12	Adopted	Adopted Child	0.944444444444444
+AD_215_C	215_C	2014-08-17	2012-07-23	2.06849315068493	Male	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	20	2	0	Mild	Light	Moderate	None	2	Yes	13	Adopted	Adopted Child	0.777777777777778
+AD_217_C	217_C	2014-08-17	2013-04-11	1.35068493150685	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	13	0	0	Mild	Light	Mild	Daycare	0	No	14	Adopted	Adopted Child	1
+AD_219_C	219_C	2015-07-22	2011-05-14	4.19178082191781	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	0	1	Moderate	Heavy	Mild	Daycare	1	No	16	Adopted	Adopted Child	0.643564356435644
+AD_220_C	220_C	2014-11-19	2010-07-01	4.38904109589041	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	0	0	N/A	NA	NA	Pre School	0	No	17	Adopted	Adopted Child	0.824175824175824
+AD_221_C	221_C	2015-05-26	2013-12-24	1.41917808219178	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	8	0	0	Mild	Light	Mild	Daycare	0	No	18	Adopted	Adopted Child	0.631578947368421
+AD_222_C1	222_C1	2016-04-18	2012-02-10	4.18904109589041	Male	Adopted Child	C-Section	Formula-fed	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	19	Adopted	Adopted Child	0.7
+AD_224_C	224_C	2015-07-27	2010-06-25	5.09041095890411	Male	Adopted Child	Unknown	Formula-fed	Black or African American	NA	Child	20	0	0	None	None	None	kindergarten	0	No	20	Adopted	Adopted Child	0.720930232558139
+AD_225_C1	225_C1	2016-04-26	2010-02-19	6.18630136986301	Female	Adopted Child	C-Section	Formula-fed	White	NA	Child	20	6	5	Mild	Light	None	None	11	No	21	Adopted	Adopted Child	0.547619047619048
+AD_226_C	226_C	2014-12-08	2012-08-30	2.27397260273973	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	28	1	1	Moderate	Light	Mild	Daycare	2	No	22	Adopted	Adopted Child	0.883720930232558
+AD_227_C	227_C	2015-07-28	2010-08-10	4.96712328767123	Female	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	0	0	0	N/A	NA	NA	Pre School	0	No	23	Adopted	Adopted Child	0.746835443037975
+AD_228_C	228_C	2016-04-13	2013-06-29	2.79178082191781	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	19	0	0	None	None	None	Daycare	0	No	24	Adopted	Adopted Child	0.730769230769231
+AD_229_C	229_C	2016-04-22	2013-05-13	2.94520547945205	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	0	4	None	None	None	None	4	No	25	Adopted	Adopted Child	0.762376237623762
+AD_231_C	231_C	2016-07-14	2013-10-08	2.76712328767123	Male	Adopted Child	Unknown	Formula-fed	White	NA	Child	20	0	0	None	None	None	None	0	No	27	Adopted	Adopted Child	0.850467289719626
+AD_232_C2	232_C2	2016-06-11	2012-01-20	4.39452054794521	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	Puerto Rican	Child	20	0	0	Mild	None	Mild	Daycare	0	No	28	Adopted	Adopted Child	0.805825242718447
+AD_233_C	233_C	2016-06-11	2015-10-28	0.621917808219178	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	2	0	0	None	None	None	None	0	No	29	Adopted	Adopted Child	0.830985915492958
+AD_234_C	234_C	2016-06-11	2015-05-13	1.08219178082192	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	8	0	0	None	None	None	None	0	No	30	Adopted	Adopted Child	0.76
+AD_235_C1	235_C1	2016-06-11	2011-01-31	5.36438356164384	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	31	Adopted	Adopted Child	0.631067961165049
+AD_236_C	236_C	2016-06-11	2015-09-21	0.723287671232877	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	0	0	0	N/A	NA	NA	Daycare	0	No	32	Adopted	Adopted Child	0.894736842105263
+AD_237_C	237_C	2016-06-11	2015-06-09	1.00821917808219	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	4	0	0	None	None	None	None	0	No	33	Adopted	Adopted Child	0.824175824175824
+AD_238_C	238_C	2016-06-11	2012-01-13	4.41369863013699	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	8	0	None	Light	None	Pre School	8	No	34	Adopted	Adopted Child	0.662921348314607
+AD_239_C	239_C	2016-06-11	2013-12-02	2.52602739726027	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	10	0	0	None	Light	None	None	0	No	35	Adopted	Adopted Child	0.837837837837838
+AD_240_C	240_C	2016-06-11	2011-07-26	4.88219178082192	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	Light	None	Pre School	0	No	36	Adopted	Adopted Child	0.625
+AD_241_C	241_C	2016-06-11	2011-12-10	4.50684931506849	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	20	0	0	Mild	Light	None	Pre School	0	No	37	Adopted	Adopted Child	0.719626168224299
+AD_242_C	242_C	2016-08-13	2015-05-12	1.25753424657534	Male	Adopted Child	Unknown	Unknown	Black or African American	NA	Child	8	0	0	None	None	Mild	Daycare	0	No	38	Adopted	Adopted Child	0.846153846153846
+AD_243_C	243_C	2016-06-11	2011-10-13	4.66575342465753	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	Light	None	Daycare	0	Yes	39	Adopted	Adopted Child	0.705263157894737
+AD_244_C	244_C	2016-08-13	2016-04-16	0.326027397260274	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	0	0	0	None	None	None	None	0	No	40	Adopted	Adopted Child	0.972222222222222
+AD_245_C	245_C	2017-08-12	2006-01-05	11.6082191780822	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	21	0	0	Mild	Light	Mild	None	0	No	46	Adopted	Adopted Child	0.666666666666667
+AD_246_C1	246_C1	2017-08-12	2015-01-23	2.55342465753425	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	18	5	0	Mild	None	Mild	None	5	No	47	Adopted	Adopted Child	0.702479338842975
+AD_247_C	247_C	2017-08-12	2016-08-01	1.03013698630137	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	3	0	0	None	None	None	None	0	No	48	Adopted	Adopted Child	0.583333333333333
+AD_248_C	248_C	2017-08-12	2016-02-08	1.50958904109589	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	10	0	0	None	None	None	School	0	No	49	Adopted	Adopted Child	0.823529411764706
+AD_249_C2	249_C2	2017-08-12	2015-08-11	2.00547945205479	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	16	0	0	None	None	None	Daycare	0	No	50	Adopted	Adopted Child	0.595238095238095
+AD_250_C	250_C	2017-08-12	2012-03-05	5.44109589041096	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	23	0	0	None	None	None	kindergarten	0	No	51	Adopted	Adopted Child	0.782608695652174
+AD_251_C1	251_C1	2017-08-12	2016-10-07	0.846575342465753	Male	Adopted Child	C-Section	Formula-fed	Other (both black and white)	NA	Child	4	0	0	None	None	None	None	0	No	52	Adopted	Adopted Child	0.756756756756757
+AD_252_C	252_C	2017-08-12	2014-10-25	2.8	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	53	Adopted	Adopted Child	0.587301587301587
+AD_253_C	253_C	2017-08-12	2015-07-14	2.08219178082192	Male	Adopted Child	C-Section	Combination	White	NA	Child	12	0	0	None	None	None	None	0	No	54	Adopted	Adopted Child	0.638888888888889
+AD_254_C1	254_C1	2018-03-04	2015-03-27	2.93972602739726	Male	Adopted Child	C-Section	Formula-fed	Other (both black and white)	NA	Child	20	0	0	Mild	None	None	Daycare	0	No	127	Adopted	Adopted Child	0.858823529411765
+AD_255_C1	255_C1	2018-04-29	2013-01-09	5.3041095890411	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	20	0	0	None	None	None	Pre School	0	No	128	Adopted	Adopted Child	0.645833333333333
