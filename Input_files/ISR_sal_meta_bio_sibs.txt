@@ -1,0 +1,33 @@
+sample	subject_code	sample_date	DOB	age	gender	sub_type	del_mode	feed_mode	race	ethnicity	type	Number Teeth Present	Number Teeth Restored	Number Teeth With Decay	plaque_level	tongue_biofilm	gingivitis	School	caries_level	antibiotics_past_month	family_id	status	subject_type
+AD_102_C1	102_C1	2014-08-15	2011-09-19	2.90684931506849	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	20	0	0	Mild	Light	Mild	Daycare	0	No	41	Biological	Biological Child
+AD_102_C2	102_C2	2014-08-15	2014-01-20	0.567123287671233	Female	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	N/A	NA	NA	Daycare	0	No	41	Biological	Biological Child
+AD_111_C1	111_C1	2018-03-04	2014-08-16	3.55068493150685	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	56	Biological	Biological Child
+AD_111_C2	111_C2	2018-03-04	2016-09-07	1.48767123287671	Male	Biological Child	Vaginally	Combination	White	NA	Child	11	0	0	Mild	None	Mild	Daycare	0	No	56	Biological	Biological Child
+AD_118_C1	118_C1	2018-03-04	2015-02-08	3.06849315068493	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	63	Biological	Biological Child
+AD_118_C2	118_C2	2018-03-04	2017-05-26	0.772602739726027	Male	Biological Child	Vaginally	Combination	White	NA	Child	4	0	0	None	None	None	Daycare	0	No	63	Biological	Biological Child
+AD_120_C1	120_C1	2018-03-04	2012-04-22	5.86849315068493	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	None	None	None	kindergarten	0	No	65	Biological	Biological Child
+AD_120_C2	120_C2	2018-03-04	2014-10-26	3.35616438356164	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	65	Biological	Biological Child
+AD_124_C1	124_C1	2018-03-04	2014-12-30	3.17808219178082	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	69	Biological	Biological Child
+AD_124_C2	124_C2	2018-03-04	2016-08-24	1.52602739726027	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	Light	Mild	None	0	Yes	69	Biological	Biological Child
+AD_125_C1	125_C1	2018-03-04	2014-11-23	3.27945205479452	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	Yes	70	Biological	Biological Child
+AD_125_C2	125_C2	2018-03-04	2016-06-24	1.69315068493151	Male	Biological Child	Vaginally	Combination	White	NA	Child	15	0	0	None	None	None	Daycare	0	Yes	70	Biological	Biological Child
+AD_127_C1	127_C1	2018-03-11	2015-12-03	2.27123287671233	Female	Biological Child	C-Section	Combination	White	Hispanic	Child	16	0	0	Moderate	None	Mild	NA	0	No	72	Biological	Biological Child
+AD_127_C2	127_C2	2018-03-11	2015-12-03	2.27123287671233	Female	Biological Child	C-Section	Combination	White	Hispanic	Child	16	0	0	Mild	None	Mild	NA	0	No	72	Biological	Biological Child
+AD_129_C1	129_C1	2018-03-11	2015-10-30	2.36438356164384	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	18	0	0	Mild	None	Mild	None	0	No	74	Biological	Biological Child
+AD_129_C2	129_C2	2018-03-11	2017-06-08	0.756164383561644	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	None	None	None	NA	0	No	74	Biological	Biological Child
+AD_133_C1	133_C1	2018-03-11	2013-12-21	4.22191780821918	Male	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	None	None	None	Daycare	0	No	78	Biological	Biological Child
+AD_133_C2	133_C2	2018-03-11	2016-04-15	1.9041095890411	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	16	0	0	None	Light	None	Daycare	0	No	78	Biological	Biological Child
+AD_134_C1	134_C1	2018-03-11	2010-10-29	7.36986301369863	Male	Biological Child	Vaginally	Combination	White	NA	Child	24	1	1	Mild	Light	Mild	kindergarten	2	Yes	79	Biological	Biological Child
+AD_134_C2	134_C2	2018-03-11	2013-07-13	4.66301369863014	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	21	0	0	None	None	None	Pre School	0	Yes	79	Biological	Biological Child
+AD_148_C1	148_C1	2018-03-30	2010-08-14	7.63013698630137	Male	Biological Child	C-Section	Combination	White	NA	Child	24	0	0	None	None	None	kindergarten	0	No	93	Biological	Biological Child
+AD_148_C2	148_C2	2018-03-30	2012-07-24	5.68493150684932	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	None	None	None	kindergarten	0	No	93	Biological	Biological Child
+AD_158_C1	158_C1	2018-04-08	2011-12-19	6.30684931506849	Female	Biological Child	C-Section	Combination	White	NA	Child	23	0	2	Mild	Light	Mild	kindergarten	2	No	103	Biological	Biological Child
+AD_158_C2	158_C2	2018-04-08	2014-03-02	4.1041095890411	Female	Biological Child	C-Section	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	None	0	No	103	Biological	Biological Child
+AD_163_C2	163_C2	2018-04-15	2013-07-03	4.78630136986301	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	108	Biological	Biological Child
+AD_163_C3	163_C3	2018-04-15	2015-03-08	3.10684931506849	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	None	None	Mild	None	0	No	108	Biological	Biological Child
+AD_170_C1	170_C1	2018-04-15	2011-02-13	7.17260273972603	Male	Biological Child	C-Section	Combination	White	NA	Child	21	0	0	Moderate	Light	Moderate	None	0	Yes	115	Biological	Biological Child
+AD_170_C2	170_C2	2018-04-15	2014-02-10	4.17808219178082	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	115	Biological	Biological Child
+AD_172_C1	172_C1	2018-04-15	2010-03-17	8.08493150684932	Female	Biological Child	Vaginally	Breast-fed	Black or African American	NA	Child	23	0	0	Mild	None	Mild	None	0	No	117	Biological	Biological Child
+AD_172_C2	172_C2	2018-04-15	2011-09-09	6.6027397260274	Male	Biological Child	Vaginally	Breast-fed	Black or African American	NA	Child	24	0	0	None	Light	Mild	None	0	No	117	Biological	Biological Child
+AD_173_C1	173_C1	2018-04-15	2014-03-13	4.09315068493151	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	Light	Mild	Pre School	0	No	118	Biological	Biological Child
+AD_173_C2	173_C2	2018-04-15	2017-02-01	1.2	Female	Biological Child	C-Section	Formula-fed	White	NA	Child	9	0	0	None	None	None	Daycare	0	No	118	Biological	Biological Child

@@ -1,0 +1,67 @@
+sample	subject_code	sample_date	DOB	age	gender	sub_type	del_mode	feed_mode	race	ethnicity	type	Number Teeth Present	Number Teeth Restored	Number Teeth With Decay	plaque_level	tongue_biofilm	gingivitis	School	caries_level	antibiotics_past_month	family_id	status	subject_type
+AD_111_C2	111_C2	2018-03-04	2016-09-07	1.5	Male	Biological Child	Vaginally	Combination	White	NA	Child	11	0	0	Mild	None	Mild	Daycare	0	No	56	Biological	Biological Child
+AD_111_D	111_D	2018-03-04	1985-04-08	32.9260273972603	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	0	0	None	None	None	NA	0	No	56	Biological	Biological Father
+AD_111_M	111_M	2018-03-04	1983-10-27	34.4	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	None	None	None	NA	3	No	56	Biological	Biological Mother
+AD_112_C1	112_C1	2018-03-04	2014-06-23	3.7	Male	Biological Child	Vaginally	Combination	White	Hispanic	Child	20	0	0	None	None	None	Pre School	0	No	57	Biological	Biological Child
+AD_112_D	112_D	2018-03-04	NA	42	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	8	0	None	None	None	NA	8	No	57	Biological	Biological Father
+AD_112_M	112_M	2018-03-04	1985-02-18	33.1	Female	Biological Mother	NA	NA	White	Hispanic	Mother	24	2	0	None	None	None	NA	2	NA	57	Biological	Biological Mother
+AD_113_C1	113_C1	2018-03-11	2013-03-08	5	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	None	None	Daycare	0	No	58	Biological	Biological Child
+AD_113_D	113_D	2018-03-11	NA	37	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	4	0	Moderate	None	Moderate	NA	4	No	58	Biological	Biological Father
+AD_113_M	113_M	2018-03-11	1982-07-06	35.7	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	58	Biological	Biological Mother
+AD_115_C1	115_C1	2018-03-04	2013-03-26	4.9	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	2	Mild	None	Mild	Pre School	2	No	60	Biological	Biological Child
+AD_115_D	115_D	2018-03-04	NA	29	Male	Biological Father	NA	NA	White	NA	Father	28	0	0	None	None	None	NA	0	No	60	Biological	Biological Father
+AD_115_M	115_M	2018-03-04	NA	34	Female	Biological Mother	NA	NA	White	Hispanic or Latino	Mother	30	4	0	None	None	None	NA	4	No	60	Biological	Biological Mother
+AD_117_C1	117_C1	2018-03-04	2016-11-01	1.3	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	None	None	0	No	62	Biological	Biological Child
+AD_117_D	117_D	2018-03-04	NA	36	Male	Biological Father	NA	NA	White	NA	Father	28	0	0	None	None	None	NA	0	No	62	Biological	Biological Father
+AD_117_M	117_M	2018-03-04	1979-03-24	39	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	5	1	None	None	None	NA	6	No	62	Biological	Biological Mother
+AD_118_C2	118_C2	2018-03-04	2017-05-26	0.8	Male	Biological Child	Vaginally	Combination	White	NA	Child	4	0	0	None	None	None	Daycare	0	No	63	Biological	Biological Child
+AD_118_D	118_D	2018-03-04	NA	36	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	0	0	None	None	None	NA	0	NA	63	Biological	Biological Father
+AD_118_M	118_M	2018-03-04	1982-12-25	35.2	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	None	None	None	NA	2	No	63	Biological	Biological Mother
+AD_124_C2	124_C2	2018-03-04	2016-08-24	1.5	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	Light	Mild	None	0	Yes	69	Biological	Biological Child
+AD_124_D	124_D	2018-03-04	NA	34	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	8	0	None	None	None	NA	8	No	69	Biological	Biological Father
+AD_124_M	124_M	2018-03-04	1985-10-24	32.4	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	1	0	None	None	None	NA	1	No	69	Biological	Biological Mother
+AD_127_C1	127_C1	2018-03-11	2015-12-03	2.3	Female	Biological Child	C-Section	Combination	White	Hispanic	Child	16	0	0	Moderate	None	Mild	NA	0	No	72	Biological	Biological Child
+AD_127_D	127_D	2018-03-11	NA	33	Male	Biological Father	NA	NA	White	Hispanic or Latino	Father	28	2	0	None	None	None	NA	2	No	72	Biological	Biological Father
+AD_127_M	127_M	2018-03-11	NA	32	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	72	Biological	Biological Mother
+AD_129_C2	129_C2	2018-03-11	2017-06-08	0.8	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	None	None	None	NA	0	No	74	Biological	Biological Child
+AD_129_D	129_D	2018-03-11	NA	29	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	0	0	None	None	None	NA	0	No	74	Biological	Biological Father
+AD_129_M	129_M	2018-03-11	1988-02-15	30.1	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	74	Biological	Biological Mother
+AD_131_C1	131_C1	2018-03-11	2012-02-19	6.1	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	22	0	0	None	None	None	kindergarten	0	No	76	Biological	Biological Child
+AD_131_D	131_D	2018-03-11	1985-01-09	33.1890410958904	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	0	0	None	None	None	NA	0	No	76	Biological	Biological Father
+AD_131_M	131_M	2018-03-11	NA	33	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	76	Biological	Biological Mother
+AD_133_C2	133_C2	2018-03-11	2016-04-15	1.9	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	16	0	0	None	Light	None	Daycare	0	No	78	Biological	Biological Child
+AD_133_D	133_D	2018-03-11	NA	43	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	26	5	0	None	Light	None	NA	5	No	78	Biological	Biological Father
+AD_133_M	133_M	2018-03-11	1981-11-19	36.3	Female	Biological Mother	NA	NA	Asian	Non Hispanic or Latino	Mother	28	7	0	Mild	Light	Moderate	NA	7	No	78	Biological	Biological Mother
+AD_134_C2	134_C2	2018-03-11	2013-07-13	4.7	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	21	0	0	None	None	None	Pre School	0	Yes	79	Biological	Biological Child
+AD_134_D	134_D	2018-03-11	NA	49	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	30	8	6	None	None	None	NA	14	Yes	79	Biological	Biological Father
+AD_134_M	134_M	2018-03-11	1978-11-08	39.4	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	13	0	None	None	None	NA	13	Yes	79	Biological	Biological Mother
+AD_149_C1	149_C1	2018-03-30	2017-06-14	0.8	Male	Biological Child	C-Section	Combination	White	NA	Child	6	0	0	None	None	None	None	0	No	94	Biological	Biological Child
+AD_149_D	149_D	2018-03-30	1986-06-28	31.7753424657534	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	2	0	None	None	None	NA	2	No	94	Biological	Biological Father
+AD_149_M	149_M	2018-03-30	1984-06-16	33.8	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	9	0	Mild	None	Mild	NA	9	Yes	94	Biological	Biological Mother
+AD_150_C1	150_C1	2018-04-08	2015-11-16	2.4	Male	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	95	Biological	Biological Child
+AD_150_D	150_D	2018-04-08	1981-03-08	37.1095890410959	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	8	0	Mild	None	None	NA	8	No	95	Biological	Biological Father
+AD_150_M	150_M	2018-04-08	1979-01-16	39.3	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	3	0	None	None	None	NA	3	No	95	Biological	Biological Mother
+AD_152_C1	152_C1	2018-04-08	2016-10-10	1.5	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	None	None	0	No	97	Biological	Biological Child
+AD_152_D	152_D	2018-04-08	1983-11-22	34.4	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	2	0	None	None	None	NA	2	No	97	Biological	Biological Father
+AD_152_M	152_M	2018-04-08	1984-03-03	34.1	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	8	0	None	None	None	NA	8	No	97	Biological	Biological Mother
+AD_163_C4	163_C4	2018-04-15	2016-07-19	1.7	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	Mild	Light	None	None	0	Yes	108	Biological	Biological Child
+AD_163_D	163_D	2018-04-15	1978-02-05	40.2164383561644	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	32	6	0	None	Heavy	Mild	NA	6	No	108	Biological	Biological Father
+AD_163_M	163_M	2018-04-15	1977-10-03	40.6	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	None	None	Mild	NA	2	No	108	Biological	Biological Mother
+AD_164_C1	164_C1	2018-04-15	2015-05-02	3	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	109	Biological	Biological Child
+AD_164_D	164_D	2018-04-15	1984-01-10	34.2849315068493	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	0	0	None	None	None	NA	0	No	109	Biological	Biological Father
+AD_164_M	164_M	2018-04-15	1983-11-22	34.4	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	Light	None	NA	0	No	109	Biological	Biological Mother
+AD_166_C1	166_C1	2018-04-15	2011-12-05	6.4	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	19	0	0	Mild	Light	Mild	kindergarten	0	No	111	Biological	Biological Child
+AD_166_D	166_D	2018-04-15	1983-01-27	35.2383561643836	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	2	2	Moderate	None	Mild	NA	4	No	111	Biological	Biological Father
+AD_166_M	166_M	2018-04-15	NA	31	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	6	0	None	None	None	NA	6	No	111	Biological	Biological Mother
+AD_167_C1	167_C1	2018-04-15	2016-12-11	1.3	Female	Biological Child	Vaginally	Combination	White	NA	Child	14	0	0	None	None	None	None	0	No	112	Biological	Biological Child
+AD_167_D	167_D	2018-04-15	1987-10-27	30.4876712328767	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	0	0	Mild	None	Mild	NA	0	No	112	Biological	Biological Father
+AD_167_M	167_M	2018-04-15	NA	NA	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	None	Light	None	NA	3	No	112	Biological	Biological Mother
+AD_169_C1	169_C1	2018-04-15	2012-12-21	5.3	Female	Biological Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	114	Biological	Biological Child
+AD_169_D	169_D	2018-04-15	1979-10-14	38.5287671232877	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	22	4	1	Mild	None	Moderate	NA	5	No	114	Biological	Biological Father
+AD_169_M	169_M	2018-04-15	1986-09-12	31.6	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Light	Mild	NA	4	No	114	Biological	Biological Mother
+AD_174_C1	174_C1	2018-04-15	2013-05-02	5	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	119	Biological	Biological Child
+AD_174_D	174_D	2018-04-15	1977-07-18	40.7698630136986	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	30	3	0	Mild	Light	Mild	NA	3	No	119	Biological	Biological Father
+AD_174_M	174_M	2018-04-15	1977-01-18	41.3	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Light	Moderate	NA	4	No	119	Biological	Biological Mother
+AD_181_C1	181_C1	2018-04-22	2014-03-20	4.1	Female	Biological Child	C-Section	Combination	White	NA	Child	20	1	0	Mild	None	Mild	Daycare	1	No	125	Biological	Biological Child
+AD_181_D	181_D	2018-04-22	1982-06-26	35.8465753424658	Male	Biological Father	NA	NA	White	Non Hispanic or Latino	Father	28	2	1	Moderate	Light	Moderate	NA	3	No	125	Biological	Biological Father
+AD_181_M	181_M	2018-04-22	1983-08-03	34.7	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	Mild	Light	Moderate	NA	3	No	125	Biological	Biological Mother

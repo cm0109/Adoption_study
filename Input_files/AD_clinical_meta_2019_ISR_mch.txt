@@ -1,0 +1,211 @@
+sample	subject_code	sample_date	DOB	age	gender	sub_type	del_mode	feed_mode	race	ethnicity	type	Number Teeth Present	Number Teeth Restored	Number Teeth With Decay	plaque_level	tongue_biofilm	gingivitis	School	caries_level	antibiotics_past_month	family_id	status	subject_type
+AD_202_C	202_C	2014-07-02	2012-08-27	1.84657534246575	Male	Adopted Child	C-Section	Formula-fed	Other (both black and white)	NA	Child	10	0	0	Mild	Light	None	Daycare	0	No	2	Adopted	Adopted Child
+AD_202_M	202_M	2014-07-02	1972-10-23	41.7178082191781	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	11	0	Mild	Light	Moderate	NA	11	No	2	Adopted	Adopted Mother
+AD_203_C	203_C	2014-07-07	2012-07-26	1.94794520547945	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	3	Adopted	Adopted Child
+AD_203_M	203_M	2014-07-07	1963-04-23	51.241095890411	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	9	0	Mild	Light	Mild	NA	9	No	3	Adopted	Adopted Mother
+AD_204_C	204_C	2014-07-14	2012-10-12	1.75342465753425	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	15	0	0	Mild	Light	None	Daycare	0	No	4	Adopted	Adopted Child
+AD_204_M	204_M	2014-07-04	1982-02-05	32.4301369863014	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	8	1	Mild	Light	Mild	NA	9	No	4	Adopted	Adopted Mother
+AD_205_C1	205_C1	2014-07-10	2014-02-13	0.402739726027397	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	0	0	0	Mild	Light	None	Daycare	0	No	5	Adopted	Adopted Child
+AD_205_M	205_M	2014-07-10	1981-10-11	32.7671232876712	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	Mild	Light	Mild	NA	3	No	5	Adopted	Adopted Mother
+AD_206_C	206_C	2014-07-23	2013-10-15	0.76986301369863	Female	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	7	0	0	Mild	Light	None	None	0	No	6	Adopted	Adopted Child
+AD_206_M	206_M	2014-07-23	1972-03-16	42.3808219178082	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	9	0	Mild	Light	Mild	NA	9	No	6	Adopted	Adopted Mother
+AD_207_C1	207_C1	2014-07-25	2009-01-24	5.5013698630137	Male	Adopted Child	C-Section	Formula-fed	White	NA	Child	10	0	0	None	Light	None	Daycare	0	No	7	Adopted	Adopted Child
+AD_207_M	207_M	2014-07-25	1974-09-26	39.8547945205479	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	7	0	Mild	Light	Mild	NA	7	No	7	Adopted	Adopted Mother
+AD_208_C1	208_C1	2014-09-25	2012-05-31	2.32054794520548	Male	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	20	0	0	Moderate	Light	Moderate	Daycare	0	No	8	Adopted	Adopted Child
+AD_208_M	208_M	2014-08-25	1984-11-03	29.827397260274	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Moderate	Light	Mild	NA	4	No	8	Adopted	Adopted Mother
+AD_209_C1	209_C1	2014-08-28	2011-12-22	2.68493150684932	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	Light	Mild	None	0	No	9	Adopted	Adopted Child
+AD_209_M	209_M	2014-08-28	1981-06-16	33.2219178082192	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	7	1	Mild	Light	Mild	NA	8	No	9	Adopted	Adopted Mother
+AD_210_C	210_C	2015-07-21	2012-11-09	2.6958904109589	Female	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	20	0	0	Mild	None	None	None	0	No	10	Adopted	Adopted Child
+AD_210_M	210_M	2015-07-21	1978-06-06	37.1479452054795	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	1	Mild	Light	Moderate	NA	5	Yes	10	Adopted	Adopted Mother
+AD_211_C1	211_C1	2014-08-17	2014-01-25	0.558904109589041	Male	Adopted Child	NA	NA	White	NA	Child	0	0	0	None	Light	None	None	0	No	11	Adopted	Adopted Child
+AD_211_M	211_M	2014-08-17	1981-12-30	32.6520547945205	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	11	Adopted	Adopted Mother
+AD_213_C	213_C	2014-08-17	2014-01-12	0.594520547945205	Female	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	0	0	0	None	Light	None	None	0	No	12	Adopted	Adopted Child
+AD_213_M	213_M	2014-08-17	1985-04-02	29.3945205479452	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	0	0	Mild	Light	Mild	NA	0	No	12	Adopted	Adopted Mother
+AD_215_C	215_C	2014-08-17	2012-07-23	2.06849315068493	Male	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	20	2	0	Mild	Light	Moderate	None	2	Yes	13	Adopted	Adopted Child
+AD_215_M	215_M	2014-08-17	1970-02-11	44.5424657534247	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	20	2	Moderate	Heavy	Moderate	NA	22	No	13	Adopted	Adopted Mother
+AD_217_C	217_C	2014-08-17	2013-04-11	1.35068493150685	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	13	0	0	Mild	Light	Mild	Daycare	0	No	14	Adopted	Adopted Child
+AD_217_M	217_M	2014-08-17	1972-01-23	42.5945205479452	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	22	6	0	Mild	Light	Moderate	NA	6	No	14	Adopted	Adopted Mother
+AD_218_C	218_C	2015-01-16	2012-07-03	2.53972602739726	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	N/A	NA	NA	Daycare	0	No	15	Adopted	Adopted Child
+AD_218_M	218_M	2015-01-16	1972-12-25	42.0876712328767	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	30	5	0	N/A	NA	NA	NA	5	No	15	Adopted	Adopted Mother
+AD_219_C	219_C	2015-07-22	2011-05-14	4.19178082191781	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	0	1	Moderate	Heavy	Mild	Daycare	1	No	16	Adopted	Adopted Child
+AD_219_M	219_M	2015-07-22	1967-07-18	48.0438356164384	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	9	0	Moderate	Light	Moderate	NA	9	No	16	Adopted	Adopted Mother
+AD_220_C	220_C	2014-11-19	2010-07-01	4.38904109589041	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	0	0	N/A	NA	NA	Pre School	0	No	17	Adopted	Adopted Child
+AD_220_M	220_M	2014-11-19	1963-05-21	51.5342465753425	Female	Adopted Mother	NA	NA	Black or African American	Non Hispanic or Latino	Mother	28	11	1	N/A	NA	NA	NA	12	No	17	Adopted	Adopted Mother
+AD_221_C	221_C	2015-05-26	2013-12-24	1.41917808219178	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	8	0	0	Mild	Light	Mild	Daycare	0	No	18	Adopted	Adopted Child
+AD_221_M	221_M	2015-05-26	1963-04-12	52.1561643835616	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	6	1	Mild	Light	None	NA	7	No	18	Adopted	Adopted Mother
+AD_222_C1	222_C1	2016-04-18	2012-02-10	4.18904109589041	Male	Adopted Child	C-Section	Formula-fed	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	19	Adopted	Adopted Child
+AD_222_M	222_M	2016-04-18	1966-02-24	50.1808219178082	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	10	0	Mild	Light	None	NA	10	No	19	Adopted	Adopted Mother
+AD_224_C	224_C	2015-07-27	2010-06-25	5.09041095890411	Male	Adopted Child	Unknown	Formula-fed	Black or African American	NA	Child	20	0	0	None	None	None	kindergarten	0	No	20	Adopted	Adopted Child
+AD_224_M	224_M	2015-07-27	1974-08-14	40.9780821917808	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	5	0	Mild	None	None	NA	5	No	20	Adopted	Adopted Mother
+AD_225_C1	225_C1	2016-04-26	2010-02-19	6.18630136986301	Female	Adopted Child	C-Section	Formula-fed	White	NA	Child	20	6	5	Mild	Light	None	None	11	No	21	Adopted	Adopted Child
+AD_225_M	225_M	2016-04-26	1967-02-16	49.2246575342466	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	None	None	NA	4	No	21	Adopted	Adopted Mother
+AD_226_C	226_C	2014-12-08	2012-08-30	2.27397260273973	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	28	1	1	Moderate	Light	Mild	Daycare	2	No	22	Adopted	Adopted Child
+AD_226_M	226_M	2014-12-08	1973-11-01	41.1287671232877	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	9	1	Moderate	Light	Moderate	NA	10	No	22	Adopted	Adopted Mother
+AD_227_C	227_C	2015-07-28	2010-08-10	4.96712328767123	Female	Adopted Child	Vaginally	Formula-fed	Other (both black and white)	NA	Child	0	0	0	N/A	NA	NA	Pre School	0	No	23	Adopted	Adopted Child
+AD_227_M	227_M	2015-07-28	1969-05-22	46.213698630137	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	6	0	Mild	Light	Mild	NA	6	No	23	Adopted	Adopted Mother
+AD_228_C	228_C	2016-04-13	2013-06-29	2.79178082191781	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	19	0	0	None	None	None	Daycare	0	No	24	Adopted	Adopted Child
+AD_228_M	228_M	2016-04-13	1976-07-03	39.8054794520548	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Light	Mild	NA	4	No	24	Adopted	Adopted Mother
+AD_229_C	229_C	2016-04-22	2013-05-13	2.94520547945205	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	0	4	None	None	None	None	4	No	25	Adopted	Adopted Child
+AD_229_M	229_M	2016-04-22	1976-11-14	39.4630136986301	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	5	0	Mild	Light	Mild	NA	5	No	25	Adopted	Adopted Mother
+AD_231_C	231_C	2016-07-14	2013-10-08	2.76712328767123	Male	Adopted Child	Unknown	Formula-fed	White	NA	Child	20	0	0	None	None	None	None	0	No	27	Adopted	Adopted Child
+AD_231_M	231_M	2016-07-14	1979-03-06	37.3835616438356	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	1	0	Mild	Light	Mild	NA	1	No	27	Adopted	Adopted Mother
+AD_232_C2	232_C2	2016-06-11	2012-01-20	4.39452054794521	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	Puerto Rican	Child	20	0	0	Mild	None	Mild	Daycare	0	No	28	Adopted	Adopted Child
+AD_232_M	232_M	2016-06-11	1978-11-04	37.627397260274	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	Mild	None	Mild	NA	2	No	28	Adopted	Adopted Mother
+AD_233_C	233_C	2016-06-11	2015-10-28	0.621917808219178	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	2	0	0	None	None	None	None	0	No	29	Adopted	Adopted Child
+AD_233_M	233_M	2016-06-11	1984-02-08	32.3616438356164	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	3	0	Mild	None	None	NA	3	No	29	Adopted	Adopted Mother
+AD_234_C	234_C	2016-06-11	2015-05-13	1.08219178082192	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	8	0	0	None	None	None	None	0	No	30	Adopted	Adopted Child
+AD_234_M	234_M	2016-06-11	NA	NA	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	8	0	Mild	Light	None	NA	8	No	30	Adopted	Adopted Mother
+AD_235_C1	235_C1	2016-06-11	2011-01-31	5.36438356164384	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	31	Adopted	Adopted Child
+AD_235_M	235_M	2016-06-11	1973-11-20	42.586301369863	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	Mild	Light	Mild	NA	2	No	31	Adopted	Adopted Mother
+AD_236_C	236_C	2016-06-11	2015-09-21	0.723287671232877	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	0	0	0	N/A	NA	NA	Daycare	0	No	32	Adopted	Adopted Child
+AD_236_M	236_M	2016-06-11	1976-07-31	39.8904109589041	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	Mild	Light	Mild	NA	2	No	32	Adopted	Adopted Mother
+AD_237_C	237_C	2016-06-11	2015-06-09	1.00821917808219	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	4	0	0	None	None	None	None	0	No	33	Adopted	Adopted Child
+AD_237_M	237_M	2016-06-11	1978-03-19	38.2575342465753	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	33	Adopted	Adopted Mother
+AD_238_C	238_C	2016-06-11	2012-01-13	4.41369863013699	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	20	8	0	None	Light	None	Pre School	8	No	34	Adopted	Adopted Child
+AD_238_M	238_M	2016-06-11	1975-12-16	40.5150684931507	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	1	0	Mild	Light	Mild	NA	1	No	34	Adopted	Adopted Mother
+AD_239_C	239_C	2016-06-11	2013-12-02	2.52602739726027	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	10	0	0	None	Light	None	None	0	No	35	Adopted	Adopted Child
+AD_239_M	239_M	2016-06-11	1967-02-16	49.3506849315068	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	8	0	Mild	Light	Mild	NA	8	No	35	Adopted	Adopted Mother
+AD_240_C	240_C	2016-06-11	2011-07-26	4.88219178082192	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	Light	None	Pre School	0	No	36	Adopted	Adopted Child
+AD_240_M	240_M	2016-06-11	1973-09-22	42.7479452054795	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	1	0	Mild	Light	Mild	NA	1	No	36	Adopted	Adopted Mother
+AD_241_C	241_C	2016-06-11	2011-12-10	4.50684931506849	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	20	0	0	Mild	Light	None	Pre School	0	No	37	Adopted	Adopted Child
+AD_241_M	241_M	2016-06-11	1978-10-04	37.7123287671233	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	4	0	Mild	Light	Mild	NA	4	No	37	Adopted	Adopted Mother
+AD_242_C	242_C	2016-08-13	2015-05-12	1.25753424657534	Male	Adopted Child	Unknown	Unknown	Black or African American	NA	Child	8	0	0	None	None	Mild	Daycare	0	No	38	Adopted	Adopted Child
+AD_242_M	242_M	2016-06-11	1971-06-15	45.0219178082192	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	38	Adopted	Adopted Mother
+AD_243_M	243_M	2016-06-11	1979-07-27	36.9013698630137	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	Mild	Light	None	NA	2	No	39	Adopted	Adopted Mother
+AD_244_C	244_C	2016-08-13	2016-04-16	0.326027397260274	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	0	0	0	None	None	None	None	0	No	40	Adopted	Adopted Child
+AD_244_M	244_M	2016-08-13	1982-06-18	34.1780821917808	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	None	None	None	NA	2	No	40	Adopted	Adopted Mother
+AD_102_C2	102_C2	2014-08-15	2014-01-20	0.567123287671233	Female	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	N/A	NA	NA	Daycare	0	No	41	Biological	Biological Child
+AD_102_M	102_M	2014-08-15	1980-06-11	34.2	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	41	Biological	Biological Mother
+AD_103_C	103_C	2015-01-07	2013-06-27	1.53150684931507	Male	Biological Child	Vaginally	Combination	White	NA	Child	12	0	0	N/A	NA	NA	Daycare	0	No	42	Biological	Biological Child
+AD_103_M	103_M	2015-01-07	1980-05-23	34.6493150684932	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	11	0	N/A	NA	NA	NA	11	No	42	Biological	Biological Mother
+AD_212_C	212_C	2014-08-17	2013-01-07	1.60821917808219	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	NA	Light	Mild	None	0	No	43	Adopted	Adopted Child
+AD_104_M	104_M	2014-08-17	1980-04-26	34.3315068493151	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	20	9	1	Moderate	Light	Moderate	NA	10	No	43	Adopted	Adopted Mother
+AD_105_C	105_C	2015-07-30	2011-12-28	3.58904109589041	Female	Biological Child	C-Section	Breast-fed	White	NA	Child	16	1	3	Moderate	Light	Moderate	None	4	No	44	Biological	Biological Child
+AD_105_M	105_M	2015-07-30	1980-06-23	35.1232876712329	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	30	9	2	Mild	Light	Mild	NA	11	No	44	Biological	Biological Mother
+AD_109_C	109_C	2015-07-21	2013-01-22	2.49315068493151	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	Mild	None	None	NA	0	No	45	Biological	Biological Child
+AD_109_M	109_M	2015-07-22	1982-02-17	33.4465753424658	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	6	0	Mild	None	None	MD	6	No	45	Biological	Biological Mother
+AD_245_M	245_M	2017-08-12	1977-08-25	39.9917808219178	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	5	0	Mild	None	Mild	NA	5	No	46	Adopted	Adopted Mother
+AD_245_C	245_C	2017-08-12	2006-01-05	11.6082191780822	Male	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	21	0	0	Mild	Light	Mild	None	0	No	46	Adopted	Adopted Child
+AD_246_M	246_M	2017-08-12	1974-11-14	42.772602739726	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	6	0	none	None	None	NA	6	No	47	Adopted	Adopted Mother
+AD_246_C1	246_C1	2017-08-12	2015-01-23	2.55342465753425	Female	Adopted Child	Vaginally	Formula-fed	Black or African American	NA	Child	18	5	0	Mild	None	Mild	None	5	No	47	Adopted	Adopted Child
+AD_247_M	247_M	2017-08-12	1984-03-05	33.4602739726027	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	48	Adopted	Adopted Mother
+AD_247_C	247_C	2017-08-12	2016-08-01	1.03013698630137	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	3	0	0	None	None	None	None	0	No	48	Adopted	Adopted Child
+AD_248_M	248_M	2017-08-12	NA	37	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	30	1	0	None	None	None	NA	1	No	49	Adopted	Adopted Mother
+AD_248_C	248_C	2017-08-12	2016-02-08	1.50958904109589	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	10	0	0	None	None	None	School	0	No	49	Adopted	Adopted Child
+AD_249_M	249_M	2017-08-12	1970-09-24	46.9150684931507	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	30	6	0	None	None	None	NA	6	No	50	Adopted	Adopted Mother
+AD_249_C2	249_C2	2017-08-12	2015-08-11	2.00547945205479	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	16	0	0	None	None	None	Daycare	0	No	50	Adopted	Adopted Child
+AD_250_M	250_M	2017-08-12	1971-12-10	45.7041095890411	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	None	None	None	NA	3	No	51	Adopted	Adopted Mother
+AD_250_C	250_C	2017-08-12	2012-03-05	5.44109589041096	Female	Adopted Child	Vaginally	Formula-fed	White	NA	Child	23	0	0	None	None	None	kindergarten	0	No	51	Adopted	Adopted Child
+AD_251_M	251_M	2017-08-12	1977-03-28	40.4027397260274	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	Yes	52	Adopted	Adopted Mother
+AD_251_C1	251_C1	2017-08-12	2016-10-07	0.846575342465753	Male	Adopted Child	C-Section	Formula-fed	Other (both black and white)	NA	Child	4	0	0	None	None	None	None	0	No	52	Adopted	Adopted Child
+AD_252_M	252_M	2017-08-12	NA	NA	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	24	11	0	Mild	None	Mild	NA	11	No	53	Adopted	Adopted Mother
+AD_252_C	252_C	2017-08-12	2014-10-25	2.8	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	53	Adopted	Adopted Child
+AD_253_M	253_M	2017-08-12	1984-07-23	33.0767123287671	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	24	10	0	None	None	None	NA	10	No	54	Adopted	Adopted Mother
+AD_253_C	253_C	2017-08-12	2015-07-14	2.08219178082192	Male	Adopted Child	C-Section	Combination	White	NA	Child	12	0	0	None	None	None	None	0	No	54	Adopted	Adopted Child
+AD_110_M	110_M	2017-08-12	1983-08-26	33.986301369863	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	24	2	0	Moderate	None	Moderate	NA	2	Yes	55	Biological	Biological Mother
+AD_110_C	110_C	2017-08-12	2007-08-01	10.0383561643836	Male	Biological Child	Vaginally	Formula-fed	White	NA	Child	24	2	0	Mild	None	Mild	None	2	No	55	Biological	Biological Child
+AD_111_C2	111_C2	2018-03-04	2016-09-07	1.48767123287671	Male	Biological Child	Vaginally	Combination	White	NA	Child	11	0	0	Mild	None	Mild	Daycare	0	No	56	Biological	Biological Child
+AD_111_M	111_M	2018-03-04	1983-10-27	34.3753424657534	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	None	None	None	NA	3	No	56	Biological	Biological Mother
+AD_112_C1	112_C1	2018-03-04	2014-06-23	3.6986301369863	Male	Biological Child	Vaginally	Combination	White	Hispanic	Child	20	0	0	None	None	None	Pre School	0	No	57	Biological	Biological Child
+AD_112_M	112_M	2018-03-04	1985-02-18	33.0602739726027	Female	Biological Mother	NA	NA	White	Hispanic	Mother	24	2	0	None	None	None	NA	2	NA	57	Biological	Biological Mother
+AD_113_C1	113_C1	2018-03-11	2013-03-08	5.01095890410959	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	None	None	Daycare	0	No	58	Biological	Biological Child
+AD_113_M	113_M	2018-03-11	1982-07-06	35.7041095890411	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	58	Biological	Biological Mother
+AD_114_C1	114_C1	2018-03-04	2015-11-07	2.32328767123288	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	59	Biological	Biological Child
+AD_114_M	114_M	2018-03-04	1981-10-30	36.3671232876712	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	1	0	Mild	None	Mild	NA	1	No	59	Biological	Biological Mother
+AD_115_C1	115_C1	2018-03-04	2013-03-26	4.94246575342466	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	20	0	2	Mild	None	Mild	Pre School	2	No	60	Biological	Biological Child
+AD_115_M	115_M	2018-03-04	NA	34	Female	Biological Mother	NA	NA	White	Hispanic or Latino	Mother	30	4	0	None	None	None	NA	4	No	60	Biological	Biological Mother
+AD_117_C1	117_C1	2018-03-04	2016-11-01	1.33698630136986	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	None	None	0	No	62	Biological	Biological Child
+AD_117_M	117_M	2018-03-04	1979-03-24	38.972602739726	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	5	1	None	None	None	NA	6	No	62	Biological	Biological Mother
+AD_118_C2	118_C2	2018-03-04	2017-05-26	0.772602739726027	Male	Biological Child	Vaginally	Combination	White	NA	Child	4	0	0	None	None	None	Daycare	0	No	63	Biological	Biological Child
+AD_118_M	118_M	2018-03-04	1982-12-25	35.213698630137	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	None	None	None	NA	2	No	63	Biological	Biological Mother
+AD_120_C2	120_C2	2018-03-04	2014-10-26	3.35616438356164	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Pre School	0	No	65	Biological	Biological Child
+AD_120_M	120_M	2018-03-04	1985-04-14	32.9095890410959	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	27	0	0	None	None	None	NA	0	No	65	Biological	Biological Mother
+AD_122_C1	122_C1	2018-03-04	2017-03-04	1	Male	Biological Child	C-Section	Formula-fed	White	NA	Child	6	0	0	Mild	None	Mild	Daycare	0	Yes	67	Biological	Biological Child
+AD_122_M	122_M	2018-03-04	1986-11-03	31.3534246575342	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	29	0	0	Mild	Light	None	NA	0	Yes	67	Biological	Biological Mother
+AD_124_C2	124_C2	2018-03-04	2016-08-24	1.52602739726027	Male	Biological Child	Vaginally	Combination	White	NA	Child	16	0	0	Mild	Light	Mild	None	0	Yes	69	Biological	Biological Child
+AD_124_M	124_M	2018-03-04	1985-10-24	32.3808219178082	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	1	0	None	None	None	NA	1	No	69	Biological	Biological Mother
+AD_125_C2	125_C2	2018-03-04	2016-06-24	1.69315068493151	Male	Biological Child	Vaginally	Combination	White	NA	Child	15	0	0	None	None	None	Daycare	0	Yes	70	Biological	Biological Child
+AD_125_M	125_M	2018-03-04	NA	26	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	6	0	None	None	None	NA	6	Yes	70	Biological	Biological Mother
+AD_126_C1	126_C1	2018-03-04	2014-08-25	3.52602739726027	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	4	None	None	Mild	None	4	No	71	Biological	Biological Child
+AD_126_M	126_M	2018-03-04	1991-10-20	26.3890410958904	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	None	None	None	NA	3	Yes	71	Biological	Biological Mother
+AD_127_C1	127_C1	2018-03-11	2015-12-03	2.27123287671233	Female	Biological Child	C-Section	Combination	White	Hispanic	Child	16	0	0	Moderate	None	Mild	NA	0	No	72	Biological	Biological Child
+AD_127_M	127_M	2018-03-11	NA	32	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	72	Biological	Biological Mother
+AD_128_C1	128_C1	2018-03-11	2012-10-11	5.41643835616438	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	20	0	0	Mild	None	None	Daycare	0	No	73	Biological	Biological Child
+AD_128_M	128_M	2018-03-11	1982-07-02	35.7150684931507	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	5	0	None	None	None	NA	5	No	73	Biological	Biological Mother
+AD_129_C2	129_C2	2018-03-11	2017-06-08	0.756164383561644	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	2	0	0	None	None	None	NA	0	No	74	Biological	Biological Child
+AD_129_M	129_M	2018-03-11	1988-02-15	30.0876712328767	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	74	Biological	Biological Mother
+AD_131_C1	131_C1	2018-03-11	2012-02-19	6.06027397260274	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	22	0	0	None	None	None	kindergarten	0	No	76	Biological	Biological Child
+AD_131_M	131_M	2018-03-11	NA	33	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	76	Biological	Biological Mother
+AD_132_C1	132_C1	2018-03-11	2014-06-27	3.70684931506849	Male	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	77	Biological	Biological Child
+AD_132_M	132_M	2018-03-11	1988-01-20	30.158904109589	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	8	24	0	None	None	None	NA	24	No	77	Biological	Biological Mother
+AD_133_C2	133_C2	2018-03-11	2016-04-15	1.9041095890411	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	16	0	0	None	Light	None	Daycare	0	No	78	Biological	Biological Child
+AD_133_M	133_M	2018-03-11	1981-11-19	36.3315068493151	Female	Biological Mother	NA	NA	Asian	Non Hispanic or Latino	Mother	28	7	0	Mild	Light	Moderate	NA	7	No	78	Biological	Biological Mother
+AD_134_C2	134_C2	2018-03-11	2013-07-13	4.66301369863014	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	21	0	0	None	None	None	Pre School	0	Yes	79	Biological	Biological Child
+AD_134_M	134_M	2018-03-11	1978-11-08	39.3643835616438	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	32	13	0	None	None	None	NA	13	Yes	79	Biological	Biological Mother
+AD_135_C1	135_C1	2018-03-11	2014-07-24	3.63287671232877	Female	Biological Child	Vaginally	Breast-fed	White and Arabic	NA	Child	20	0	0	Moderate	None	Mild	Pre School	0	No	80	Biological	Biological Child
+AD_135_M	135_M	2018-03-11	1989-03-11	29.0191780821918	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	80	Biological	Biological Mother
+AD_136_C1	136_C1	2018-03-18	2015-09-15	2.50684931506849	Male	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	81	Biological	Biological Child
+AD_136_M	136_M	2018-03-18	1984-11-27	33.3260273972603	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	Mild	None	None	NA	2	No	81	Biological	Biological Mother
+AD_137_C1	137_C1	2018-03-18	2015-05-24	2.81917808219178	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	2	Mild	None	None	Daycare	2	No	82	Biological	Biological Child
+AD_137_M	137_M	2018-03-18	1983-01-03	35.227397260274	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Heavy	None	NA	4	No	82	Biological	Biological Mother
+AD_138_C1	138_C1	2018-03-18	2013-03-06	5.03561643835616	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	83	Biological	Biological Child
+AD_138_M	138_M	2018-03-18	1971-06-05	46.8164383561644	Female	Biological Mother	NA	NA	Asian	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	None	NA	0	No	83	Biological	Biological Mother
+AD_142_C1	142_C1	2018-03-18	2012-04-10	5.93972602739726	Female	Biological Child	C-Section	Combination	White	NA	Child	21	0	0	Moderate	None	Moderate	kindergarten	0	No	87	Biological	Biological Child
+AD_142_M	142_M	2018-03-18	1979-12-17	38.2767123287671	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Moderate	Light	Mild	NA	0	No	87	Biological	Biological Mother
+AD_144_C1	144_C1	2018-03-18	2013-11-21	4.32328767123288	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	89	Biological	Biological Child
+AD_144_M	144_M	2018-03-18	1991-07-29	26.6547945205479	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	1	0	None	None	None	NA	1	No	89	Biological	Biological Mother
+AD_146_C1	146_C1	2018-03-18	2016-06-06	1.78082191780822	Male	Biological Child	C-Section	Combination	White	NA	Child	16	0	0	Mild	None	Mild	None	0	No	91	Biological	Biological Child
+AD_146_M	146_M	2018-03-18	1994-09-24	23.4958904109589	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	None	None	NA	0	No	91	Biological	Biological Mother
+AD_148_C3	148_C3	2018-03-30	2017-03-02	1.07671232876712	Male	Biological Child	C-Section	Breast-fed	White	NA	Child	6	0	0	Mild	None	Mild	Daycare	0	No	93	Biological	Biological Child
+AD_148_M	148_M	2018-03-30	1981-01-16	37.2246575342466	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	27	6	0	None	None	None	NA	6	No	93	Biological	Biological Mother
+AD_149_C1	149_C1	2018-03-30	2017-06-14	0.791780821917808	Male	Biological Child	C-Section	Combination	White	NA	Child	6	0	0	None	None	None	None	0	No	94	Biological	Biological Child
+AD_149_M	149_M	2018-03-30	1984-06-16	33.8082191780822	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	9	0	Mild	None	Mild	NA	9	Yes	94	Biological	Biological Mother
+AD_150_C1	150_C1	2018-04-08	2015-11-16	2.39452054794521	Male	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	95	Biological	Biological Child
+AD_150_M	150_M	2018-04-08	1979-01-16	39.2520547945205	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	26	3	0	None	None	None	NA	3	No	95	Biological	Biological Mother
+AD_151_C1	151_C1	2018-04-08	2016-04-19	1.96986301369863	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	Mild	None	0	No	96	Biological	Biological Child
+AD_151_M	151_M	2018-04-08	1985-05-22	32.9013698630137	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	None	None	None	NA	4	No	96	Biological	Biological Mother
+AD_152_C1	152_C1	2018-04-08	2016-10-10	1.49315068493151	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	None	None	None	None	0	No	97	Biological	Biological Child
+AD_152_M	152_M	2018-04-08	1984-03-03	34.1205479452055	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	8	0	None	None	None	NA	8	No	97	Biological	Biological Mother
+AD_153_C1	153_C1	2018-04-08	2013-10-05	4.50958904109589	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	98	Biological	Biological Child
+AD_153_M	153_M	2018-04-08	1985-05-01	32.958904109589	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	7	0	Mild	None	None	NA	7	No	98	Biological	Biological Mother
+AD_154_C1	154_C1	2018-04-08	2015-03-07	3.09041095890411	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	1	Mild	None	None	Daycare	1	No	99	Biological	Biological Child
+AD_154_M	154_M	2018-04-08	1983-03-12	35.0986301369863	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	99	Biological	Biological Mother
+AD_156_C1	156_C1	2018-04-08	2016-03-31	2.02191780821918	Female	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	Mild	None	Mild	Daycare	0	No	101	Biological	Biological Child
+AD_156_M	156_M	2018-04-08	1983-05-11	34.9342465753425	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	Mild	Light	None	NA	3	Yes	101	Biological	Biological Mother
+AD_158_C2	158_C2	2018-04-08	2014-03-02	4.1041095890411	Female	Biological Child	C-Section	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	None	0	No	103	Biological	Biological Child
+AD_158_M	158_M	2018-04-08	1984-12-19	33.3232876712329	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Light	Mild	NA	4	Yes	103	Biological	Biological Mother
+AD_160_C1	160_C1	2018-04-08	2013-11-18	4.38904109589041	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	2	0	Mild	Light	Mild	Pre School	2	No	105	Biological	Biological Child
+AD_160_M	160_M	2018-04-08	1994-05-17	23.9095890410959	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	None	Mild	NA	0	No	105	Biological	Biological Mother
+AD_162_C1	162_C1	2018-04-08	2014-09-13	3.56986301369863	Female	Biological Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	107	Biological	Biological Child
+AD_162_M	162_M	2018-04-08	1993-01-12	25.2520547945205	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	None	NA	0	No	107	Biological	Biological Mother
+AD_163_C4	163_C4	2018-04-15	2016-07-19	1.73972602739726	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	16	0	0	Mild	Light	None	None	0	Yes	108	Biological	Biological Child
+AD_163_M	163_M	2018-04-15	1977-10-03	40.558904109589	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	None	None	Mild	NA	2	No	108	Biological	Biological Mother
+AD_164_C1	164_C1	2018-04-15	2015-05-02	2.95616438356164	Female	Biological Child	Vaginally	Combination	White	NA	Child	20	0	0	None	None	None	Daycare	0	No	109	Biological	Biological Child
+AD_164_M	164_M	2018-04-15	1983-11-22	34.4191780821918	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	None	Light	None	NA	0	No	109	Biological	Biological Mother
+AD_166_C1	166_C1	2018-04-15	2011-12-05	6.36438356164384	Male	Biological Child	Vaginally	Breast-fed	White	NA	Child	19	0	0	Mild	Light	Mild	kindergarten	0	No	111	Biological	Biological Child
+AD_166_M	166_M	2018-04-15	NA	31	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	6	0	None	None	None	NA	6	No	111	Biological	Biological Mother
+AD_167_C1	167_C1	2018-04-15	2016-12-11	1.34246575342466	Female	Biological Child	Vaginally	Combination	White	NA	Child	14	0	0	None	None	None	None	0	No	112	Biological	Biological Child
+AD_167_M	167_M	2018-04-15	NA	NA	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	None	Light	None	NA	3	No	112	Biological	Biological Mother
+AD_168_C1	168_C1	2018-04-15	2015-01-05	3.27671232876712	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	Mild	None	Mild	None	0	No	113	Biological	Biological Child
+AD_168_M	168_M	2018-04-15	1979-04-18	39.0191780821918	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	31	2	0	Mild	Light	Mild	NA	2	No	113	Biological	Biological Mother
+AD_169_C1	169_C1	2018-04-15	2012-12-21	5.31780821917808	Female	Biological Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	114	Biological	Biological Child
+AD_169_M	169_M	2018-04-15	1986-09-12	31.6109589041096	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Light	Mild	NA	4	No	114	Biological	Biological Mother
+AD_170_C2	170_C2	2018-04-15	2014-02-10	4.17808219178082	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Daycare	0	No	115	Biological	Biological Child
+AD_170_M	170_M	2018-04-15	1978-06-16	39.8575342465753	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	2	0	None	None	None	NA	2	No	115	Biological	Biological Mother
+AD_172_C4	172_C4	2018-04-15	2015-12-14	2.33698630136986	Male	Biological Child	Vaginally	Breast-fed	Black or African American	NA	Child	20	0	0	Mild	None	Mild	None	0	No	117	Biological	Biological Child
+AD_172_M	172_M	2018-04-15	1980-09-30	37.5643835616438	Female	Biological Mother	NA	NA	Black or African American	Non Hispanic or Latino	Mother	28	3	0	Mild	None	Mild	NA	3	No	117	Biological	Biological Mother
+AD_173_C2	173_C2	2018-04-15	2017-02-01	1.2	Female	Biological Child	C-Section	Formula-fed	White	NA	Child	9	0	0	None	None	None	Daycare	0	No	118	Biological	Biological Child
+AD_173_M	173_M	2018-04-15	1980-11-22	37.4191780821918	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	118	Biological	Biological Mother
+AD_174_C1	174_C1	2018-04-15	2013-05-02	4.95616438356164	Female	Biological Child	C-Section	Combination	White	NA	Child	20	0	0	Mild	None	Mild	Pre School	0	No	119	Biological	Biological Child
+AD_174_M	174_M	2018-04-15	1977-01-18	41.2657534246575	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	Mild	Light	Moderate	NA	4	No	119	Biological	Biological Mother
+AD_175_C1	175_C1	2018-04-15	2014-10-23	3.47945205479452	Female	Biological Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	None	Mild	None	0	No	120	Biological	Biological Child
+AD_175_M	175_M	2018-04-15	1989-01-23	29.2438356164384	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	30	6	0	Mild	Light	Moderate	NA	6	No	120	Biological	Biological Mother
+AD_176_C1	176_C1	2018-04-15	2012-03-21	6.07123287671233	Female	Biological Child	Vaginally	Breast-fed	White and Asian	NA	Child	20	0	0	Mild	None	Mild	kindergarten	0	No	121	Biological	Biological Child
+AD_176_M	176_M	2018-04-15	1983-08-22	34.6712328767123	Female	Biological Mother	NA	NA	Asian	Non Hispanic or Latino	Mother	28	0	0	Mild	Light	Mild	NA	0	No	121	Biological	Biological Mother
+AD_181_C1	181_C1	2018-04-22	2014-03-20	4.09315068493151	Female	Biological Child	C-Section	Combination	White	NA	Child	20	1	0	Mild	None	Mild	Daycare	1	No	125	Biological	Biological Child
+AD_181_M	181_M	2018-04-22	1983-08-03	34.7424657534247	Female	Biological Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	3	0	Mild	Light	Moderate	NA	3	No	125	Biological	Biological Mother
+AD_254_C1	254_C1	2018-03-04	2015-03-27	2.93972602739726	Male	Adopted Child	C-Section	Formula-fed	Other (both black and white)	NA	Child	20	0	0	Mild	None	None	Daycare	0	No	127	Adopted	Adopted Child
+AD_254_M	254_M	2018-03-04	1976-12-29	41.2054794520548	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	None	None	None	NA	4	No	127	Adopted	Adopted Mother
+AD_255_C1	255_C1	2018-04-29	2013-01-09	5.3041095890411	Male	Adopted Child	C-Section	Formula-fed	Black or African American	NA	Child	20	0	0	None	None	None	Pre School	0	No	128	Adopted	Adopted Child
+AD_255_M	255_M	2018-04-29	1987-07-16	30.8082191780822	Female	Adopted Mother	NA	NA	White	Non Hispanic or Latino	Mother	28	4	0	None	None	None	NA	4	No	128	Adopted	Adopted Mother
+AD_243_C	243_C	2016-06-11	2011-10-13	4.66575342465753	Male	Adopted Child	Vaginally	Formula-fed	White	NA	Child	20	0	0	Mild	Light	None	Daycare	0	Yes	39	Adopted	Adopted Child

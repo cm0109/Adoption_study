@@ -1,0 +1,565 @@
+---
+title: "Adoption Metadata Analysis"
+author: "Chiranjit Mukherjee"
+date: "9/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+Setting Seed
+```{r}
+set.seed(12345)
+```
+
+```{r}
+library(dplyr)
+```
+
+
+### Input metadata files
+```{r}
+ISR_sal_meta_mch_mo <- read.table(file="Intermed_files/ISR_sal_meta_mch_mo.txt", header = T, sep="\t")
+ISR_sal_meta_mch_ch <- read.table(file="Intermed_files/ISR_sal_meta_mch_ch.txt", header = T, sep="\t")
+```
+
+## ISR Sal M-Ch Multiple Linear Regression Analysis for unbalanced metadata
+<br.
+```{r}
+# Check dimensions
+dim(ISR_sal_meta_mch_mo) # 103 x 24
+dim(ISR_sal_meta_mch_ch) # 103 x 24 (distances added)
+
+# Create new field Caries_yn (yes/no)
+ISR_sal_meta_mch_mo$caries_yn <- "No"
+ISR_sal_meta_mch_mo$caries_yn[ISR_sal_meta_mch_mo$caries_level > 0] <- "Yes"
+
+# Mother's caries_yn
+ISR_sal_meta_mch_ch$mo_caries <- ISR_sal_meta_mch_mo$caries_yn[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# Mother's gingivitis
+ISR_sal_meta_mch_ch$mo_ging <- ISR_sal_meta_mch_mo$gingivitis[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# Mother's plaque level
+ISR_sal_meta_mch_ch$mo_plq_level <- ISR_sal_meta_mch_mo$plaque_level[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# Mother's ethnicity
+ISR_sal_meta_mch_ch$mo_eth <- ISR_sal_meta_mch_mo$ethnicity[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# Mother's tongue biofilm
+ISR_sal_meta_mch_ch$mo_tng_bio <- ISR_sal_meta_mch_mo$tongue_biofilm[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# Mother's antibiotics
+ISR_sal_meta_mch_ch$mo_anti <- ISR_sal_meta_mch_mo$antibiotics_past_month[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# Mother's race
+ISR_sal_meta_mch_ch$mo_race <- ISR_sal_meta_mch_mo$race[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+# ethnicity data not available for most children
+ISR_sal_meta_mch_ch$ethnicity <- NULL
+
+```
+
+```{r}
+# Age
+
+# Stats
+set.seed(12345);wilcox.test(ISR_sal_meta_mch_ch$age ~ ISR_sal_meta_mch_ch$status)$p.value # p-value = 0.2937314 (Balanced)
+
+# Gender
+# Check levels
+ISR_sal_meta_mch_ch$gender %>% unique()
+
+# Check table
+ISR_sal_meta_mch_ch$gender  %>% table()
+
+# Contingency Table
+gender_table <- table(ISR_sal_meta_mch_ch$gender, ISR_sal_meta_mch_ch$status)
+
+# Check C table
+gender_table
+#           Adopted Biological
+# Female      17         29
+# Male        32         25
+
+# Fisher test
+set.seed(12345);round(fisher.test(gender_table)$p.value,3) # p-value = 0.074 (Balanced)
+
+
+# Delivery Mode
+ISR_sal_meta_mch_ch$del_mode %>% unique()
+
+# Fix NA
+ISR_sal_meta_mch_ch$del_mode <- gsub("NA", NA, ISR_sal_meta_mch_ch$del_mode)
+ISR_sal_meta_mch_ch$del_mode <- gsub("Unknown", NA, ISR_sal_meta_mch_ch$del_mode)
+
+# Check table
+ISR_sal_meta_mch_ch$del_mode  %>% table()
+
+# Contingency Table
+del_mode_table <- table(ISR_sal_meta_mch_ch$del_mode, ISR_sal_meta_mch_ch$status)
+
+# Check C table
+del_mode_table
+#           Adopted Biological
+# C-Section      12         19
+# Vaginally      33         35
+
+# Fisher test
+set.seed(12345);round(fisher.test(del_mode_table)$p.value, 3) # p-value = 0.392 (Balanced)
+
+
+# Feeding Mode
+ISR_sal_meta_mch_ch$feed_mode %>% unique()
+
+# Fix NA
+ISR_sal_meta_mch_ch$feed_mode <- gsub("NA", NA, ISR_sal_meta_mch_ch$feed_mode)
+ISR_sal_meta_mch_ch$feed_mode <- gsub("Unknown", NA, ISR_sal_meta_mch_ch$feed_mode)
+
+# Check table
+ISR_sal_meta_mch_ch$feed_mode  %>% table()
+
+# Contingency Table
+feed_mode_table <- table(ISR_sal_meta_mch_ch$feed_mode, ISR_sal_meta_mch_ch$status)
+
+# Check table
+feed_mode_table
+#               Adopted Biological
+# Breast-fed        0         21
+# Combination       1         27
+# Formula-fed      46          6
+
+# Fisher test
+set.seed(12345);round(fisher.test(feed_mode_table)$p.value, 3) # 0 (Unbalanced)
+
+
+
+# Race
+ISR_sal_meta_mch_ch$race %>% unique()
+# "White"                        "White and Asian"              "White and Arabic"             "Black or African American"    "Other (both black and white)"
+
+# Fix names
+ISR_sal_meta_mch_ch$race <- gsub("White and Asian", "Mixed", ISR_sal_meta_mch_ch$race)
+ISR_sal_meta_mch_ch$race <- gsub("White and Arabic", "Mixed", ISR_sal_meta_mch_ch$race)
+ISR_sal_meta_mch_ch$race <- gsub("Other \\(both black and white\\)", "Mixed", ISR_sal_meta_mch_ch$race)
+
+# Check table
+ISR_sal_meta_mch_ch$race  %>% table()
+
+# Contingency Table
+race_table <- table(ISR_sal_meta_mch_ch$race, ISR_sal_meta_mch_ch$status)
+
+# Check table
+race_table
+#                             Adopted   Biological
+# Black or African American      17          1
+# Mixed                           8          5
+# White                          24         48
+
+# Fisher test
+set.seed(12345);round(fisher.test(race_table)$p.value, 3) # p-value = 0 (Unbalanced)
+
+
+
+
+# Plaque Level
+ISR_sal_meta_mch_ch$plaque_level %>% unique()
+# "N/A"      "Moderate" "Mild"     "None"     "NA"
+
+# Fix NA
+ISR_sal_meta_mch_ch$plaque_level <- gsub("N/A", NA, ISR_sal_meta_mch_ch$plaque_level)
+ISR_sal_meta_mch_ch$plaque_level <- gsub("NA", NA, ISR_sal_meta_mch_ch$plaque_level)
+
+
+# Check table
+ISR_sal_meta_mch_ch$plaque_level  %>% table()
+
+# Contingency Table
+plaque_level_table <- table(ISR_sal_meta_mch_ch$plaque_level, ISR_sal_meta_mch_ch$status)
+
+# Check table
+plaque_level_table
+#            Adopted Biological
+# Mild          17         27
+# Moderate       3          4
+# None          25         21
+
+
+# Fisher test
+set.seed(12345);round(fisher.test(plaque_level_table)$p.value, 3) # p-value = 0.306 (Balanced)
+
+
+
+# Tongue Biofilm
+ISR_sal_meta_mch_ch$tongue_biofilm %>% unique()
+# "NA"    "Light" "None"  "Heavy"
+
+# Fix NA
+ISR_sal_meta_mch_ch$tongue_biofilm <- gsub("NA", NA, ISR_sal_meta_mch_ch$tongue_biofilm)
+
+# Check table
+ISR_sal_meta_mch_ch$tongue_biofilm  %>% table()
+
+# Contingency Table
+tongue_biofilm_table <- table(ISR_sal_meta_mch_ch$tongue_biofilm, ISR_sal_meta_mch_ch$status)
+
+# Check table
+tongue_biofilm_table
+#            Adopted Biological
+# Heavy       1          0
+# Light      21          6
+# None       24         46
+
+
+# Fisher test
+set.seed(12345);fisher.test(tongue_biofilm_table)$p.value # p-value = 0.0001348483 (Unbalanced)
+
+
+
+# Gingivitis
+ISR_sal_meta_mch_ch$gingivitis %>% unique()
+# "NA"       "Moderate" "None"     "Mild"
+
+# Fix NA
+ISR_sal_meta_mch_ch$gingivitis <- gsub("NA", NA, ISR_sal_meta_mch_ch$gingivitis)
+
+
+# Check table
+ISR_sal_meta_mch_ch$gingivitis %>% table()
+
+# Contingency Table
+gingivitis_table <- table(ISR_sal_meta_mch_ch$gingivitis, ISR_sal_meta_mch_ch$status)
+
+# Check table
+gingivitis_table
+#            Adopted Biological
+# Mild          11         25
+# Moderate       2          2
+# None          33         25
+
+
+# Fisher test
+set.seed(12345);round(fisher.test(gingivitis_table)$p.value, 3) # p-value = 0.0326 (Unbalanced)
+
+
+
+# Caries Level
+range(ISR_sal_meta_mch_ch$caries_level)
+# 0 11
+
+# Create new field Caries_yn (yes/no)
+ISR_sal_meta_mch_ch$caries_yn <- "No"
+ISR_sal_meta_mch_ch$caries_yn[ISR_sal_meta_mch_ch$caries_level > 0] <- "Yes"
+
+# Check table
+ISR_sal_meta_mch_ch$caries_yn %>% table()
+
+# Contingency Table
+caries_yn_table <- table(ISR_sal_meta_mch_ch$caries_yn, ISR_sal_meta_mch_ch$status)
+
+# Check table
+caries_yn_table
+#        Adopted  Biological
+# No       42         46
+# Yes       7          8
+
+# Fisher test
+set.seed(12345);round(fisher.test(caries_yn_table)$p.value, 3) # p-value = 1 (Balanced)
+
+
+# Daycare
+
+# School: Yes or No
+ISR_sal_meta_mch_ch$School <- as.character(ISR_sal_meta_mch_ch$School)
+ISR_sal_meta_mch_ch$School %>% unique()
+# "Daycare"      "None"         "NA"           "Pre School"   "kindergarten" "School"   
+
+# Replace NA with MD for missing data
+ISR_sal_meta_mch_ch$School[is.na(ISR_sal_meta_mch_ch$School)] <- "MD" # Missing data
+
+
+# Making new field for Daycare and setting as yes/no field
+for (i in 1:nrow(ISR_sal_meta_mch_ch)){
+  if (ISR_sal_meta_mch_ch$School[i] == "MD"){
+    ISR_sal_meta_mch_ch$daycare[i] = NA
+  }
+  else if (ISR_sal_meta_mch_ch$School[i] == "None"){
+    ISR_sal_meta_mch_ch$daycare[i] = "No"
+  }
+  else {
+    ISR_sal_meta_mch_ch$daycare[i] <- "Yes"
+  }
+}
+
+# Daycare levels
+ISR_sal_meta_mch_ch$daycare  %>% table()
+
+# Contingency table
+daycare_table <- table(ISR_sal_meta_mch_ch$daycare, ISR_sal_meta_mch_ch$status)
+
+# Check C table
+daycare_table
+#       Adopted   Biological
+# No       20         15
+# Yes      29         36
+
+# Fisher test
+set.seed(12345);round(fisher.test(daycare_table)$p.value, 3) # p-value = 0.295 (Balanced)
+
+
+
+
+# antibiotics_past_month
+ISR_sal_meta_mch_ch$antibiotics_past_month %>% unique()
+# "No"  "Yes"
+
+# Check table
+ISR_sal_meta_mch_ch$antibiotics_past_month %>% table()
+
+# Contingency Table
+antibiotics_past_month_table <- table(ISR_sal_meta_mch_ch$antibiotics_past_month, ISR_sal_meta_mch_ch$status)
+
+# Check table
+antibiotics_past_month_table
+#        Adopted Biological
+# No       47         49
+# Yes       2          5
+
+# Fisher test
+set.seed(12345);round(fisher.test(antibiotics_past_month_table)$p.value, 3) # p-value = 0.441 (Balanced)
+
+
+
+# Mother's age
+# Add mother's age for children
+ISR_sal_meta_mch_ch$mo_age <- ISR_sal_meta_mch_mo$age[match(ISR_sal_meta_mch_ch$family_id, ISR_sal_meta_mch_mo$family_id)]
+
+boxplot(ISR_sal_meta_mch_ch$mo_age ~ ISR_sal_meta_mch_ch$status)
+
+# Stats
+set.seed(12345); wilcox.test(ISR_sal_meta_mch_ch$mo_age ~ ISR_sal_meta_mch_ch$status)$p.value # p-value = 2.122e-06 (Unbalanced)
+
+
+
+
+# Mother's gingivitis
+ISR_sal_meta_mch_ch$mo_ging %>% unique()
+# "NA"       "Moderate" "None"     "Mild"
+
+# Fix NA
+ISR_sal_meta_mch_ch$mo_ging <- gsub("NA", NA, ISR_sal_meta_mch_ch$mo_ging)
+
+# Check table
+ISR_sal_meta_mch_ch$mo_ging %>% table()
+
+# Contingency Table
+mo_ging_table <- table(ISR_sal_meta_mch_ch$mo_ging, ISR_sal_meta_mch_ch$status)
+
+# Check table
+mo_ging_table
+#            Adopted Biological
+# Mild          25         14
+# Moderate       7          5
+# None          16         34
+
+# Fisher test
+set.seed(12345);round(fisher.test(mo_ging_table)$p.value, 3) # p-value = 0.007327 (Balanced)
+
+
+# mo_plq_level
+ISR_sal_meta_mch_ch$mo_plq_level %>% table()
+# Mild Moderate      N/A     none     None 
+#  57        7        2        1       37 
+
+# Fix NA
+ISR_sal_meta_mch_ch$mo_plq_level <- gsub("N/A", NA, ISR_sal_meta_mch_ch$mo_plq_level)
+ISR_sal_meta_mch_ch$mo_plq_level <- gsub("none", "None", ISR_sal_meta_mch_ch$mo_plq_level)
+
+# Contingency Table
+mo_plq_level_table <- table(ISR_sal_meta_mch_ch$mo_plq_level, ISR_sal_meta_mch_ch$status)
+
+# Check table
+mo_plq_level_table
+#            Adopted   Biological
+# Mild          34         23
+# Moderate       5          2
+# None           9         28
+
+# Fisher test
+set.seed(12345);round(fisher.test(mo_plq_level_table)$p.value, 3) # p-value = 0.001 (Unbalanced)
+
+
+
+# mo_eth
+ISR_sal_meta_mch_ch$mo_eth %>% table()
+# Hispanic     Hispanic or Latino Non Hispanic or Latino 
+# 1                      1                    102 
+
+# Fix NA
+ISR_sal_meta_mch_ch$mo_eth <- gsub("Hispanic", "Hispanic or Latino", ISR_sal_meta_mch_ch$mo_eth)
+ISR_sal_meta_mch_ch$mo_eth <- gsub("or Latino or Latino", "or Latino", ISR_sal_meta_mch_ch$mo_eth)
+
+# Contingency Table
+mo_eth_table <- table(ISR_sal_meta_mch_ch$mo_eth, ISR_sal_meta_mch_ch$status)
+
+# Check table
+mo_eth_table
+#                          Adopted   Biological
+# Hispanic or Latino           0          1
+# Non Hispanic or Latino      49         52
+
+# Fisher test
+set.seed(12345);round(fisher.test(mo_eth_table)$p.value, 3) # p-value = 0.4963 (Balanced)
+
+
+
+# mo_tng_bio
+ISR_sal_meta_mch_ch$mo_tng_bio %>% table()
+#    Heavy Light    NA  None 
+#      2    50     2    50
+
+# Fix NA
+ISR_sal_meta_mch_ch$mo_tng_bio <- gsub("NA", NA, ISR_sal_meta_mch_ch$mo_tng_bio)
+
+# Contingency Table
+mo_tng_bio_table <- table(ISR_sal_meta_mch_ch$mo_tng_bio, ISR_sal_meta_mch_ch$status)
+
+# Check table
+mo_tng_bio_table
+#         Adopted   Biological
+# Heavy       1          1
+# Light      32         18
+# None       15         34
+
+# Fisher test
+set.seed(12345);round(fisher.test(mo_tng_bio_table)$p.value, 3) # p-value = 0.002 (Unbalanced)
+
+
+
+
+# mo_anti
+ISR_sal_meta_mch_ch$mo_anti %>% table()
+# NA  No Yes 
+#  1  92  10 
+
+# Fix NA
+ISR_sal_meta_mch_ch$mo_anti <- gsub("NA", NA, ISR_sal_meta_mch_ch$mo_anti)
+
+# Contingency Table
+mo_anti_table <- table(ISR_sal_meta_mch_ch$mo_anti, ISR_sal_meta_mch_ch$status)
+
+# Check table
+mo_anti_table
+#         Adopted   Biological
+# No       47         45
+# Yes       2          8
+
+# Fisher test
+set.seed(12345);round(fisher.test(mo_anti_table)$p.value, 3) # p-value = 0.09472 (Balanced)
+
+
+# mo_race
+ISR_sal_meta_mch_ch$mo_race %>% unique()
+# "White"                        "Asian"              "Black or African American"
+
+# Check table
+ISR_sal_meta_mch_ch$mo_race  %>% table()
+
+# Contingency Table
+mo_race_table <- table(ISR_sal_meta_mch_ch$mo_race, ISR_sal_meta_mch_ch$status)
+
+# Check table
+mo_race_table
+#                             Adopted   Biological
+# Asian                           0          3
+# Black or African American       1          1
+# White                          48         50
+
+# Fisher test
+set.seed(12345);round(fisher.test(mo_race_table)$p.value, 3) # p-value = 0.2444 (Balanced)
+
+
+
+# Race match
+
+ISR_sal_meta_mch_ch$race_match <- "Yes"
+ISR_sal_meta_mch_ch$race_match[ISR_sal_meta_mch_ch$race != ISR_sal_meta_mch_ch$mo_race] <- "No"
+
+# Contingency Table
+race_match_table <- table(ISR_sal_meta_mch_ch$race_match, ISR_sal_meta_mch_ch$status)
+
+# Check table
+race_match_table
+#       Adopted   Biological
+# No       24          5
+# Yes      25         49
+
+# Fisher test
+set.seed(12345);fisher.test(race_match_table)$p.value # p-value = 7.631e-06 (Unblanced)
+
+
+# The unbalanced variables are: feed_mode, race, tongue_biofilm, gingivitis, mo_age, mo_plq_level, mo_tng_bio, race_match
+
+# Subset
+ISR_sal_meta_mch_ch_unb <- ISR_sal_meta_mch_ch[,c("sample", "status", "feed_mode", "race", "tongue_biofilm", "gingivitis", "mo_age", "mo_plq_level", "mo_tng_bio", "race_match", "dist")]
+#View(ISR_sal_meta_mch_ch_unb)
+dim(ISR_sal_meta_mch_ch_unb) # 103 x 11
+
+# Output
+write.table(ISR_sal_meta_mch_ch_unb, file="Intermed_files/ISR_sal_meta_mch_ch_unb.txt", sep = "\t", quote = F, row.names = FALSE)
+write.table(ISR_sal_meta_mch_ch, file="Intermed_files/ISR_sal_meta_mch_ch_updated.txt", sep = "\t", quote = F, row.names = FALSE)
+write.table(ISR_sal_meta_mch_mo, file="Intermed_files/ISR_sal_meta_mch_mo_updated.txt", sep = "\t", quote = F, row.names = FALSE)
+```
+
+
+
+
+## Metadata Confounder Analysis
+
+#### Refer to ISR Sal Metadata Analysis.Rmd for identificationo of unbalanced metadata
+
+<br>
+<br>
+
+### Model Building with Unbalanced Clinical/Demographic Variables
+
+<br>
+
+#### Multiple Linear Regression Based Counfounder Analysis
+<b>
+```{r}
+
+# Select only complete cases (exclude NAs) for multiple regression
+ISR_sal_meta_mch_ch_unb <- na.omit(ISR_sal_meta_mch_ch_unb)
+dim(ISR_sal_meta_mch_ch_unb) # 93  x 11
+#View(ISR_sal_meta_mch_ch_unb)
+
+
+# Remove sample column
+ISR_sal_meta_mch_ch_unb$sample <- NULL
+
+# Convert to factor and then to numeric for regression analysis
+ISR_sal_meta_mch_ch_unb$status <- as.numeric(as.factor(ISR_sal_meta_mch_ch_unb$status)) # Levels: Adopted Biological
+ISR_sal_meta_mch_ch_unb$feed_mode <- as.numeric(as.factor(ISR_sal_meta_mch_ch_unb$feed_mode)) # Levels: Breast-fed Combination Formula-fed
+ISR_sal_meta_mch_ch_unb$race <- as.numeric(as.factor(ISR_sal_meta_mch_ch_unb$race)) # Levels: Black or African American Mixed White
+ISR_sal_meta_mch_ch_unb$gingivitis <- as.numeric(factor(ISR_sal_meta_mch_ch_unb$gingivitis, levels =  c("None", "Mild", "Moderate"))) 
+ISR_sal_meta_mch_ch_unb$tongue_biofilm <- as.numeric(factor(ISR_sal_meta_mch_ch_unb$tongue_biofilm, levels =  c("None", "Light", "Heavy")))
+ISR_sal_meta_mch_ch_unb$mo_tng_bio <- as.numeric(factor(ISR_sal_meta_mch_ch_unb$mo_tng_bio, levels =  c("None", "Light", "Heavy")))
+ISR_sal_meta_mch_ch_unb$mo_plq_level <- as.numeric(factor(ISR_sal_meta_mch_ch_unb$mo_plq_level, levels =  c("None", "Mild", "Moderate")))
+ISR_sal_meta_mch_ch_unb$race_match <- as.numeric(as.factor(ISR_sal_meta_mch_ch_unb$race_match)) # Levels: No Yes
+
+# Multiple linear regression analysis
+(ISR_sal_meta_mch_ch_unb.fit <- lm(dist ~ status + feed_mode + race + mo_age + gingivitis + tongue_biofilm + mo_tng_bio + mo_plq_level + race_match, data=ISR_sal_meta_mch_ch_unb))
+(ISR_sal_meta_mch_ch_unb.fit.sum <- summary(ISR_sal_meta_mch_ch_unb.fit)) # none significant
+
+# Making table for output
+ISR_sal_meta_mch_ch_unb.fit_tbl <- data.frame(ISR_sal_meta_mch_ch_unb.fit.sum$coefficients)
+colnames(ISR_sal_meta_mch_ch_unb.fit_tbl) <- c("Estimates", "Std. Error", "t-value", "p-value")
+#savView(ISR_sal_meta_mch_ch_unb.fit_tbl)
+write.table(ISR_sal_meta_mch_ch_unb.fit_tbl, file="/output/LM_table_sal_ISR_final.txt", sep="\t", row.names = T)
+
+```
