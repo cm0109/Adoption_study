@@ -9,26 +9,23 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Script for Adoption Study Data Analysis, Part I 
+## Adoption Study Data Analysis & Visualization Demo
 
 <br>
 <br>
 
 #### Setting seed
-(Code Hidden)
-```{r include=FALSE}
+```{r message = FALSE, warning=FALSE}
 set.seed(12345)
 ```
 
 <br>
 
 #### Loading required libraries and custom functions
-(Code Hidden)
-```{r, include=FALSE}
+```{r setting_up, message = FALSE, warning=FALSE}
 # Load required libraries
 library(reshape2)
 library(dada2)
-#library(phyloseq)
 library(vegan)
 library(ggplot2)
 library(GUniFrac)
@@ -36,7 +33,6 @@ library(ggpubr)
 library(readxl)
 library(RColorBrewer)
 library(seqRFLP)
-#library(VennDiagram)
 library(gtools)
 library(dplyr)
 
@@ -342,7 +338,7 @@ set.seed(12345); (ISR_all_sites_mch_mds_df.site.perm <- adonis(formula = ISR_all
 
 #### Plot NMDS for ISR Mch + Site
 <br>
-```{r, echo=FALSE, eval=TRUE}
+```{r, echo=FALSE, fig.cap = "Strain Level Sites & Subject Groups Ordination"}
 # Plot NMDS
 ggplot(ISR_all_sites_mch_counts_prab.mds.df, aes(x=NMDS1, y=NMDS2)) + 
   stat_ellipse(aes(color=site), show.legend = F, lwd=0.2) + scale_color_manual(values=c("slateblue", "firebrick2", "forestgreen")) +
@@ -968,7 +964,9 @@ ISR_sal_mch_mo_comp_rar_shannon.mean <- ISR_sal_mch_mo_comp_rar_shannon/trials
 
 # Average mother's alpha
 mean(ISR_sal_mch_mo_comp_rar_shannon.mean) # 2.618408
+```
 
+```{r echo=FALSE, message=FALSE}
 # Plot with limited y axis
 ggplot(ISR_sal_mch_ch_comp_rar_alpha.df, aes(age, Shannon)) + geom_smooth(alpha=0.4, lwd=0.5, color="grey30") + 
   annotate(x=0.3, xend=6.4, y=mean(ISR_sal_mch_mo_comp_rar_shannon.mean), yend=mean(ISR_sal_mch_mo_comp_rar_shannon.mean), geom="segment", lwd = 0.75, lty = 2, col="blue") + # mother's alpha

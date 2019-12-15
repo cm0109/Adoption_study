@@ -5,10 +5,8 @@ date: "12/14/2019"
 output: github_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, }
 knitr::opts_chunk$set(echo = TRUE)
-library(dplyr)
-library(stargazer)
 ```
 
 <br>
@@ -18,12 +16,18 @@ Setting Seed
 set.seed(12345)
 ```
 
+#### Loading required libraries and custom functions
+```{r setting_up, message = FALSE, warning=FALSE}
+library(dplyr)
+library(stargazer)
+```
 
+<br>
 
 ### Input metadata files
 ```{r}
-ISR_sal_meta_mch_mo <- read.table(file="ISR_sal_meta_mch_mo.txt", header = T, sep="\t")
-ISR_sal_meta_mch_ch <- read.table(file="ISR_sal_meta_mch_ch.txt", header = T, sep="\t")
+ISR_sal_meta_mch_mo <- read.table(file="Intermed_files/ISR_sal_meta_mch_mo.txt", header = T, sep="\t")
+ISR_sal_meta_mch_ch <- read.table(file="Intermed_files/ISR_sal_meta_mch_ch.txt", header = T, sep="\t")
 ```
 
 
