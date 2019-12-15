@@ -1,44 +1,37 @@
----
-title: "Adoption Study Publication Script"
-author: "Chiranjit Mukherjee"
-date: "11/4/2019"
-output: 
-  html_document:
-    keep_md: true
----
+Adoption Study Publication Script
+================
+Chiranjit Mukherjee
+12/14/2019
 
+Script for Adoption Study Data Analysis, Part I
+-----------------------------------------------
 
-
-## Script for Adoption Study Data Analysis, Part I 
-
-<br>
-<br>
+<br> <br>
 
 #### Setting seed
-(Code Hidden)
 
+(Code Hidden)
 
 <br>
 
 #### Loading required libraries and custom functions
-(Code Hidden)
 
+(Code Hidden)
 
 <br>
 
-#### Load all samples final ASV table 
+#### Load all samples final ASV table
+
 (See Adoption Data Filtering Script for details)
 
-```r
+``` r
 ISR_seqtab_atab_comb_filtp_clean <- read.table(file="Input_files/ISR_seqtab_atab_comb_filtp_clean.txt", sep="\t", header = T)
 dim(ISR_seqtab_atab_comb_filtp_clean) # 778 4067
 ```
 
-```
-## [1]  778 4067
-```
+    ## [1]  778 4067
 
-```r
+``` r
 # Rarefying raw counts for converting to presence/absence
 # Rarefy counts
 set.seed(12345); ISR_seqtab_atab_comb_filtp_clean_rar <- as.data.frame(rrarefy(ISR_seqtab_atab_comb_filtp_clean, min(rowSums(ISR_seqtab_atab_comb_filtp_clean))))
@@ -51,37 +44,30 @@ ISR_seqtab_atab_comb_filtp_clean_prab <- data.frame((ISR_seqtab_atab_comb_filtp_
 
 #### Load all metadata files
 
-```r
+``` r
 # All ISR Samples clinical metadata (See AD_clinical_metadata_processing.R)
 AD_clinical_meta_2019_ISR <- read.table(file="Input_files/AD_clinical_meta_2019_ISR.txt", sep="\t", header = T)
 dim(AD_clinical_meta_2019_ISR) # 265  24
 ```
 
-```
-## [1] 265  24
-```
+    ## [1] 265  24
 
-```r
+``` r
 # Mother-Child ISR Samples clinical metadata (age matched)
 AD_clinical_meta_2019_ISR_mch <- read.table(file="Input_files/AD_clinical_meta_2019_ISR_mch.txt", sep="\t", header = T)
 dim(AD_clinical_meta_2019_ISR_mch) # 210  24
 ```
 
-```
-## [1] 210  24
-```
+    ## [1] 210  24
 
-<br>
-<br>
-<br>
+<br> <br> <br>
 
-## ISR Sites NMDS
-<br>
-### NMDS plot based on sites and mother/child groups
-<br>
-#### Compute NMDS and PERMANOVA
+ISR Sites NMDS
+--------------
 
-```r
+<br> \#\#\# NMDS plot based on sites and mother/child groups <br> \#\#\#\# Compute NMDS and PERMANOVA
+
+``` r
 # Create table for all ISR samples sequenced
 all_site_samples <- data.frame(row.names(ISR_seqtab_atab_comb_filtp_clean))
 colnames(all_site_samples) <- "samples"
@@ -134,23 +120,22 @@ set.seed(12345); (ISR_all_sites_mch_mds_df.site.perm <- adonis(formula = ISR_all
 # 0.001 ***
 ```
 
-<br>
-<br>
+<br> <br>
 
 #### Plot NMDS for ISR Mch + Site
-<br>
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
-<br>
-<br>
+<br> ![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
-## Saliva Samples
+<br> <br>
+
+Saliva Samples
+--------------
 
 <br>
 
 ### Subset Metadata and Counts
 
-```r
+``` r
 # Saliva/Swab Samples
 
 # Subset Data for ISR Saliva/Swab
@@ -159,11 +144,9 @@ ISR_sal <- ISR_sal_all[,colSums(ISR_sal_all) > 0]
 dim(ISR_sal) # 262 2094
 ```
 
-```
-## [1]  262 2094
-```
+    ## [1]  262 2094
 
-```r
+``` r
 # Remove _S for matching with Metadata
 row.names(ISR_sal) <- gsub("_S_ISR" , "", row.names(ISR_sal))
 
@@ -172,32 +155,26 @@ ISR_sal_meta_all_mch <- AD_clinical_meta_2019_ISR_mch[AD_clinical_meta_2019_ISR_
 dim(ISR_sal_meta_all_mch) # 208 x 24
 ```
 
-```
-## [1] 208  24
-```
+    ## [1] 208  24
 
-```r
+``` r
 # Remove unbalanced grps
 ISR_sal_meta_all_mch <- ISR_sal_meta_all_mch[!(ISR_sal_meta_all_mch$family_id %in% names(which(table(ISR_sal_meta_all_mch$family_id) < 2))), ]
 dim(ISR_sal_meta_all_mch) # 206 x 24
 ```
 
-```
-## [1] 206  24
-```
+    ## [1] 206  24
 
-```r
+``` r
 # Final composition
 table(ISR_sal_meta_all_mch$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                49                49                54                54
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                49                49                54                54
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     49                49                54                54 
 
@@ -212,22 +189,18 @@ ISR_sal_meta_mch_ch <- ISR_sal_meta_mch[ISR_sal_meta_mch$type == "Child", ]
 set.seed(12345);wilcox.test(ISR_sal_meta_mch_ch$age ~ ISR_sal_meta_mch_ch$status)$p.value # p-value = 0.2937314 (Not Significant)
 ```
 
-```
-## [1] 0.2937314
-```
+    ## [1] 0.2937314
 
-```r
+``` r
 # For Mother-Child Comparisons
 ISR_sal_mch <- ISR_sal[row.names(ISR_sal) %in% ISR_sal_meta_mch$sample,] # Using original ISR_sal_meta file to extract
 ISR_sal_mch <- ISR_sal_mch[,colSums(ISR_sal_mch) > 0]
 dim(ISR_sal_mch) # 206 1913
 ```
 
-```
-## [1]  206 1913
-```
+    ## [1]  206 1913
 
-```r
+``` r
 # AD_104_M is the Adopted mother of AD_212_C (Family 43)
 # Renaming AD_104_M to AD_212_M
 ISR_sal_meta_mch$sample <- gsub("AD_104_M", "AD_212_M", ISR_sal_meta_mch$sample)
@@ -241,17 +214,13 @@ ISR_sal_mch <- ISR_sal_mch[order(row.names(ISR_sal_mch)), ]
 all(row.names(ISR_sal_mch) == sort(ISR_sal_meta_mch$sample)) # TRUE
 ```
 
-```
-## [1] TRUE
-```
-
+    ## [1] TRUE
 
 <br>
 
 ### Computing Mother-Child Distances
 
-
-```r
+``` r
 # Pr/Ab Analysis
 # Rarefy counts
 set.seed(12345); ISR_sal_mch_rar <- as.data.frame(rrarefy(ISR_sal_mch, min(rowSums(ISR_sal_mch))))
@@ -265,22 +234,18 @@ ISR_sal_mch_prab_bio <- ISR_sal_mch_prab_bio[,colSums(ISR_sal_mch_prab_bio) > 0]
 dim(ISR_sal_mch_prab_bio) # 108 1324
 ```
 
-```
-## [1]  108 1324
-```
+    ## [1]  108 1324
 
-```r
+``` r
 # Adp
 ISR_sal_mch_prab_adp <- ISR_sal_mch_prab[row.names(ISR_sal_mch_prab) %in% ISR_sal_meta_mch$sample[ISR_sal_meta_mch$status == "Adopted"], ]
 ISR_sal_mch_prab_adp <- ISR_sal_mch_prab_adp[,colSums(ISR_sal_mch_prab_adp) > 0]
 dim(ISR_sal_mch_prab_adp) # 98 1296
 ```
 
-```
-## [1]   98 1296
-```
+    ## [1]   98 1296
 
-```r
+``` r
 # Compute distances and melt
 ISR_sal_mch_prab_sfd <- AD.melt.dist.sf(ISR_sal_mch_prab, ISR_sal_meta_mch)$dmsf
 
@@ -327,9 +292,10 @@ ISR_sal_mch_prab_adp_perm_pval_star <- perm_p_value(ISR_sal_mch_prab_adp,"bray")
 <br>
 
 #### Plot Violin + Boxplot + jitter
+
 <br>
 
-```r
+``` r
 ggplot(ISR_sal_mch_prab_sdfd, aes(x=status, y = value)) + geom_violin(alpha=0.7, width=0.95, lwd=0.1,  aes(fill=status)) + 
   scale_fill_manual(values=c("cornflowerblue", "blueviolet", "#7B8492", "#827290")) +  geom_boxplot(alpha=0.1, width=0.25, lwd=0.2, outlier.shape = NA) +
   geom_jitter(data=ISR_sal_mch_prab_sfd, alpha=0.75, size=0.3, width = 0.05, height = 0) + scale_x_discrete(labels=function(x){sub("\\s", "\n", x)}) +
@@ -348,36 +314,33 @@ ggplot(ISR_sal_mch_prab_sdfd, aes(x=status, y = value)) + geom_violin(alpha=0.7,
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sal_mch_violin_jitter_final.pdf", width = 3.5, height = 5.2, units = "in")
 ```
+
 <br>
 
 #### For ISR Sal metadata analysis
 
-```r
+``` r
 # Add BC distances to ch metadata
 ISR_sal_meta_mch_ch$dist <- ISR_sal_mch_prab_sfd$value[match(ISR_sal_meta_mch_ch$sample, ISR_sal_mch_prab_sfd$Var1)]
 nrow(ISR_sal_meta_mch_ch)
 ```
 
-```
-## [1] 103
-```
+    ## [1] 103
 
-```r
+``` r
 # Subset for mother
 ISR_sal_meta_mch_mo <- ISR_sal_meta_mch[ISR_sal_meta_mch$type == "Mother", ]
 nrow(ISR_sal_meta_mch_mo) # 103
 ```
 
-```
-## [1] 103
-```
+    ## [1] 103
 
-```r
+``` r
 # Output
 write.table(ISR_sal_meta_mch_mo, sep = "\t", quote = F, row.names = F, file="Intermed_files/ISR_sal_meta_mch_mo.txt")
 write.table(ISR_sal_meta_mch_ch, sep = "\t", quote = F, row.names = F, file="Intermed_files/ISR_sal_meta_mch_ch.txt")
@@ -388,22 +351,19 @@ write.table(ISR_sal_meta_mch_ch, sep = "\t", quote = F, row.names = F, file="Int
 <br>
 
 ### ISR Subgingival
-<br>
-<br>
-### Subset Metadata and Counts
 
-```r
+<br> <br> \#\#\# Subset Metadata and Counts
+
+``` r
 # ISR Subgingival
 ISR_sub_all <- ISR_seqtab_atab_comb_filtp_clean[grepl("P2", row.names(ISR_seqtab_atab_comb_filtp_clean)),]
 ISR_sub <- ISR_sub_all[,colSums(ISR_sub_all) > 0]
 dim(ISR_sub) # 255 3237
 ```
 
-```
-## [1]  255 3250
-```
+    ## [1]  255 3250
 
-```r
+``` r
 # Remove _P1 for matching with Meta
 row.names(ISR_sub) <- gsub("_P2_ISR" , "", row.names(ISR_sub))
 
@@ -413,23 +373,19 @@ ISR_sub_mch_all <- ISR_sub_mch_all[,colSums(ISR_sub_mch_all) > 0]
 dim(ISR_sub_mch_all) # 197 2860
 ```
 
-```
-## [1]  197 2869
-```
+    ## [1]  197 2869
 
-```r
+``` r
 # Subset meta for sup mch dataset
 ISR_sub_meta_mch_all <- ISR_sal_meta_mch[ISR_sal_meta_mch$sample %in% row.names(ISR_sub_mch_all), ]
 table(ISR_sub_meta_mch_all$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                46                46                52                53
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                46                46                52                53
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #    46                46                52                53 
 
@@ -438,21 +394,17 @@ ISR_sub_meta_mch <- ISR_sub_meta_mch_all[!(ISR_sub_meta_mch_all$family_id %in% n
 nrow(ISR_sub_meta_mch) # 190
 ```
 
-```
-## [1] 190
-```
+    ## [1] 190
 
-```r
+``` r
 table(ISR_sub_meta_mch$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                44                44                51                51
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                44                44                51                51
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #      44                44                51                51 
 # Balanced
@@ -462,22 +414,18 @@ ISR_sub_meta_mch_ch <- ISR_sub_meta_mch[ISR_sub_meta_mch$type == "Child", ]
 set.seed(12345);wilcox.test(ISR_sub_meta_mch_ch$age ~ ISR_sub_meta_mch_ch$status)$p.value # p-value = 0.6436 (Not Significant)
 ```
 
-```
-## [1] 0.6435509
-```
+    ## [1] 0.6435509
 
-```r
+``` r
 # Subset counts for final comparison
 ISR_sub_mch <- ISR_sub_mch_all[row.names(ISR_sub_mch_all) %in% ISR_sub_meta_mch$sample, ]
 ISR_sub_mch <- ISR_sub_mch[, colSums(ISR_sub_mch) > 0]
 dim(ISR_sub_mch) # 190 x 2821
 ```
 
-```
-## [1]  190 2821
-```
+    ## [1]  190 2821
 
-```r
+``` r
 # Re-order
 ISR_sub_mch <- ISR_sub_mch[order(row.names(ISR_sub_mch)), ]
 
@@ -485,46 +433,36 @@ ISR_sub_mch <- ISR_sub_mch[order(row.names(ISR_sub_mch)), ]
 all(row.names(ISR_sub_mch) == ISR_sub_meta_mch$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
 <br>
 
 ### Computing Mother-Child Distances
 
-```
-## [1]  102 2036
-```
+    ## [1]  102 2036
 
-```
-## [1]   88 1596
-```
+    ## [1]   88 1596
+
 <br>
 
 #### Plot Violin + Boxplot + jitter
-<br>
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
-<br>
-<br>
+
+<br> ![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-13-1.png) <br> <br>
 
 ### ISR Supragingival
-<br>
-<br>
-### Subset Metadata and Counts
 
-```r
+<br> <br> \#\#\# Subset Metadata and Counts
+
+``` r
 # ISR Subgingival
 ISR_sup_all <- ISR_seqtab_atab_comb_filtp_clean[grepl("P1", row.names(ISR_seqtab_atab_comb_filtp_clean)),]
 ISR_sup <- ISR_sup_all[,colSums(ISR_sup_all) > 0]
 dim(ISR_sup) # 261 2771
 ```
 
-```
-## [1]  261 2780
-```
+    ## [1]  261 2780
 
-```r
+``` r
 # Remove _P1 for matching with Meta
 row.names(ISR_sup) <- gsub("_P1_ISR" , "", row.names(ISR_sup))
 
@@ -534,23 +472,19 @@ ISR_sup_mch_all <- ISR_sup_mch_all[,colSums(ISR_sup_mch_all) > 0]
 dim(ISR_sup_mch_all) # 202 2363
 ```
 
-```
-## [1]  202 2369
-```
+    ## [1]  202 2369
 
-```r
+``` r
 # Subset meta for sup mch dataset
 ISR_sup_meta_mch_all <- ISR_sal_meta_mch[ISR_sal_meta_mch$sample %in% row.names(ISR_sup_mch_all), ]
 table(ISR_sup_meta_mch_all$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                47                48                53                54
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                47                48                53                54
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #    47                48                53                54
 
@@ -559,21 +493,17 @@ ISR_sup_meta_mch <- ISR_sup_meta_mch_all[!(ISR_sup_meta_mch_all$family_id %in% n
 nrow(ISR_sup_meta_mch) # 198
 ```
 
-```
-## [1] 198
-```
+    ## [1] 198
 
-```r
+``` r
 table(ISR_sup_meta_mch$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                46                46                53                53
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                46                46                53                53
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #      46                46                53                53 
 # Balanced
@@ -583,22 +513,18 @@ ISR_sup_meta_mch_ch <- ISR_sup_meta_mch[ISR_sup_meta_mch$type == "Child", ]
 set.seed(12345);wilcox.test(ISR_sup_meta_mch_ch$age ~ ISR_sup_meta_mch_ch$status)$p.value # p-value = 0.436127 (Not Significant)
 ```
 
-```
-## [1] 0.436127
-```
+    ## [1] 0.436127
 
-```r
+``` r
 # Subset counts for final comparison
 ISR_sup_mch <- ISR_sup_mch_all[row.names(ISR_sup_mch_all) %in% ISR_sup_meta_mch$sample, ]
 ISR_sup_mch <- ISR_sup_mch[, colSums(ISR_sup_mch) > 0]
 dim(ISR_sup_mch) # 198 x 2330
 ```
 
-```
-## [1]  198 2336
-```
+    ## [1]  198 2336
 
-```r
+``` r
 # Re-order
 ISR_sup_mch <- ISR_sup_mch[order(row.names(ISR_sup_mch)), ]
 
@@ -606,36 +532,30 @@ ISR_sup_mch <- ISR_sup_mch[order(row.names(ISR_sup_mch)), ]
 all(row.names(ISR_sup_mch) == ISR_sup_meta_mch$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
 <br>
-  
+
 ### Computing Mother-Child Distances
 
-```
-## [1]  106 1546
-```
+    ## [1]  106 1546
 
-```
-## [1]   92 1383
-```
+    ## [1]   92 1383
+
 <br>
-  
+
 #### Plot Violin + Boxplot + jitter
-<br>
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+
+<br> ![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 <br>
 
-
-
-# 4. ISR Sal M-Ch Shared Strains Barplot
+4. ISR Sal M-Ch Shared Strains Barplot
+======================================
 
 #### Input updated metdata files
 
-```r
+``` r
 # Child-only metadata
 #ISR_sal_meta_mch_ch <- read.table(file="output/ISR_sal_meta_mch_ch_updated.txt", header = T, sep="\t")
 
@@ -643,11 +563,9 @@ all(row.names(ISR_sup_mch) == ISR_sup_meta_mch$sample) # TRUE
 #ISR_sal_meta_mch_mo <- read.table(file="output/ISR_sal_meta_mch_mo_updated.txt", header = T, sep="\t")
 ```
 
-
 #### Subset for mother and child
 
-
-```r
+``` r
 # Subset prabs for mo and ch
 ISR_sal_mch_prab_mo <- ISR_sal_mch_prab[rownames(ISR_sal_mch_prab) %in% ISR_sal_meta_mch_mo$sample, ]
 ISR_sal_mch_prab_ch <- ISR_sal_mch_prab[rownames(ISR_sal_mch_prab) %in% ISR_sal_meta_mch_ch$sample, ]
@@ -658,13 +576,14 @@ write.table(ISR_sal_mch_prab_ch, file="output/ISR_sal_mch_prab_ch.txt", sep="\t"
 
 <br>
 
-## 5. ISR Sal M-Ch Age Boxplot
+5. ISR Sal M-Ch Age Boxplot
+---------------------------
 
 <br>
 
 #### Comparison of Age: Biologic vs Adopted Children
 
-```r
+``` r
 # Age boxplot
 ggplot(ISR_sal_meta_mch_ch, aes(x=status, y = age, fill=status)) + 
   scale_fill_manual(values=c("cornflowerblue", "blueviolet")) +  geom_boxplot(alpha=0.75, width=0.6, lwd=0.1, outlier.shape = NA) +
@@ -679,16 +598,13 @@ ggplot(ISR_sal_meta_mch_ch, aes(x=status, y = age, fill=status)) +
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-19-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sal_age_boxplot.pdf", width = 3, height = 6, units = "in")
 ```
 
-
-
-
-```r
+``` r
 # 6. ISR Sal Mother-Child Distance vs Child's Age
 
 # Remove outlier ages (> 10)
@@ -696,11 +612,9 @@ ISR_sal_meta_mch_ch_comp <- ISR_sal_meta_mch_ch[ISR_sal_meta_mch_ch$age < 10, ]
 dim(ISR_sal_meta_mch_ch_comp) # 101
 ```
 
-```
-## [1] 101  25
-```
+    ## [1] 101  25
 
-```r
+``` r
 # Add distances values
 ISR_sal_meta_mch_ch_comp$dist <- ISR_sal_mch_prab_sfd$value[match(ISR_sal_meta_mch_ch_comp$sample, ISR_sal_mch_prab_sfd$Var1)]
 
@@ -709,20 +623,16 @@ set.seed(12345); ISR_sal_meta_mch_ch_comp_agecor <- cor.test(ISR_sal_meta_mch_ch
 ISR_sal_meta_mch_ch_comp_agecor$p.value # 0.001057479
 ```
 
-```
-## [1] 0.001100491
-```
+    ## [1] 0.001100491
 
-```r
+``` r
 ISR_sal_meta_mch_ch_comp_agecor$estimate # rho = -0.3211715 
 ```
 
-```
-##        rho 
-## -0.3201241
-```
+    ##        rho 
+    ## -0.3201241
 
-```r
+``` r
 # Make label for plot
 ISR_sal_meta_mch_ch_comp_agecor_statlabel <- paste("Spearman, p = ", round(ISR_sal_meta_mch_ch_comp_agecor$p.value, 3), 
                                                    ", rho = ", round(ISR_sal_meta_mch_ch_comp_agecor$estimate, 2), sep="")
@@ -741,20 +651,15 @@ ggplot(ISR_sal_meta_mch_ch_comp, aes(age, dist)) + geom_smooth(alpha=0.4, lwd=0.
         legend.position = "none", axis.line = element_blank())
 ```
 
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-20-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR sal ch age vs dist.pdf", width = 6, height = 6, units = "in")
 ```
 
-
-
-
-```r
+``` r
 # 7. ISR Sal: Ch's Shannon vs Ch'Age, M's Shannon
 
 
@@ -766,20 +671,16 @@ ISR_sal_mch_ch_comp <- ISR_sal_mch_ch_comp[, colSums(ISR_sal_mch_ch_comp) > 0]
 dim(ISR_sal_mch_ch_comp) # 101 1243
 ```
 
-```
-## [1]  101 1248
-```
+    ## [1]  101 1248
 
-```r
+``` r
 # sanity check
 all(row.names(ISR_sal_mch_ch_comp) == ISR_sal_meta_mch_ch_comp$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
-```r
+``` r
 # Rarefy counts
 set.seed(12345); ISR_sal_mch_ch_comp_rar <- as.data.frame(rrarefy(ISR_sal_mch_ch_comp, min(rowSums(ISR_sal_mch_ch_comp))))
 
@@ -816,31 +717,25 @@ ISR_sal_mch_mo_comp <- ISR_sal_meta_mch_mo[ISR_sal_meta_mch_mo$family_id %in% IS
 dim(ISR_sal_mch_mo_comp) # 101 x 25
 ```
 
-```
-## [1] 101  24
-```
+    ## [1] 101  24
 
-```r
+``` r
 # Subset counts for mothers
 ISR_sal_mch_mo_comp <- ISR_sal_mch[row.names(ISR_sal_mch) %in% ISR_sal_mch_mo_comp$sample, ]
 ISR_sal_mch_mo_comp <- ISR_sal_mch_mo_comp[, colSums(ISR_sal_mch_mo_comp) > 0]
 dim(ISR_sal_mch_mo_comp) # 101 1295
 ```
 
-```
-## [1]  101 1297
-```
+    ## [1]  101 1297
 
-```r
+``` r
 # sanity check
 all(row.names(ISR_sal_mch_mo_comp) == ISR_sal_mch_mo_comp$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
-```r
+``` r
 # Rarefy counts
 set.seed(12345); ISR_sal_mch_mo_comp_rar <- as.data.frame(rrarefy(ISR_sal_mch_mo_comp, min(rowSums(ISR_sal_mch_mo_comp))))
 
@@ -856,11 +751,9 @@ ISR_sal_mch_mo_comp_rar_shannon.mean <- ISR_sal_mch_mo_comp_rar_shannon/trials
 mean(ISR_sal_mch_mo_comp_rar_shannon.mean) # 2.618408
 ```
 
-```
-## [1] 2.61868
-```
+    ## [1] 2.61868
 
-```r
+``` r
 # Plot with limited y axis
 ggplot(ISR_sal_mch_ch_comp_rar_alpha.df, aes(age, Shannon)) + geom_smooth(alpha=0.4, lwd=0.5, color="grey30") + 
   annotate(x=0.3, xend=6.4, y=mean(ISR_sal_mch_mo_comp_rar_shannon.mean), yend=mean(ISR_sal_mch_mo_comp_rar_shannon.mean), geom="segment", lwd = 0.75, lty = 2, col="blue") + # mother's alpha
@@ -876,53 +769,46 @@ ggplot(ISR_sal_mch_ch_comp_rar_alpha.df, aes(age, Shannon)) + geom_smooth(alpha=
         legend.position = "none", axis.line = element_blank())
 ```
 
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-21-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-21-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR sal ch age vs shannon.pdf", width = 6, height = 6, units = "in")
 ```
 
-# Extended Family Analysis
+Extended Family Analysis
+========================
 
 <br>
 
 ### Generating distances for extended family comparisons (ISR Saliva Dataset)
 
-```r
+``` r
 # Metadata for 3 member (mother, father, child) families
 ISR_sal_meta_bio_3fam <- read.table(file="Input_files/ISR_sal_meta_bio_3fam.txt", header = T, sep="\t")
 dim(ISR_sal_meta_bio_3fam) # 66 x 24 (22 families of M, F, Ch)
 ```
 
-```
-## [1] 66 24
-```
+    ## [1] 66 24
 
-```r
+``` r
 # Metadata for siblings
 ISR_sal_meta_bio_sibs <- read.table(file="Input_files/ISR_sal_meta_bio_sibs.txt", header = T, sep="\t")
 dim(ISR_sal_meta_bio_sibs) # 32 x 24 (16 pairs of siblings)
 ```
 
-```
-## [1] 32 24
-```
+    ## [1] 32 24
 
-```r
+``` r
 # Metadata for 3 member (mother, father, child) families
 ISR_sal_meta_bio_cpls <- read.table(file="Input_files/ISR_sal_meta_bio_cpls.txt", header = T, sep="\t")
 dim(ISR_sal_meta_bio_cpls) # 44 x 24 (22 couples)
 ```
 
-```
-## [1] 44 24
-```
+    ## [1] 44 24
 
-```r
+``` r
 # 3 Fam Comparisons 
 # a. M-ch vs F-ch, P-ch vs U-ch, Couples vs U-adults
 
@@ -932,20 +818,16 @@ ISR_sal_3fam <- ISR_sal_3fam[,colSums(ISR_sal_3fam) > 0]
 dim(ISR_sal_3fam) # 66 x 946
 ```
 
-```
-## [1]  66 949
-```
+    ## [1]  66 949
 
-```r
+``` r
 # sanity check
 all(row.names(ISR_sal_3fam) == ISR_sal_meta_bio_3fam$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
-```r
+``` r
 # Pr/Ab Analysis
 # Rarefy counts
 set.seed(12345); ISR_sal_3fam_rar <- as.data.frame(rrarefy(ISR_sal_3fam, min(rowSums(ISR_sal_3fam)))) # min(rowSums(ISR_sal_3fam)) = 25,923
@@ -977,19 +859,15 @@ ISR_sal_3fam_prab_sfd_cfm$sub_type2 <- NULL
 nrow(ISR_sal_3fam_prab_sfd_cfm) # 44
 ```
 
-```
-## [1] 44
-```
+    ## [1] 44
 
-```r
+``` r
 unique(ISR_sal_3fam_prab_sfd_cfm$grp)
 ```
 
-```
-## [1] "Child-Father" "Child-Mother"
-```
+    ## [1] "Child-Father" "Child-Mother"
 
-```r
+``` r
 # "Child-Father" "Child-Mother"
 
 # For diff fam:
@@ -1016,41 +894,33 @@ ISR_sal_3fam_prab_dfd_ucf$grp <- gsub("Child-Father", "Unrelated Child-Father", 
 unique(ISR_sal_3fam_prab_dfd_ucf$grp) # "Unrelated Child-Father"
 ```
 
-```
-## [1] "Unrelated Child-Father"
-```
+    ## [1] "Unrelated Child-Father"
 
-```r
+``` r
 nrow(ISR_sal_3fam_prab_dfd_ucf) # 462
 ```
 
-```
-## [1] 462
-```
+    ## [1] 462
 
-```r
+``` r
 # Ch_F vs unrel_ad_ch
 # Subset meta
 ISR_sal_meta_bio_3fam_ch_f <- ISR_sal_meta_bio_3fam[ISR_sal_meta_bio_3fam$sub_type != "Biological Mother", ]
 nrow(ISR_sal_meta_bio_3fam_ch_f) # 44
 ```
 
-```
-## [1] 44
-```
+    ## [1] 44
 
-```r
+``` r
 # Subset prabs
 ISR_sal_3fam_prab_ch_f <- ISR_sal_3fam_prab[row.names(ISR_sal_3fam_prab) %in% ISR_sal_meta_bio_3fam_ch_f$sample,]
 ISR_sal_3fam_prab_ch_f <- ISR_sal_3fam_prab_ch_f[,colSums(ISR_sal_3fam_prab_ch_f) > 0]
 dim(ISR_sal_3fam_prab_ch_f) # 44 774
 ```
 
-```
-## [1]  44 774
-```
+    ## [1]  44 774
 
-```r
+``` r
 # For unrelated child-Mother
 ISR_sal_3fam_prab_dfd_ucm <- ISR_sal_3fam_prab_dfd[ISR_sal_3fam_prab_dfd$grp == "Child-Mother" | ISR_sal_3fam_prab_dfd$grp == "Mother-Child", ]
 ISR_sal_3fam_prab_dfd_ucm$sub_type1 <- NULL
@@ -1063,41 +933,33 @@ ISR_sal_3fam_prab_dfd_ucm$grp <- gsub("Child-Mother", "Unrelated Child-Mother", 
 unique(ISR_sal_3fam_prab_dfd_ucm$grp) # "Unrelated Child-Mother"
 ```
 
-```
-## [1] "Unrelated Child-Mother"
-```
+    ## [1] "Unrelated Child-Mother"
 
-```r
+``` r
 nrow(ISR_sal_3fam_prab_dfd_ucm) # 462
 ```
 
-```
-## [1] 462
-```
+    ## [1] 462
 
-```r
+``` r
 # ch_m vs unrel_ad_ch
 # Subset meta
 ISR_sal_meta_bio_3fam_ch_m <- ISR_sal_meta_bio_3fam[ISR_sal_meta_bio_3fam$sub_type != "Biological Father", ]
 nrow(ISR_sal_meta_bio_3fam_ch_m) # 44
 ```
 
-```
-## [1] 44
-```
+    ## [1] 44
 
-```r
+``` r
 # Subset prabs
 ISR_sal_3fam_prab_ch_m <- ISR_sal_3fam_prab[row.names(ISR_sal_3fam_prab) %in% ISR_sal_meta_bio_3fam_ch_m$sample,]
 ISR_sal_3fam_prab_ch_m <- ISR_sal_3fam_prab_ch_m[,colSums(ISR_sal_3fam_prab_ch_m) > 0]
 dim(ISR_sal_3fam_prab_ch_m) # 44 740
 ```
 
-```
-## [1]  44 740
-```
+    ## [1]  44 740
 
-```r
+``` r
 # Siblings comparisons
 
 # Subset Counts
@@ -1106,20 +968,16 @@ ISR_sal_sibs <- ISR_sal_sibs[,colSums(ISR_sal_sibs) > 0]
 dim(ISR_sal_sibs) # 32 532
 ```
 
-```
-## [1]  32 535
-```
+    ## [1]  32 535
 
-```r
+``` r
 # sanity check
 all(row.names(ISR_sal_sibs) == ISR_sal_meta_bio_sibs$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
-```r
+``` r
 # Pr/Ab Analysis
 # Rarefy counts
 set.seed(12345); ISR_sal_sibs_rar <- as.data.frame(rrarefy(ISR_sal_sibs, min(rowSums(ISR_sal_sibs))))
@@ -1142,20 +1000,16 @@ ISR_sal_cpls <- ISR_sal_cpls[,colSums(ISR_sal_cpls) > 0]
 dim(ISR_sal_cpls) #  44 746
 ```
 
-```
-## [1]  44 749
-```
+    ## [1]  44 749
 
-```r
+``` r
 # sanity check
 all(row.names(ISR_sal_cpls) == ISR_sal_meta_bio_cpls$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
-```r
+``` r
 # Pr/Ab Analysis
 # Rarefy counts
 set.seed(12345); ISR_sal_cpls_rar <- as.data.frame(rrarefy(ISR_sal_cpls, min(rowSums(ISR_sal_cpls))))
@@ -1189,15 +1043,13 @@ ISR_sal_3fam_all_plot_tr$grp <- factor(ISR_sal_3fam_all_plot_tr$grp, levels=leve
 levels(ISR_sal_3fam_all_plot_tr$grp)
 ```
 
-```
-## [1] "Tech. Replicates"       "Siblings"              
-## [3] "Couples"                "Child-Mother"          
-## [5] "Child-Father"           "Unrelated Adults"      
-## [7] "Unrelated Children"     "Unrelated Child-Mother"
-## [9] "Unrelated Child-Father"
-```
+    ## [1] "Tech. Replicates"       "Siblings"              
+    ## [3] "Couples"                "Child-Mother"          
+    ## [5] "Child-Father"           "Unrelated Adults"      
+    ## [7] "Unrelated Children"     "Unrelated Child-Mother"
+    ## [9] "Unrelated Child-Father"
 
-```r
+``` r
 # "Tech. Replicates"       "Siblings"               "Couples"                "Child-Mother"           "Child-Father"           "Unrelated Adults"       "Unrelated Children"     "Unrelated Child-Mother"
 # "Unrelated Child-Father"
 
@@ -1205,15 +1057,13 @@ ISR_sal_3fam_all_plot_tr$grp <- factor(ISR_sal_3fam_all_plot_tr$grp, levels(ISR_
 levels(ISR_sal_3fam_all_plot_tr$grp)
 ```
 
-```
-## [1] "Siblings"               "Couples"               
-## [3] "Child-Mother"           "Child-Father"          
-## [5] "Unrelated Adults"       "Unrelated Children"    
-## [7] "Unrelated Child-Mother" "Unrelated Child-Father"
-## [9] "Tech. Replicates"
-```
+    ## [1] "Siblings"               "Couples"               
+    ## [3] "Child-Mother"           "Child-Father"          
+    ## [5] "Unrelated Adults"       "Unrelated Children"    
+    ## [7] "Unrelated Child-Mother" "Unrelated Child-Father"
+    ## [9] "Tech. Replicates"
 
-```r
+``` r
 # "Siblings"               "Couples"                "Child-Mother"           "Child-Father"           "Unrelated Adults"       "Unrelated Children"     "Unrelated Child-Mother" "Unrelated Child-Father"
 # "Tech. Replicates"
 
@@ -1221,8 +1071,7 @@ levels(ISR_sal_3fam_all_plot_tr$grp)
 ISR_sal_fam_dists_cols_TR <- c("#CD9600", "#F8766D", "#7CAE00", "#00BE67", "#B7A09E", "#B0A68A", "#7F8D5D", "#8AAD9D", "white") 
 ```
 
-
-```r
+``` r
 # Swab ISR 3Fam Violin Plot with Jitters
 ggplot(ISR_sal_3fam_all_plot_tr, aes(x=grp, y = value)) + geom_violin(alpha=0.9, width=0.95, lwd=0.1,  aes(fill=grp), position = ) + 
   geom_boxplot(data=ISR_sal_3fam_all_plot_tr[ISR_sal_3fam_all_plot_tr$grp != "Tech. Replicates", ], alpha=0.2, width=0.1, lwd=0.2, outlier.shape = NA) + 
@@ -1236,193 +1085,154 @@ ggplot(ISR_sal_3fam_all_plot_tr, aes(x=grp, y = value)) + geom_violin(alpha=0.9,
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-23-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_Swab_extended_violin_cpl_chm_final.pdf", width = 9, height = 3.5, units = "in")
 ```
 
-
-
-```r
+``` r
 # Statistics Calculations 
 
 # Child-Father vs Child-Mother using Wilcox Test
 wilcox_pval_star(ISR_sal_3fam_prab_sfd_cfm$value, ISR_sal_3fam_prab_sfd_cfm$grp)$pval_star # ns
 ```
 
-```
-## [1] "ns"
-```
+    ## [1] "ns"
 
-```r
+``` r
 # Couples vs Siblings
 ISR_sal_sfd_cpls_sibs <- rbind(ISR_sal_sibs_prab_sfd, ISR_sal_cpls_prab_sfd)
 unique(ISR_sal_sfd_cpls_sibs$grp) # "Siblings" "Couples" 
 ```
 
-```
-## [1] "Siblings" "Couples"
-```
+    ## [1] "Siblings" "Couples"
 
-```r
+``` r
 wilcox_pval_star(ISR_sal_sfd_cpls_sibs$value, ISR_sal_sfd_cpls_sibs$grp)$pval_star # ns
 ```
 
-```
-## [1] "ns"
-```
+    ## [1] "ns"
 
-```r
+``` r
 # Couples vs Child-Mother
 ISR_sal_sfd_cpls_cm <- rbind(ISR_sal_cpls_prab_sfd, ISR_sal_3fam_prab_sfd_cfm[ISR_sal_3fam_prab_sfd_cfm$grp == "Child-Mother", ])
 unique(ISR_sal_sfd_cpls_cm$grp) # ""Couples"      "Child-Mother"
 ```
 
-```
-## [1] "Couples"      "Child-Mother"
-```
+    ## [1] "Couples"      "Child-Mother"
 
-```r
+``` r
 wilcox_pval_star(ISR_sal_sfd_cpls_cm$value, ISR_sal_sfd_cpls_cm$grp)$pval_star # ***
 ```
 
-```
-## [1] "***"
-```
+    ## [1] "***"
 
-```r
+``` r
 # Couples vs Child-Father
 ISR_sal_sfd_cpls_cf <- rbind(ISR_sal_cpls_prab_sfd, ISR_sal_3fam_prab_sfd_cfm[ISR_sal_3fam_prab_sfd_cfm$grp == "Child-Father", ])
 unique(ISR_sal_sfd_cpls_cf$grp) # "Couples"      "Child-Father"
 ```
 
-```
-## [1] "Couples"      "Child-Father"
-```
+    ## [1] "Couples"      "Child-Father"
 
-```r
+``` r
 wilcox_pval_star(ISR_sal_sfd_cpls_cf$value, ISR_sal_sfd_cpls_cf$grp)$pval_star # ***
 ```
 
-```
-## [1] "***"
-```
+    ## [1] "***"
 
-```r
+``` r
 # Siblings vs Child-Mother
 ISR_sal_sfd_sibs_cm <- rbind(ISR_sal_sibs_prab_sfd, ISR_sal_3fam_prab_sfd_cfm[ISR_sal_3fam_prab_sfd_cfm$grp == "Child-Mother", ])
 unique(ISR_sal_sfd_sibs_cm$grp) # "Siblings"      "Child-Mother"
 ```
 
-```
-## [1] "Siblings"     "Child-Mother"
-```
+    ## [1] "Siblings"     "Child-Mother"
 
-```r
+``` r
 wilcox_pval_star(ISR_sal_sfd_sibs_cm$value, ISR_sal_sfd_sibs_cm$grp)$pval_star # *
 ```
 
-```
-## [1] "*"
-```
+    ## [1] "*"
 
-```r
+``` r
 # Siblings vs Child-Father
 ISR_sal_sfd_sibs_cf <- rbind(ISR_sal_sibs_prab_sfd, ISR_sal_3fam_prab_sfd_cfm[ISR_sal_3fam_prab_sfd_cfm$grp == "Child-Father", ])
 unique(ISR_sal_sfd_sibs_cf$grp) # "Siblings"      "Child-Father"
 ```
 
-```
-## [1] "Siblings"     "Child-Father"
-```
+    ## [1] "Siblings"     "Child-Father"
 
-```r
+``` r
 wilcox_pval_star(ISR_sal_sfd_sibs_cf$value, ISR_sal_sfd_sibs_cf$grp)$pval_star # *
 ```
 
-```
-## [1] "*"
-```
+    ## [1] "*"
 
-```r
+``` r
 # Couples vs Unrelated Adults using Permutation test
 perm_p_value(ISR_sal_cpls_prab, "bray")$pval_star # ***
 ```
 
-```
-## [1] "***"
-```
+    ## [1] "***"
 
-```r
+``` r
 # Sibs vs unrelated children using Permutation test
 perm_p_value(ISR_sal_sibs_prab, "bray")$pval_star # ***
 ```
 
-```
-## [1] "***"
-```
+    ## [1] "***"
 
-```r
+``` r
 # Child-Father vs unrelated Child-Father using Permutation test
 perm_p_value(ISR_sal_3fam_prab_ch_f, "bray")$pval_star # *
 ```
 
-```
-## [1] "*"
-```
+    ## [1] "*"
 
-```r
+``` r
 # Child-Mother vs unrelated Child-Mother using Permutation test
 perm_p_value(ISR_sal_3fam_prab_ch_m, "bray")$pval_star # **
 ```
 
-```
-## [1] "**"
-```
+    ## [1] "**"
 
+11. ISR Sal M-Ch Levels (Supplementary)
+=======================================
 
+Saliva/Swab Samples
+===================
 
-# 11. ISR Sal M-Ch Levels  (Supplementary)
+<br> \#\#\# Computing Mother-Child Distances <br>
 
-# Saliva/Swab Samples
-<br>
-### Computing Mother-Child Distances
-<br>
-
-```r
+``` r
 # Convert to percentage (relative abundance/levels)
 ISR_sal_mch_pct <- decostand(ISR_sal_mch, method = "total")
 dim(ISR_sal_mch_pct) # 206 1906
 ```
 
-```
-## [1]  206 1913
-```
+    ## [1]  206 1913
 
-```r
+``` r
 # Bio
 ISR_sal_mch_pct_bio <- ISR_sal_mch_pct[row.names(ISR_sal_mch_pct) %in% ISR_sal_meta_mch$sample[ISR_sal_meta_mch$status == "Biological"], ]
 ISR_sal_mch_pct_bio <- ISR_sal_mch_pct_bio[,colSums(ISR_sal_mch_pct_bio) > 0]
 dim(ISR_sal_mch_pct_bio) # 108 1340
 ```
 
-```
-## [1]  108 1345
-```
+    ## [1]  108 1345
 
-```r
+``` r
 # Adp
 ISR_sal_mch_pct_adp <- ISR_sal_mch_pct[row.names(ISR_sal_mch_pct) %in% ISR_sal_meta_mch$sample[ISR_sal_meta_mch$status == "Adopted"], ]
 ISR_sal_mch_pct_adp <- ISR_sal_mch_pct_adp[,colSums(ISR_sal_mch_pct_adp) > 0]
 dim(ISR_sal_mch_pct_adp) # 98 1308
 ```
 
-```
-## [1]   98 1310
-```
+    ## [1]   98 1310
 
-```r
+``` r
 # Compute distances and melt
 ISR_sal_mch_pct_sfd <- AD.melt.dist.sf(ISR_sal_mch_pct, ISR_sal_meta_mch)$dmsf
 
@@ -1467,21 +1277,18 @@ ISR_sal_mch_pct_adp_perm_pval_star <- perm_p_value(ISR_sal_mch_pct_adp,"bray")$p
 ```
 
 <br>
-  
+
 #### Plot Violin + Boxplot + jitter
-<br>
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
+
+<br> ![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-26-1.png)
 
 #### Add for sub and sup
 
-
-
-
 ### ISR Saliva Distance Comparisons using Jaccard Dissimilarities
-<br>
-  
 
-```r
+<br>
+
+``` r
 # Compute distances and melt
 ISR_sal_mch_prab_sfd_jc <- AD.melt.dist.sf(ISR_sal_mch_prab, ISR_sal_meta_mch)$jmsf
 
@@ -1526,11 +1333,12 @@ ISR_sal_mch_prab_adp_perm_pval_star_jc <- perm_p_value(ISR_sal_mch_prab_adp,"jac
 ```
 
 <br>
-  
+
 #### Plot Violin + Boxplot + jitter
+
 <br>
 
-```r
+``` r
 ggplot(ISR_sal_mch_prab_sdfd_jc, aes(x=status, y = value)) + geom_violin(alpha=0.7, width=0.95, lwd=0.1,  aes(fill=status)) + 
   scale_fill_manual(values=c("cornflowerblue", "blueviolet", "#7B8492", "#827290")) +  geom_boxplot(alpha=0.1, width=0.25, lwd=0.2, outlier.shape = NA) +
   geom_jitter(data=ISR_sal_mch_prab_sfd_jc, alpha=0.75, size=0.3, width = 0.05, height = 0) + scale_x_discrete(labels=function(x){sub("\\s", "\n", x)}) +
@@ -1549,21 +1357,16 @@ ggplot(ISR_sal_mch_prab_sdfd_jc, aes(x=status, y = value)) + geom_violin(alpha=0
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-28-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-28-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sal_mch_violin_jitter_jaccard.pdf", width = 3.5, height = 5.2, units = "in")
 ```
 
+Analysis by Species
+===================
 
-
-
-
-
-# Analysis by Species
-
-
-```r
+``` r
 # Load ISR db tax file
 ISR_db_tax <- read.table(file="Input_files/ISR_db_oct2018_tax.txt", header=T, sep="\t")
 
@@ -1572,11 +1375,9 @@ ISR_blastres_sal <- read.table(file="Input_files/ISR_sal_blast_top2.txt", header
 dim(ISR_blastres_sal) # 2094 x 6 (Includes ALL ASVs)
 ```
 
-```
-## [1] 2094    6
-```
+    ## [1] 2094    6
 
-```r
+``` r
 colnames(ISR_blastres_sal) <- c("db1","score1","m_size1","db2","score2","m_size2")
 
 # Adding OTUs
@@ -1589,11 +1390,9 @@ ISR_blast_matches_sal_92 <- ISR_blastres_sal[ISR_blastres_sal$score1 >= 0.92,]
 nrow(ISR_blast_matches_sal_92)/nrow(ISR_blastres_sal)*100 # 69.1% over 92% matched
 ```
 
-```
-## [1] 69.1022
-```
+    ## [1] 69.1022
 
-```r
+``` r
 ISR_blast_matches_sal <- ISR_blast_matches_sal_92
 
 # Subset counts to include those ASVs matched at 90% or more with ISRdb
@@ -1601,22 +1400,18 @@ ISR_sal_matched <- ISR_sal[,colnames(ISR_sal) %in% row.names(ISR_blast_matches_s
 dim(ISR_sal_matched) # 262 1447
 ```
 
-```
-## [1]  262 1447
-```
+    ## [1]  262 1447
 
-```r
+``` r
 # Making strain table
 strain_table_sal <- data.frame(sort(table(droplevels(ISR_blast_matches_sal$otu1)), decreasing = T), check.names = F)
 colnames(strain_table_sal) <- c("spOTU","ISR_types")
 dim(strain_table_sal) # 73 x 2 (73 species)
 ```
 
-```
-## [1] 73  2
-```
+    ## [1] 73  2
 
-```r
+``` r
 # Melt as matrix and add OTU info
 AD_ISR_sal_m <- melt(as.matrix(ISR_sal_matched))
 AD_ISR_sal_m$otu <- ISR_blast_matches_sal$otu1[match(AD_ISR_sal_m$Var2, row.names(ISR_blast_matches_sal))]
@@ -1629,11 +1424,9 @@ AD_ISR_sal_m_otu$Sample <- NULL
 dim(AD_ISR_sal_m_otu) #  262 x 73
 ```
 
-```
-## [1] 262  73
-```
+    ## [1] 262  73
 
-```r
+``` r
 # Add count data to Strain table
 strain_table_sal$Counts <- colSums(AD_ISR_sal_m_otu)[match(strain_table_sal$spOTU, colnames(AD_ISR_sal_m_otu))]
 
@@ -1651,43 +1444,39 @@ strain_table_sal$per_tot <- round(strain_table_sal$Counts/sum(strain_table_sal$C
 head(strain_table_sal)
 ```
 
-```
-##                                            spOTU ISR_types  Counts
-## 1                            Rothia mucilaginosa       200 1184568
-## 2                        Granulicatella adiacens       197  277379
-## 3 Streptococcus mitis pneumoniae infantis oralis       179 3385120
-## 4                            Moraxella osloensis       109   38024
-## 5             Veillonella atypica dispar parvula       102   39609
-## 6                    Streptococcus parasanguinis        85  327195
-##   Prevalence prev_perc per_tot
-## 1        259     98.85   19.11
-## 2        259     98.85    4.47
-## 3        262    100.00   54.61
-## 4        119     45.42    0.61
-## 5        218     83.21    0.64
-## 6        250     95.42    5.28
-```
+    ##                                            spOTU ISR_types  Counts
+    ## 1                            Rothia mucilaginosa       200 1184568
+    ## 2                        Granulicatella adiacens       197  277379
+    ## 3 Streptococcus mitis pneumoniae infantis oralis       179 3385120
+    ## 4                            Moraxella osloensis       109   38024
+    ## 5             Veillonella atypica dispar parvula       102   39609
+    ## 6                    Streptococcus parasanguinis        85  327195
+    ##   Prevalence prev_perc per_tot
+    ## 1        259     98.85   19.11
+    ## 2        259     98.85    4.47
+    ## 3        262    100.00   54.61
+    ## 4        119     45.42    0.61
+    ## 5        218     83.21    0.64
+    ## 6        250     95.42    5.28
 
-```r
+``` r
 # top 10 most abundant genera
 strain_table_sal[order(strain_table_sal$per_tot, decreasing = T),]$spOTU[1:10]
 ```
 
-```
-##  [1] Streptococcus mitis pneumoniae infantis oralis
-##  [2] Rothia mucilaginosa                           
-##  [3] Streptococcus vestibularis salivarius         
-##  [4] Streptococcus parasanguinis                   
-##  [5] Granulicatella adiacens                       
-##  [6] Streptococcus australis                       
-##  [7] Streptococcus sanguinis                       
-##  [8] Gemella sanguinis                             
-##  [9] Atopobium parvulum                            
-## [10] Veillonella atypica dispar parvula            
-## 73 Levels: Rothia mucilaginosa ... Staphylococcus epidermidis
-```
+    ##  [1] Streptococcus mitis pneumoniae infantis oralis
+    ##  [2] Rothia mucilaginosa                           
+    ##  [3] Streptococcus vestibularis salivarius         
+    ##  [4] Streptococcus parasanguinis                   
+    ##  [5] Granulicatella adiacens                       
+    ##  [6] Streptococcus australis                       
+    ##  [7] Streptococcus sanguinis                       
+    ##  [8] Gemella sanguinis                             
+    ##  [9] Atopobium parvulum                            
+    ## [10] Veillonella atypica dispar parvula            
+    ## 73 Levels: Rothia mucilaginosa ... Staphylococcus epidermidis
 
-```r
+``` r
  # [1] Streptococcus mitis pneumoniae infantis oralis Rothia mucilaginosa                            Streptococcus vestibularis salivarius          Streptococcus parasanguinis                   
  # [5] Granulicatella adiacens                        Streptococcus australis                        Streptococcus sanguinis                        Gemella sanguinis                             
  # [9] Atopobium parvulum                             Veillonella atypica dispar parvula 
@@ -1704,221 +1493,146 @@ ISR_sal_matched_mch <- ISR_sal_matched_mch[,colSums(ISR_sal_matched_mch) > 0]
 dim(ISR_sal_matched_mch) # 205 1344
 ```
 
-```
-## [1]  205 1344
-```
+    ## [1]  205 1344
 
-
-```r
+``` r
 # Compute distances for each species (10 most abundant in the saliva dataset)
 mitis_grp_species_sal_prab_sfd <- species_dist_calc_sal("Streptococcus mitis pneumoniae infantis oralis")
 Rothia_m_species_sal_prab_sfd <- species_dist_calc_sal("Rothia mucilaginosa")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Strep_vs_species_sal_prab_sfd <- species_dist_calc_sal("Streptococcus vestibularis salivarius")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Strep_para_species_sal_prab_sfd <- species_dist_calc_sal("Streptococcus parasanguinis")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Gran_ad_species_sal_prab_sfd <- species_dist_calc_sal("Granulicatella adiacens")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Strep_aus_species_sal_prab_sfd <- species_dist_calc_sal("Streptococcus australis")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Strep_sang_species_sal_prab_sfd <- species_dist_calc_sal("Streptococcus sanguinis")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Gem_sang_species_sal_prab_sfd <- species_dist_calc_sal("Gemella sanguinis")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Ato_par_species_sal_prab_sfd <- species_dist_calc_sal("Atopobium parvulum")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 Veillonella_adp_sal_prab_sfd <- species_dist_calc_sal("Veillonella atypica dispar parvula")
 ```
 
-```
-## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
-## dissimilarities may be meaningless in method "bray"
-```
+    ## Warning in vegdist(asv_table, method = "bray"): you have empty rows: their
+    ## dissimilarities may be meaningless in method "bray"
 
-```
-## Warning in vegdist(asv_table, method = "bray"): missing values in results
-```
+    ## Warning in vegdist(asv_table, method = "bray"): missing values in results
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
-## their dissimilarities may be meaningless in method "jaccard"
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): you have empty rows:
+    ## their dissimilarities may be meaningless in method "jaccard"
 
-```
-## Warning in vegdist(asv_table, method = "jaccard"): missing values in
-## results
-```
+    ## Warning in vegdist(asv_table, method = "jaccard"): missing values in
+    ## results
 
-```r
+``` r
 # For combined visualization
 # Combined Distances
 Combined_sp_dists_sal <- rbind(mitis_grp_species_sal_prab_sfd, Rothia_m_species_sal_prab_sfd, Strep_para_species_sal_prab_sfd, Strep_vs_species_sal_prab_sfd,
@@ -1956,35 +1670,29 @@ boxp_sal_strains_poster_build$data[[3]]$label <- paste0("q = ", signif(p.adjust(
 plot(ggplot_gtable(boxp_sal_strains_poster_build))
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-30-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-30-1.png)
 
-```r
+``` r
 # Save
 #ggsave(file="output/ISR swab species comp status.pdf", ggplot_gtable(boxp_sal_strains_poster_build), width = 15, height = 10, units = "in")
 ```
 
-
-
-
-
-
-
-# 16S Analysis
+16S Analysis
+============
 
 ### Input counts
 
-```r
+``` r
 AD_core_counts <- read.table(file="Input_files/AD_core_counts.txt", sep="\t", header = T)
 dim(AD_core_counts) # 709 x 581
 ```
 
-```
-## [1] 709 581
-```
+    ## [1] 709 581
 
-# 16S Core ALL Sites Mother-Child NMDS
+16S Core ALL Sites Mother-Child NMDS
+====================================
 
-```r
+``` r
 # Create table for all core samples sequenced
 all_site_samples_core <- data.frame(row.names(AD_core_counts))
 colnames(all_site_samples_core) <- "samples"
@@ -2006,24 +1714,12 @@ all_site_samples_core$site[grepl("_S", all_site_samples_core$site)] <- "Soft Tis
 # Subset for mother and child only
 all_site_samples_core_mch <- all_site_samples_core[all_site_samples_core$type == "Mother" | all_site_samples_core$type == "Child", ]
 nrow(all_site_samples_core_mch) # 645
-```
 
-```
-## [1] 645
-```
-
-```r
 # Subset counts
 core_all_sites_mch_counts <- AD_core_counts[row.names(AD_core_counts) %in% all_site_samples_core_mch$samples, ]
 core_all_sites_mch_counts <- core_all_sites_mch_counts[,colSums(core_all_sites_mch_counts) > 0]
 dim(core_all_sites_mch_counts) # 645 580
-```
 
-```
-## [1] 645 580
-```
-
-```r
 # Rarefy counts
 set.seed(12345); core_all_sites_mch_counts_rar <- as.data.frame(rrarefy(core_all_sites_mch_counts, min(rowSums(core_all_sites_mch_counts))))
 
@@ -2032,219 +1728,7 @@ core_all_sites_mch_counts_prab <- data.frame((core_all_sites_mch_counts_rar > 0)
 
 # Compute NMDS
 set.seed(12345); core_all_sites_mch_counts_prab.mds <- metaMDS(core_all_sites_mch_counts_prab, trymax = 200, autotransform = F, wascores = F)
-```
 
-```
-## Run 0 stress 0.2000899 
-## Run 1 stress 0.2029208 
-## Run 2 stress 0.2037689 
-## Run 3 stress 0.203338 
-## Run 4 stress 0.201941 
-## Run 5 stress 0.2057397 
-## Run 6 stress 0.2101742 
-## Run 7 stress 0.2103716 
-## Run 8 stress 0.2059419 
-## Run 9 stress 0.2066565 
-## Run 10 stress 0.2094519 
-## Run 11 stress 0.20819 
-## Run 12 stress 0.2065411 
-## Run 13 stress 0.2055702 
-## Run 14 stress 0.2043458 
-## Run 15 stress 0.2022976 
-## Run 16 stress 0.2110305 
-## Run 17 stress 0.2015001 
-## Run 18 stress 0.2070871 
-## Run 19 stress 0.2038381 
-## Run 20 stress 0.2017818 
-## Run 21 stress 0.2048511 
-## Run 22 stress 0.2068327 
-## Run 23 stress 0.2052456 
-## Run 24 stress 0.2004435 
-## ... Procrustes: rmse 0.007944183  max resid 0.170963 
-## Run 25 stress 0.2036036 
-## Run 26 stress 0.2066316 
-## Run 27 stress 0.2072923 
-## Run 28 stress 0.2025129 
-## Run 29 stress 0.207652 
-## Run 30 stress 0.2050246 
-## Run 31 stress 0.2027743 
-## Run 32 stress 0.2055777 
-## Run 33 stress 0.2065703 
-## Run 34 stress 0.2093467 
-## Run 35 stress 0.2080104 
-## Run 36 stress 0.2060584 
-## Run 37 stress 0.2027967 
-## Run 38 stress 0.2007476 
-## Run 39 stress 0.2038449 
-## Run 40 stress 0.2055365 
-## Run 41 stress 0.2035574 
-## Run 42 stress 0.212002 
-## Run 43 stress 0.2048046 
-## Run 44 stress 0.201773 
-## Run 45 stress 0.2078782 
-## Run 46 stress 0.2044099 
-## Run 47 stress 0.2059259 
-## Run 48 stress 0.2034761 
-## Run 49 stress 0.2089298 
-## Run 50 stress 0.2073843 
-## Run 51 stress 0.2139915 
-## Run 52 stress 0.2019331 
-## Run 53 stress 0.208366 
-## Run 54 stress 0.2027712 
-## Run 55 stress 0.2031791 
-## Run 56 stress 0.2017655 
-## Run 57 stress 0.2052746 
-## Run 58 stress 0.2053493 
-## Run 59 stress 0.2023191 
-## Run 60 stress 0.2046194 
-## Run 61 stress 0.2071667 
-## Run 62 stress 0.2014699 
-## Run 63 stress 0.2050245 
-## Run 64 stress 0.2075413 
-## Run 65 stress 0.2020689 
-## Run 66 stress 0.2020124 
-## Run 67 stress 0.2055003 
-## Run 68 stress 0.2069167 
-## Run 69 stress 0.206556 
-## Run 70 stress 0.2112907 
-## Run 71 stress 0.2040323 
-## Run 72 stress 0.2131016 
-## Run 73 stress 0.2090167 
-## Run 74 stress 0.207227 
-## Run 75 stress 0.207999 
-## Run 76 stress 0.2040399 
-## Run 77 stress 0.2079172 
-## Run 78 stress 0.2081443 
-## Run 79 stress 0.2048782 
-## Run 80 stress 0.2029702 
-## Run 81 stress 0.2075266 
-## Run 82 stress 0.2016992 
-## Run 83 stress 0.2065862 
-## Run 84 stress 0.2062476 
-## Run 85 stress 0.2017895 
-## Run 86 stress 0.205372 
-## Run 87 stress 0.204519 
-## Run 88 stress 0.2082211 
-## Run 89 stress 0.214838 
-## Run 90 stress 0.2061196 
-## Run 91 stress 0.2044595 
-## Run 92 stress 0.2051724 
-## Run 93 stress 0.2026875 
-## Run 94 stress 0.205455 
-## Run 95 stress 0.2039042 
-## Run 96 stress 0.2053951 
-## Run 97 stress 0.2045672 
-## Run 98 stress 0.2016646 
-## Run 99 stress 0.2034227 
-## Run 100 stress 0.2030358 
-## Run 101 stress 0.2040375 
-## Run 102 stress 0.2019415 
-## Run 103 stress 0.2027616 
-## Run 104 stress 0.2006677 
-## Run 105 stress 0.2057099 
-## Run 106 stress 0.2038283 
-## Run 107 stress 0.2027588 
-## Run 108 stress 0.2032831 
-## Run 109 stress 0.2084001 
-## Run 110 stress 0.2043489 
-## Run 111 stress 0.2063571 
-## Run 112 stress 0.2011887 
-## Run 113 stress 0.2076934 
-## Run 114 stress 0.2035063 
-## Run 115 stress 0.2036668 
-## Run 116 stress 0.2065295 
-## Run 117 stress 0.2109063 
-## Run 118 stress 0.2065714 
-## Run 119 stress 0.2012746 
-## Run 120 stress 0.2100097 
-## Run 121 stress 0.2013659 
-## Run 122 stress 0.2053444 
-## Run 123 stress 0.2022433 
-## Run 124 stress 0.2036996 
-## Run 125 stress 0.2022958 
-## Run 126 stress 0.2080737 
-## Run 127 stress 0.2037828 
-## Run 128 stress 0.2014728 
-## Run 129 stress 0.2004949 
-## ... Procrustes: rmse 0.01002273  max resid 0.1712707 
-## Run 130 stress 0.2068459 
-## Run 131 stress 0.2042737 
-## Run 132 stress 0.2021117 
-## Run 133 stress 0.2089447 
-## Run 134 stress 0.2078752 
-## Run 135 stress 0.2076679 
-## Run 136 stress 0.2052132 
-## Run 137 stress 0.2072161 
-## Run 138 stress 0.2059962 
-## Run 139 stress 0.2062861 
-## Run 140 stress 0.2048572 
-## Run 141 stress 0.2034048 
-## Run 142 stress 0.210753 
-## Run 143 stress 0.2067307 
-## Run 144 stress 0.2034435 
-## Run 145 stress 0.2024151 
-## Run 146 stress 0.2023475 
-## Run 147 stress 0.2043445 
-## Run 148 stress 0.2080105 
-## Run 149 stress 0.2067321 
-## Run 150 stress 0.2077221 
-## Run 151 stress 0.2035631 
-## Run 152 stress 0.2066839 
-## Run 153 stress 0.2045017 
-## Run 154 stress 0.2057666 
-## Run 155 stress 0.2043068 
-## Run 156 stress 0.20544 
-## Run 157 stress 0.2021965 
-## Run 158 stress 0.2031249 
-## Run 159 stress 0.2049755 
-## Run 160 stress 0.2067257 
-## Run 161 stress 0.209373 
-## Run 162 stress 0.208029 
-## Run 163 stress 0.2074374 
-## Run 164 stress 0.2071412 
-## Run 165 stress 0.2026883 
-## Run 166 stress 0.2041318 
-## Run 167 stress 0.2095419 
-## Run 168 stress 0.2057147 
-## Run 169 stress 0.2079983 
-## Run 170 stress 0.2023822 
-## Run 171 stress 0.2059866 
-## Run 172 stress 0.2012406 
-## Run 173 stress 0.2040909 
-## Run 174 stress 0.2019899 
-## Run 175 stress 0.2048283 
-## Run 176 stress 0.2094401 
-## Run 177 stress 0.2022873 
-## Run 178 stress 0.2055284 
-## Run 179 stress 0.2032188 
-## Run 180 stress 0.206721 
-## Run 181 stress 0.2090573 
-## Run 182 stress 0.2152622 
-## Run 183 stress 0.2079685 
-## Run 184 stress 0.2019102 
-## Run 185 stress 0.2084268 
-## Run 186 stress 0.2050913 
-## Run 187 stress 0.2109942 
-## Run 188 stress 0.2046879 
-## Run 189 stress 0.2032778 
-## Run 190 stress 0.204492 
-## Run 191 stress 0.2081349 
-## Run 192 stress 0.2024004 
-## Run 193 stress 0.2033265 
-## Run 194 stress 0.2088097 
-## Run 195 stress 0.208512 
-## Run 196 stress 0.2020751 
-## Run 197 stress 0.2015556 
-## Run 198 stress 0.2014613 
-## Run 199 stress 0.2031321 
-## Run 200 stress 0.2023226 
-## *** No convergence -- monoMDS stopping criteria:
-##      2: no. of iterations >= maxit
-##    196: stress ratio > sratmax
-##      2: scale factor of the gradient < sfgrmin
-```
-
-```r
 # Making dataframe for plotting
 core_all_sites_mch_counts_prab.mds.df <- data.frame(scores(core_all_sites_mch_counts_prab.mds, display = 'sites'))
 
@@ -2255,87 +1739,35 @@ core_all_sites_mch_counts_prab.mds.df$site <- all_site_samples_core$site[match(r
 
 # Permanova
 set.seed(12345); (core_all_sites_mch_mds_df.mch.perm <- adonis(formula = core_all_sites_mch_counts_prab ~ core_all_sites_mch_counts_prab.mds.df$type, strata =  core_all_sites_mch_counts_prab.mds.df$site)) 
-```
-
-```
-## 
-## Call:
-## adonis(formula = core_all_sites_mch_counts_prab ~ core_all_sites_mch_counts_prab.mds.df$type,      strata = core_all_sites_mch_counts_prab.mds.df$site) 
-## 
-## Blocks:  strata 
-## Permutation: free
-## Number of permutations: 999
-## 
-## Terms added sequentially (first to last)
-## 
-##                                             Df SumsOfSqs MeanSqs F.Model
-## core_all_sites_mch_counts_prab.mds.df$type   1     4.183  4.1829  42.458
-## Residuals                                  643    63.347  0.0985        
-## Total                                      644    67.530                
-##                                                 R2 Pr(>F)    
-## core_all_sites_mch_counts_prab.mds.df$type 0.06194  0.001 ***
-## Residuals                                  0.93806           
-## Total                                      1.00000           
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```r
 # 0.001 ***
 
 set.seed(12345); (core_all_sites_mch_mds_df.site.perm <- adonis(formula = core_all_sites_mch_counts_prab ~ core_all_sites_mch_counts_prab.mds.df$site, strata =  core_all_sites_mch_counts_prab.mds.df$type)) 
-```
-
-```
-## 
-## Call:
-## adonis(formula = core_all_sites_mch_counts_prab ~ core_all_sites_mch_counts_prab.mds.df$site,      strata = core_all_sites_mch_counts_prab.mds.df$type) 
-## 
-## Blocks:  strata 
-## Permutation: free
-## Number of permutations: 999
-## 
-## Terms added sequentially (first to last)
-## 
-##                                             Df SumsOfSqs MeanSqs F.Model
-## core_all_sites_mch_counts_prab.mds.df$site   2     8.160  4.0799  44.118
-## Residuals                                  642    59.371  0.0925        
-## Total                                      644    67.530                
-##                                                 R2 Pr(>F)    
-## core_all_sites_mch_counts_prab.mds.df$site 0.12083  0.001 ***
-## Residuals                                  0.87917           
-## Total                                      1.00000           
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
-
-```r
 # 0.001 ***
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-33-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-33-1.png)
 
 <br>
 
-## Mother-Child Plots
+Mother-Child Plots
+------------------
+
 <br>
 
 ### 16S Saliva Samples
+
 <br>
 
-
-```r
+``` r
 # For S samples
 core_sal <- AD_core_counts[grepl("_S", row.names(AD_core_counts)),]
 core_sal <- core_sal[,colSums(core_sal) > 0]
 dim(core_sal) # 240 469
 ```
 
-```
-## [1] 240 469
-```
+    ## [1] 240 469
 
-```r
+``` r
 # Remove "_S" from sample names to match meta
 row.names(core_sal) <- gsub("_S", "", row.names(core_sal))
 
@@ -2345,23 +1777,19 @@ core_sal_mch_all <- core_sal_mch_all[,colSums(core_sal_mch_all) > 0]
 dim(core_sal_mch_all) # 195 x 461
 ```
 
-```
-## [1] 195 461
-```
+    ## [1] 195 461
 
-```r
+``` r
 # Subset meta for sal mch dataset
 core_sal_meta_mch_all <- ISR_sal_meta_mch[ISR_sal_meta_mch$sample %in% row.names(core_sal_mch_all), ]
 table(core_sal_meta_mch_all$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                47                47                48                53
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                47                47                48                53
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     47                47               48                53
 
@@ -2372,50 +1800,42 @@ core_sal_meta_mch <- core_sal_meta_mch_all[!(core_sal_meta_mch_all$family_id %in
 table(core_sal_meta_mch$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                45                45                48                48
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                45                45                48                48
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     45                45                48                48 
 # Balanced
 nrow(core_sal_meta_mch) # 186
 ```
 
-```
-## [1] 186
-```
+    ## [1] 186
 
-```r
+``` r
 # Test age balance
 core_sal_meta_mch_ch <- core_sal_meta_mch[core_sal_meta_mch$type == "Child", ]
 wilcox.test(core_sal_meta_mch_ch$age ~ core_sal_meta_mch_ch$status, exact=F) # p-value = 0.3211 (Not Significant)
 ```
 
-```
-## 
-## 	Wilcoxon rank sum test with continuity correction
-## 
-## data:  core_sal_meta_mch_ch$age by core_sal_meta_mch_ch$status
-## W = 952.5, p-value = 0.3289
-## alternative hypothesis: true location shift is not equal to 0
-```
+    ## 
+    ##  Wilcoxon rank sum test with continuity correction
+    ## 
+    ## data:  core_sal_meta_mch_ch$age by core_sal_meta_mch_ch$status
+    ## W = 952.5, p-value = 0.3289
+    ## alternative hypothesis: true location shift is not equal to 0
 
-```r
+``` r
 # Subset counts for final comparison
 core_sal_mch <- core_sal_mch_all[row.names(core_sal_mch_all) %in% core_sal_meta_mch$sample, ]
 core_sal_mch <- core_sal_mch[, colSums(core_sal_mch) > 0]
 dim(core_sal_mch) # 186 458
 ```
 
-```
-## [1] 186 458
-```
+    ## [1] 186 458
 
-```r
+``` r
 # Re-order
 core_sal_mch <- core_sal_mch[order(row.names(core_sal_mch)), ]
 
@@ -2423,14 +1843,11 @@ core_sal_mch <- core_sal_mch[order(row.names(core_sal_mch)), ]
 all(row.names(core_sal_mch) == core_sal_meta_mch$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
-<br>
-#### Computing Mother-Child Distances
-<br>
+    ## [1] TRUE
 
-```r
+<br> \#\#\#\# Computing Mother-Child Distances <br>
+
+``` r
 # Pr/Ab Analysis
 # Rarefy counts
 set.seed(12345); core_sal_mch_rar <- as.data.frame(rrarefy(core_sal_mch, min(rowSums(core_sal_mch))))
@@ -2444,22 +1861,18 @@ core_sal_mch_prab_bio <- core_sal_mch_prab_bio[,colSums(core_sal_mch_prab_bio) >
 dim(core_sal_mch_prab_bio) # 96 360
 ```
 
-```
-## [1]  96 360
-```
+    ## [1]  96 360
 
-```r
+``` r
 # Adp
 core_sal_mch_prab_adp <- core_sal_mch_prab[row.names(core_sal_mch_prab) %in% core_sal_meta_mch$sample[core_sal_meta_mch$status == "Adopted"], ]
 core_sal_mch_prab_adp <- core_sal_mch_prab_adp[,colSums(core_sal_mch_prab_adp) > 0]
 dim(core_sal_mch_prab_adp) # 90 368
 ```
 
-```
-## [1]  90 368
-```
+    ## [1]  90 368
 
-```r
+``` r
 # Compute distances and melt
 core_sal_mch_prab_sfd <- AD.melt.dist.sf(core_sal_mch_prab, core_sal_meta_mch)$dmsf
 
@@ -2504,11 +1917,12 @@ core_sal_mch_prab_adp_perm_pval_star <- perm_p_value(core_sal_mch_prab_adp,"bray
 ```
 
 <br>
-  
+
 #### Plot Violin + Boxplot + jitter
+
 <br>
 
-```r
+``` r
 ggplot(core_sal_mch_prab_sdfd, aes(x=status, y = value)) + geom_violin(alpha=0.7, width=0.95, lwd=0.1,  aes(fill=status)) + 
   scale_fill_manual(values=c("cornflowerblue", "blueviolet", "#7B8492", "#827290")) +  geom_boxplot(alpha=0.1, width=0.25, lwd=0.2, outlier.shape = NA) +
   geom_jitter(data=core_sal_mch_prab_sfd, alpha=0.75, size=0.3, width = 0.05, height = 0) + scale_x_discrete(labels=function(x){sub("\\s", "\n", x)}) +
@@ -2527,32 +1941,30 @@ ggplot(core_sal_mch_prab_sdfd, aes(x=status, y = value)) + geom_violin(alpha=0.7
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-36-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-36-1.png)
 
-```r
+``` r
 #ggsave(file="output/core_sal_mch_violin_jitter_final.pdf", width = 3.5, height = 5.2, units = "in")
 ```
+
 <br>
 
 <br>
- 
+
 ### For P1 samples
 
 <br>
 
-
-```r
+``` r
 # For P1 samples
 core_sup <- AD_core_counts[grepl("_P1", row.names(AD_core_counts)),]
 core_sup <- core_sup[,colSums(core_sup) > 0]
 dim(core_sup) # 269 519
 ```
 
-```
-## [1] 241 514
-```
+    ## [1] 241 514
 
-```r
+``` r
 # Remove "_S" from sample names to match meta
 row.names(core_sup) <- gsub("_P1", "", row.names(core_sup))
 
@@ -2562,23 +1974,19 @@ core_sup_mch_all <- core_sup_mch_all[,colSums(core_sup_mch_all) > 0]
 dim(core_sup_mch_all) # 192 503
 ```
 
-```
-## [1] 192 503
-```
+    ## [1] 192 503
 
-```r
+``` r
 # Subset meta for sup mch dataset
 core_sup_meta_mch_all <- ISR_sup_meta_mch[ISR_sup_meta_mch$sample %in% row.names(core_sup_mch_all), ]
 table(core_sup_meta_mch_all$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                45                46                49                52
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                45                46                49                52
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     45                46               49                52
 
@@ -2589,50 +1997,42 @@ core_sup_meta_mch <- core_sup_meta_mch_all[!(core_sup_meta_mch_all$family_id %in
 table(core_sup_meta_mch$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                45                45                48                48
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                45                45                48                48
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     45                45                48                48 
 # Balanced
 nrow(core_sup_meta_mch) # 186
 ```
 
-```
-## [1] 186
-```
+    ## [1] 186
 
-```r
+``` r
 # Test age balance
 core_sup_meta_mch_ch <- core_sup_meta_mch[core_sup_meta_mch$type == "Child", ]
 wilcox.test(core_sup_meta_mch_ch$age ~ core_sup_meta_mch_ch$status, exact=F) # p-value = 0.4216 (Not Significant)
 ```
 
-```
-## 
-## 	Wilcoxon rank sum test with continuity correction
-## 
-## data:  core_sup_meta_mch_ch$age by core_sup_meta_mch_ch$status
-## W = 975.5, p-value = 0.424
-## alternative hypothesis: true location shift is not equal to 0
-```
+    ## 
+    ##  Wilcoxon rank sum test with continuity correction
+    ## 
+    ## data:  core_sup_meta_mch_ch$age by core_sup_meta_mch_ch$status
+    ## W = 975.5, p-value = 0.424
+    ## alternative hypothesis: true location shift is not equal to 0
 
-```r
+``` r
 # Subset counts for final comparison
 core_sup_mch <- core_sup_mch_all[row.names(core_sup_mch_all) %in% core_sup_meta_mch$sample, ]
 core_sup_mch <- core_sup_mch[, colSums(core_sup_mch) > 0]
 dim(core_sup_mch) # 186 502
 ```
 
-```
-## [1] 186 502
-```
+    ## [1] 186 502
 
-```r
+``` r
 # Re-order
 core_sup_mch <- core_sup_mch[order(row.names(core_sup_mch)), ]
 
@@ -2640,43 +2040,32 @@ core_sup_mch <- core_sup_mch[order(row.names(core_sup_mch)), ]
 all(row.names(core_sup_mch) == core_sup_meta_mch$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
-
+    ## [1] TRUE
 
 ### Computing Mother-Child Distances
 
-```
-## [1]  96 330
-```
+    ## [1]  96 330
 
-```
-## [1]  90 412
-```
-
+    ## [1]  90 412
 
 #### Plot Violin + Boxplot + jitter
-<br>
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-39-1.png)<!-- -->
-<br>
- 
+
+<br> ![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-39-1.png) <br>
+
 ### For P2 samples
 
 <br>
 
-```r
+``` r
 # For P2 samples
 core_sub <- AD_core_counts[grepl("_P2", row.names(AD_core_counts)),]
 core_sub <- core_sub[,colSums(core_sub) > 0]
 dim(core_sub) # 228 544
 ```
 
-```
-## [1] 228 544
-```
+    ## [1] 228 544
 
-```r
+``` r
 # Remove "_S" from sample names to match meta
 row.names(core_sub) <- gsub("_P2", "", row.names(core_sub))
 
@@ -2686,23 +2075,19 @@ core_sub_mch_all <- core_sub_mch_all[,colSums(core_sub_mch_all) > 0]
 dim(core_sub_mch_all) # 180 534
 ```
 
-```
-## [1] 180 534
-```
+    ## [1] 180 534
 
-```r
+``` r
 # Subset meta for sup mch dataset
 core_sub_meta_mch_all <- ISR_sub_meta_mch[ISR_sub_meta_mch$sample %in% row.names(core_sub_mch_all), ]
 table(core_sub_meta_mch_all$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                42                42                47                49
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                42                42                47                49
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     42                42               47                49
 
@@ -2713,50 +2098,42 @@ core_sub_meta_mch <- core_sub_meta_mch_all[!(core_sub_meta_mch_all$family_id %in
 table(core_sub_meta_mch$sub_type)
 ```
 
-```
-## 
-##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
-##                40                40                46                46
-```
+    ## 
+    ##     Adopted Child    Adopted Mother  Biological Child Biological Mother 
+    ##                40                40                46                46
 
-```r
+``` r
 # Adopted Child    Adopted Mother  Biological Child Biological Mother 
 #     40                40                46                46 
 # Balanced
 nrow(core_sub_meta_mch) # 172
 ```
 
-```
-## [1] 172
-```
+    ## [1] 172
 
-```r
+``` r
 # Test age balance
 core_sub_meta_mch_ch <- core_sub_meta_mch[core_sub_meta_mch$type == "Child", ]
 wilcox.test(core_sub_meta_mch_ch$age ~ core_sub_meta_mch_ch$status, exact=F) # p-value = 0.321 (Not Significant)
 ```
 
-```
-## 
-## 	Wilcoxon rank sum test with continuity correction
-## 
-## data:  core_sub_meta_mch_ch$age by core_sub_meta_mch_ch$status
-## W = 806.5, p-value = 0.3279
-## alternative hypothesis: true location shift is not equal to 0
-```
+    ## 
+    ##  Wilcoxon rank sum test with continuity correction
+    ## 
+    ## data:  core_sub_meta_mch_ch$age by core_sub_meta_mch_ch$status
+    ## W = 806.5, p-value = 0.3279
+    ## alternative hypothesis: true location shift is not equal to 0
 
-```r
+``` r
 # Subset counts for final comparison
 core_sub_mch <- core_sub_mch_all[row.names(core_sub_mch_all) %in% core_sub_meta_mch$sample, ]
 core_sub_mch <- core_sub_mch[, colSums(core_sub_mch) > 0]
 dim(core_sub_mch) # 172 533
 ```
 
-```
-## [1] 172 533
-```
+    ## [1] 172 533
 
-```r
+``` r
 # Re-order
 core_sub_mch <- core_sub_mch[order(row.names(core_sub_mch)), ]
 
@@ -2764,11 +2141,9 @@ core_sub_mch <- core_sub_mch[order(row.names(core_sub_mch)), ]
 all(row.names(core_sub_mch) == core_sub_meta_mch$sample) # TRUE
 ```
 
-```
-## [1] TRUE
-```
+    ## [1] TRUE
 
-```r
+``` r
 # Pr/Ab Analysis
 # Rarefy counts
 set.seed(12345); core_sub_mch_rar <- as.data.frame(rrarefy(core_sub_mch, min(rowSums(core_sub_mch))))
@@ -2779,24 +2154,19 @@ core_sub_mch_prab <- data.frame((core_sub_mch_rar > 0)*1)
 
 ### Computing Mother-Child Distances
 
-```
-## [1]  92 404
-```
+    ## [1]  92 404
 
-```
-## [1]  80 456
-```
+    ## [1]  80 456
+
 <br>
-  
+
 #### Plot Violin + Boxplot + jitter
-<br>
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-42-1.png)<!-- -->
 
-<br>
-#### For CORE Shared Strain Analysis
+<br> ![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-42-1.png)
 
+<br> \#\#\#\# For CORE Shared Strain Analysis
 
-```r
+``` r
 # Subset for mother
 core_sal_meta_mch_mo <- core_sal_meta_mch[core_sal_meta_mch$type == "Mother", ]
 nrow(core_sal_meta_mch_mo) # 93
@@ -2809,35 +2179,28 @@ write.table(core_sal_mch_prab_mo, file="output/core_sal_mch_prab_mo.txt", sep="\
 write.table(core_sal_mch_prab_ch, file="output/core_sal_mch_prab_ch.txt", sep="\t")
 ```
 
-
-
-## Effect of Breast Feeding and Delivery Mode
-
+Effect of Breast Feeding and Delivery Mode
+------------------------------------------
 
 ### Saliva Samples
 
 <br>
 
-
-```r
+``` r
 # Bio
 dim(ISR_sal_mch_prab_bio) # 108 1324
 ```
 
-```
-## [1]  108 1324
-```
+    ## [1]  108 1324
 
-```r
+``` r
 ISR_sal_meta_mch_bio <- ISR_sal_meta_mch[ISR_sal_meta_mch$status == "Biological", ]
 dim(ISR_sal_meta_mch_bio) # 108 x 24 (54 pairs)
 ```
 
-```
-## [1] 108  24
-```
+    ## [1] 108  24
 
-```r
+``` r
 # Compute distances and melt
 ISR_sal_mch_prab_bio_sfd <- AD.melt.dist.sf(ISR_sal_mch_prab_bio, ISR_sal_meta_mch_bio)$dmsf
 
@@ -2851,7 +2214,7 @@ ISR_sal_mch_prab_bio_sfd$del_mode <- ISR_sal_meta_mch_bio$del_mode[match(ISR_sal
 
 #### Plots
 
-```r
+``` r
 ggplot(ISR_sal_mch_prab_bio_sfd, aes(x=feed_mode, y = value)) + geom_violin(alpha=0.7, width=0.95, lwd=0.1,  aes(fill=feed_mode)) + 
   stat_compare_means(label.y = 0.4, label.x.npc = 0.5) +
   #scale_fill_manual(values=c("cornflowerblue", "blueviolet", "#7B8492", "#827290")) +  
@@ -2865,9 +2228,9 @@ ggplot(ISR_sal_mch_prab_bio_sfd, aes(x=feed_mode, y = value)) + geom_violin(alph
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-45-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-45-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sal_mch_feedmode.pdf", width = 3.5, height = 5.2, units = "in")
 
 
@@ -2884,38 +2247,32 @@ ggplot(ISR_sal_mch_prab_bio_sfd, aes(x=del_mode, y = value)) + geom_violin(alpha
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-45-2.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-45-2.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sal_mch_delmode.pdf", width = 3.5, height = 5.2, units = "in")
 ```
 
-
 ### Subgingival Samples
 
-
-```r
+``` r
 # Bio
 ISR_sub_meta_mch_bio <- ISR_sub_meta_mch[ISR_sub_meta_mch$status == "Biological", ]
 dim(ISR_sub_meta_mch_bio) # 102 x 24 (53 pairs)
 ```
 
-```
-## [1] 102  24
-```
+    ## [1] 102  24
 
-```r
+``` r
 # Subset counts
 ISR_sub_mch_prab_bio <- ISR_sub_mch[row.names(ISR_sub_mch) %in% ISR_sub_meta_mch_bio$sample, ]
 ISR_sub_mch_prab_bio <- ISR_sub_mch_prab_bio[, colSums(ISR_sub_mch_prab_bio) > 0]
 dim(ISR_sub_mch_prab_bio) # 102 2079
 ```
 
-```
-## [1]  102 2079
-```
+    ## [1]  102 2079
 
-```r
+``` r
 # Compute distances and melt
 ISR_sub_mch_prab_bio_sfd <- AD.melt.dist.sf(ISR_sub_mch_prab_bio, ISR_sub_meta_mch_bio)$dmsf
 #View(ISR_sub_mch_prab_bio_sfd)
@@ -2924,10 +2281,9 @@ ISR_sub_mch_prab_bio_sfd$feed_mode <- ISR_sub_meta_mch_bio$feed_mode[match(ISR_s
 ISR_sub_mch_prab_bio_sfd$del_mode <- ISR_sub_meta_mch_bio$del_mode[match(ISR_sub_mch_prab_bio_sfd$Var1, ISR_sub_meta_mch_bio$sample)]
 ```
 
-
 #### Plots
 
-```r
+``` r
 ggplot(ISR_sub_mch_prab_bio_sfd, aes(x=feed_mode, y = value)) + geom_violin(alpha=0.7, width=0.95, lwd=0.1,  aes(fill=feed_mode)) + 
   stat_compare_means(label.y = 0.4, label.x.npc = 0.5) +
   #scale_fill_manual(values=c("cornflowerblue", "blueviolet", "#7B8492", "#827290")) +  
@@ -2941,9 +2297,9 @@ ggplot(ISR_sub_mch_prab_bio_sfd, aes(x=feed_mode, y = value)) + geom_violin(alph
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-47-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-47-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sub_mch_feedmode.pdf", width = 3.5, height = 5.2, units = "in")
 
 
@@ -2960,44 +2316,36 @@ ggplot(ISR_sub_mch_prab_bio_sfd, aes(x=del_mode, y = value)) + geom_violin(alpha
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-47-2.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-47-2.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sub_mch_delmode.pdf", width = 3.5, height = 5.2, units = "in")
 ```
 
-
-<br>
-<br>
+<br> <br>
 
 ### Supragingival Samples
 
 <br>
 
-
-
-```r
+``` r
 # Bio
 ISR_sup_meta_mch_bio <- ISR_sup_meta_mch[ISR_sup_meta_mch$status == "Biological", ]
 dim(ISR_sup_meta_mch_bio) # 102 x 24 (53 pairs)
 ```
 
-```
-## [1] 106  24
-```
+    ## [1] 106  24
 
-```r
+``` r
 # supset counts
 ISR_sup_mch_prab_bio <- ISR_sup_mch[row.names(ISR_sup_mch) %in% ISR_sup_meta_mch_bio$sample, ]
 ISR_sup_mch_prab_bio <- ISR_sup_mch_prab_bio[, colSums(ISR_sup_mch_prab_bio) > 0]
 dim(ISR_sup_mch_prab_bio) # 102 2079
 ```
 
-```
-## [1]  106 1580
-```
+    ## [1]  106 1580
 
-```r
+``` r
 # Compute distances and melt
 ISR_sup_mch_prab_bio_sfd <- AD.melt.dist.sf(ISR_sup_mch_prab_bio, ISR_sup_meta_mch_bio)$dmsf
 #View(ISR_sup_mch_prab_bio_sfd)
@@ -3010,7 +2358,7 @@ ISR_sup_mch_prab_bio_sfd$del_mode <- ISR_sup_meta_mch_bio$del_mode[match(ISR_sup
 
 #### Plots
 
-```r
+``` r
 ggplot(ISR_sup_mch_prab_bio_sfd, aes(x=feed_mode, y = value)) + geom_violin(alpha=0.7, width=0.95, lwd=0.1,  aes(fill=feed_mode)) + 
   stat_compare_means(label.y = 0.4, label.x.npc = 0.5) +
   #scale_fill_manual(values=c("cornflowerblue", "blueviolet", "#7B8492", "#827290")) +  
@@ -3024,9 +2372,9 @@ ggplot(ISR_sup_mch_prab_bio_sfd, aes(x=feed_mode, y = value)) + geom_violin(alph
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-49-1.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-49-1.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sup_mch_feedmode.pdf", width = 3.5, height = 5.2, units = "in")
 
 
@@ -3043,9 +2391,152 @@ ggplot(ISR_sup_mch_prab_bio_sfd, aes(x=del_mode, y = value)) + geom_violin(alpha
         plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
 ```
 
-![](Adoption-Analysis-Publication-Markdown-Git_files/figure-html/unnamed-chunk-49-2.png)<!-- -->
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-49-2.png)
 
-```r
+``` r
 #ggsave(file="output/ISR_sup_mch_delmode.pdf", width = 3.5, height = 5.2, units = "in")
 ```
 
+### Compare NMDS Spread For Figure 2
+
+<br> \#\#\#\# For Subject Type Analysis
+
+``` r
+# Calculate Centroid Distances
+ISR_all_sites_type_dists <- data.frame(betadisper(vegdist(ISR_all_sites_mch_counts_prab), factor(ISR_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(ISR_all_sites_type_dists) <- "cent_dist"
+
+# Calculate Centroid Distances
+core_all_sites_type_dists <- data.frame(betadisper(vegdist(core_all_sites_mch_counts_prab), factor(core_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(core_all_sites_type_dists) <- "cent_dist"
+
+# Make list of common samples in ISR and Core
+ISR_all_sites_sample_names <- gsub("_ISR", "", row.names(ISR_all_sites_mch_counts_prab))
+
+# Generate common samples
+ISR_core_common_samps <- intersect(ISR_all_sites_sample_names, row.names(core_all_sites_mch_counts_prab))
+length(ISR_core_common_samps) # 641
+```
+
+    ## [1] 641
+
+``` r
+# Subset ISR table
+
+# Make new column
+ISR_all_sites_type_dists$samps <- gsub("_ISR", "", row.names(ISR_all_sites_type_dists))
+core_all_sites_type_dists$samps <- row.names(core_all_sites_type_dists)
+
+# Subset
+ISR_all_sites_type_dists_matched <- ISR_all_sites_type_dists[ISR_all_sites_type_dists$samps %in% ISR_core_common_samps, ]
+nrow(ISR_all_sites_type_dists_matched) # 641
+```
+
+    ## [1] 641
+
+``` r
+# Subset core table
+core_all_sites_type_dists_matched <- core_all_sites_type_dists[row.names(core_all_sites_type_dists) %in% ISR_core_common_samps, ]
+nrow(core_all_sites_type_dists_matched) # 641
+```
+
+    ## [1] 641
+
+``` r
+# Add Core cent dists to ISR cent dists table
+ISR_all_sites_type_dists_matched$core_sub_cent_dists <- core_all_sites_type_dists_matched$cent_dist[match(ISR_all_sites_type_dists_matched$samps, ISR_all_sites_type_dists_matched$samps)]
+colnames(ISR_all_sites_type_dists_matched) <- c("Strain Level \nSubject Type Cent. Dists", "Samples", "Species Level \nSubject Type Cent. Dists")
+
+# Melt table for plotting
+Compare_ISR_core_sub_centdists <- melt(ISR_all_sites_type_dists_matched)
+```
+
+    ## Using Samples as id variables
+
+``` r
+ggplot(Compare_ISR_core_sub_centdists, aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable), lwd=0.2, alpha=0.9, outlier.size = 0.2,  width=0.5) + 
+  scale_fill_manual(values = c("darkred", "darkgreen")) +
+  stat_compare_means(paired = TRUE, label.x.npc = 0.65, label.y.npc = 0.9, label = "p.signif", size=6,
+                     symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05), symbols = c("***", "**", "*", "ns"))) +
+  scale_y_continuous(breaks=c(0.2, 0.4, 0.6, 0.8), limits = c(0.1,0.9), expand = c(0,0)) +
+  annotate(x=0.4, xend=0.4, y=0.2, yend=0.8, lwd=0.3, geom="segment") +
+  labs(x = "", y = "     Centroid Distances (Bray-Curtis)") + theme_classic() + 
+  theme(plot.title = element_blank(), 
+        axis.text.x = element_text(size=9, face="bold", color="black", hjust = 0.5), axis.line.x = element_line(size = 0.2), 
+        axis.text.y = element_text(size=9, face="bold", color="black"), axis.title.y = element_text(size=12, face="bold", color="black", margin = margin(r=10), hjust = 0.35), 
+        axis.line.y = element_blank(),
+        plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
+```
+
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-51-1.png)
+
+``` r
+ggsave(file="output/Cent Dist Sub Comp.pdf", width = 4, height = 5, units = "in")
+```
+
+<br> <br>
+
+``` r
+# For Subject Type Analysis
+ISR_all_sites_site_dists <- data.frame(betadisper(vegdist(ISR_all_sites_mch_counts_prab), factor(ISR_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(ISR_all_sites_site_dists) <- "cent_dist"
+
+core_all_sites_site_dists <- data.frame(betadisper(vegdist(core_all_sites_mch_counts_prab), factor(core_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(core_all_sites_site_dists) <- "cent_dist"
+
+
+# Subset ISR table
+
+# Make new column
+ISR_all_sites_site_dists$samps <- gsub("_ISR", "", row.names(ISR_all_sites_site_dists))
+core_all_sites_site_dists$samps <- row.names(core_all_sites_site_dists)
+
+# Subset
+ISR_all_sites_site_dists_matched <- ISR_all_sites_site_dists[ISR_all_sites_site_dists$samps %in% ISR_core_common_samps, ]
+nrow(ISR_all_sites_site_dists_matched) # 641
+```
+
+    ## [1] 641
+
+``` r
+# Subset core table
+core_all_sites_site_dists_matched <- core_all_sites_site_dists[row.names(core_all_sites_site_dists) %in% ISR_core_common_samps, ]
+nrow(core_all_sites_site_dists_matched) # 641
+```
+
+    ## [1] 641
+
+``` r
+# Combine ISR & core data
+ISR_all_sites_site_dists_matched$core_sub_cent_dists <- core_all_sites_site_dists_matched$cent_dist[match(ISR_all_sites_site_dists_matched$samps, ISR_all_sites_site_dists_matched$samps)]
+colnames(ISR_all_sites_site_dists_matched) <- c("Strain Level \nSampling Site Cent. Dists", "Samples", "Species Level \nSampling Site Cent. Dists")
+Compare_ISR_core_site_centdists <- melt(ISR_all_sites_site_dists_matched)
+```
+
+    ## Using Samples as id variables
+
+``` r
+Compare_ISR_core_site_centdists$site <- all_site_samples_core$site[match(Compare_ISR_core_site_centdists$Samples, all_site_samples_core$samples)]
+```
+
+``` r
+ggplot(Compare_ISR_core_site_centdists, aes(x=variable, y=value)) + facet_wrap(facets = ~site) +
+  geom_boxplot(aes(fill=variable), lwd=0.2, alpha=0.9, outlier.size = 0.2,  width=0.5) + 
+  scale_fill_manual(values = c("darkred", "darkgreen")) +
+  stat_compare_means(paired = TRUE, label.x.npc = 0.65, label.y.npc = 0.9, label = "p.signif", size=6,
+                     symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05), symbols = c("***", "**", "*", "ns"))) +
+  scale_y_continuous(breaks=c(0.2, 0.4, 0.6, 0.8), limits = c(0.1,0.9), expand = c(0,0)) +
+  annotate(x=0.4, xend=0.4, y=0.2, yend=0.8, lwd=0.3, geom="segment") +
+  labs(x = "", y = "     Centroid Distances (Bray-Curtis)") + theme_classic() + 
+  theme(plot.title = element_blank(), 
+        axis.text.x = element_text(size=9, face="bold", color="black", hjust = 0.5), axis.line.x = element_line(size = 0.2), 
+        axis.text.y = element_text(size=9, face="bold", color="black"), axis.title.y = element_text(size=12, face="bold", color="black", margin = margin(r=10), hjust = 0.35), 
+        axis.line.y = element_blank(),
+        plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
+```
+
+![](Adoption-Analysis-Publication-Markdown-Git_files/figure-markdown_github/unnamed-chunk-53-1.png)
+
+``` r
+ggsave(file="output/Cent Dist Site Comp.pdf", width = 12, height = 6, units = "in")
+```

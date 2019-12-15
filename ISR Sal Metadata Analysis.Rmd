@@ -1,12 +1,14 @@
 ---
 title: "Adoption Metadata Analysis"
 author: "Chiranjit Mukherjee"
-date: "9/12/2019"
-output: html_document
+date: "12/14/2019"
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(stargazer)
 ```
 
 <br>
@@ -16,16 +18,15 @@ Setting Seed
 set.seed(12345)
 ```
 
-```{r}
-library(dplyr)
-```
 
 
 ### Input metadata files
 ```{r}
-ISR_sal_meta_mch_mo <- read.table(file="Intermed_files/ISR_sal_meta_mch_mo.txt", header = T, sep="\t")
-ISR_sal_meta_mch_ch <- read.table(file="Intermed_files/ISR_sal_meta_mch_ch.txt", header = T, sep="\t")
+ISR_sal_meta_mch_mo <- read.table(file="ISR_sal_meta_mch_mo.txt", header = T, sep="\t")
+ISR_sal_meta_mch_ch <- read.table(file="ISR_sal_meta_mch_ch.txt", header = T, sep="\t")
 ```
+
+
 
 ## ISR Sal M-Ch Multiple Linear Regression Analysis for unbalanced metadata
 <br.
@@ -505,14 +506,14 @@ set.seed(12345);fisher.test(race_match_table)$p.value # p-value = 7.631e-06 (Unb
 # The unbalanced variables are: feed_mode, race, tongue_biofilm, gingivitis, mo_age, mo_plq_level, mo_tng_bio, race_match
 
 # Subset
-ISR_sal_meta_mch_ch_unb <- ISR_sal_meta_mch_ch[,c("sample", "status", "feed_mode", "race", "tongue_biofilm", "gingivitis", "mo_age", "mo_plq_level", "mo_tng_bio", "race_match", "dist")]
+ISR_sal_meta_mch_ch_unb <- ISR_sal_meta_mch_ch[,c("sample", "status", "feed_mode", "race", "tongue_biofilm", "gingivitis", "mo_age","mo_ging", "mo_plq_level", "mo_tng_bio", "race_match", "dist")]
 #View(ISR_sal_meta_mch_ch_unb)
 dim(ISR_sal_meta_mch_ch_unb) # 103 x 11
 
 # Output
-write.table(ISR_sal_meta_mch_ch_unb, file="Intermed_files/ISR_sal_meta_mch_ch_unb.txt", sep = "\t", quote = F, row.names = FALSE)
-write.table(ISR_sal_meta_mch_ch, file="Intermed_files/ISR_sal_meta_mch_ch_updated.txt", sep = "\t", quote = F, row.names = FALSE)
-write.table(ISR_sal_meta_mch_mo, file="Intermed_files/ISR_sal_meta_mch_mo_updated.txt", sep = "\t", quote = F, row.names = FALSE)
+#write.table(ISR_sal_meta_mch_ch_unb, file="Intermed_files/ISR_sal_meta_mch_ch_unb.txt", sep = "\t", quote = F, row.names = FALSE)
+#write.table(ISR_sal_meta_mch_ch, file="Intermed_files/ISR_sal_meta_mch_ch_updated.txt", sep = "\t", quote = F, row.names = FALSE)
+#write.table(ISR_sal_meta_mch_mo, file="Intermed_files/ISR_sal_meta_mch_mo_updated.txt", sep = "\t", quote = F, row.names = FALSE)
 ```
 
 
@@ -560,6 +561,26 @@ ISR_sal_meta_mch_ch_unb$race_match <- as.numeric(as.factor(ISR_sal_meta_mch_ch_u
 ISR_sal_meta_mch_ch_unb.fit_tbl <- data.frame(ISR_sal_meta_mch_ch_unb.fit.sum$coefficients)
 colnames(ISR_sal_meta_mch_ch_unb.fit_tbl) <- c("Estimates", "Std. Error", "t-value", "p-value")
 #savView(ISR_sal_meta_mch_ch_unb.fit_tbl)
-write.table(ISR_sal_meta_mch_ch_unb.fit_tbl, file="/output/LM_table_sal_ISR_final.txt", sep="\t", row.names = T)
+#write.table(ISR_sal_meta_mch_ch_unb.fit_tbl, file="/output/LM_table_sal_ISR_final.txt", sep="\t", row.names = T)
+
+```
+
+# New confounding checking
+```{r,results="asis"}
+# Multiple linear regression analysis
+fit0<-lm(dist ~ status, data=ISR_sal_meta_mch_ch_unb)
+fit1<-lm(dist ~ status+feed_mode, data=ISR_sal_meta_mch_ch_unb)
+fit2<-lm(dist ~ status+race, data=ISR_sal_meta_mch_ch_unb)
+fit3<-lm(dist ~ status+mo_age, data=ISR_sal_meta_mch_ch_unb)
+fit4<-lm(dist ~ status+gingivitis, data=ISR_sal_meta_mch_ch_unb)
+fit5<-lm(dist ~ status+tongue_biofilm, data=ISR_sal_meta_mch_ch_unb)
+fit6<-lm(dist ~ status+mo_ging, data=ISR_sal_meta_mch_ch_unb)
+fit7<-lm(dist ~ status+mo_tng_bio, data=ISR_sal_meta_mch_ch_unb)
+fit8<-lm(dist ~ status+mo_plq_level, data=ISR_sal_meta_mch_ch_unb)
+fit9<-lm(dist ~ status+race_match, data=ISR_sal_meta_mch_ch_unb)
+fit10<-lm(dist ~ status + feed_mode + race + mo_age + gingivitis + tongue_biofilm +mo_ging+mo_tng_bio + mo_plq_level + race_match, data=ISR_sal_meta_mch_ch_unb)
+
+stargazer(header=F,fit0,fit1,fit2,fit3,fit4,fit5,fit6,fit7,fit8,fit9,fit10,type="html",report="vcp*",title="Check confounding")
+
 
 ```

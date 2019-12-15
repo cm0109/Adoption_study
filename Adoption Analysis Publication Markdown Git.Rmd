@@ -1,10 +1,8 @@
 ---
 title: "Adoption Study Publication Script"
 author: "Chiranjit Mukherjee"
-date: "11/4/2019"
-output: 
-  html_document:
-    keep_md: true
+date: "12/14/2019"
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -348,12 +346,12 @@ set.seed(12345); (ISR_all_sites_mch_mds_df.site.perm <- adonis(formula = ISR_all
 # Plot NMDS
 ggplot(ISR_all_sites_mch_counts_prab.mds.df, aes(x=NMDS1, y=NMDS2)) + 
   stat_ellipse(aes(color=site), show.legend = F, lwd=0.2) + scale_color_manual(values=c("slateblue", "firebrick2", "forestgreen")) +
-  geom_point(alpha=0.75, color="black", pch=21, stroke = 0.2, aes(fill=site,  size=type)) + scale_fill_manual(values=c("darkblue", "firebrick4", "forestgreen")) + 
-  labs(fill="Site", size="Subject Type") + scale_size_manual(values=c(1,3)) + theme_classic() +
+  geom_point(alpha=0.75, color="black", pch=21, stroke = 0.01, aes(fill=site,  size=type)) + scale_fill_manual(values=c("darkblue", "firebrick4", "forestgreen")) + 
+  labs(fill="Site", size="Subject Type") + scale_size_manual(values=c(2,5)) + theme_classic() +
   theme(plot.margin = unit(c(0,0,0,0), "cm"), plot.title = element_text(size=15, face="bold", hjust=0.5), plot.subtitle = element_text(color="firebrick4", size=10, hjust=0.5), 
         axis.text = element_text(size=8, face="bold", color="black"), axis.title = element_text(size=10, face="bold"),  axis.line = element_line(size = 0.2),
         legend.title = element_text(size=10, face="bold", hjust=0.5), legend.text = element_text(size = 10), legend.key.size = unit(0.6,"cm"), legend.position="right")
-#ggsave(file="output/NMDS ISR sites prabs mch.pdf", width = 10, height = 6, units = "in")
+ggsave(file="output/NMDS ISR sites prabs mch.pdf", width = 10, height = 6, units = "in")
 
 ```
 
@@ -1571,7 +1569,7 @@ dim(AD_core_counts) # 709 x 581
 ```
 
 # 16S Core ALL Sites Mother-Child NMDS
-```{r}
+```{r, results="hide", message=FALSE, eval=TRUE}
 # Create table for all core samples sequenced
 all_site_samples_core <- data.frame(row.names(AD_core_counts))
 colnames(all_site_samples_core) <- "samples"
@@ -1626,15 +1624,14 @@ set.seed(12345); (core_all_sites_mch_mds_df.site.perm <- adonis(formula = core_a
 
 ```{r, echo=FALSE}
 # Plot NMDS
-ggplot(core_all_sites_mch_counts_prab.mds.df, aes(x=NMDS1, y=NMDS2)) + scale_y_reverse() + 
+ggplot(core_all_sites_mch_counts_prab.mds.df, aes(x=NMDS1, y=NMDS2)) + 
   stat_ellipse(aes(color=site), show.legend = F, lwd=0.2) + scale_color_manual(values=c("slateblue", "firebrick2", "forestgreen")) +
-  geom_point(alpha=0.75, color="black", pch=21, stroke = 0.2, aes(fill = site,  size=type)) + scale_fill_manual(values=c("darkblue", "firebrick4", "forestgreen")) + 
-  #annotate("text", x = 0.4, y=0.55, size=3, label = paste("p = ", core_all_sites_mch_counts_prab.perm$aov.tab$`Pr(>F)`[1], "(PERMANOVA)", sep=" ")) + 
-  labs(fill="Site", size="Subject Type") + scale_size_manual(values=c(1,3)) + theme_classic() +
+  geom_point(alpha=0.75, color="black", pch=21, stroke = 0.01, aes(fill=site,  size=type)) + scale_fill_manual(values=c("darkblue", "firebrick4", "forestgreen")) + 
+  labs(fill="Site", size="Subject Type") + scale_size_manual(values=c(2,5)) + theme_classic() +
   theme(plot.margin = unit(c(0,0,0,0), "cm"), plot.title = element_text(size=15, face="bold", hjust=0.5), plot.subtitle = element_text(color="firebrick4", size=10, hjust=0.5), 
         axis.text = element_text(size=8, face="bold", color="black"), axis.title = element_text(size=10, face="bold"),  axis.line = element_line(size = 0.2),
-        legend.title = element_text(size=10, face="bold"), legend.text = element_text(size = 10), legend.key.size = unit(0.4,"cm"), legend.position="right")
-#ggsave(file="output/NMDS core sites prabs mch.pdf", width = 10, height = 6, units = "in")
+        legend.title = element_text(size=10, face="bold", hjust=0.5), legend.text = element_text(size = 10), legend.key.size = unit(0.6,"cm"), legend.position="right")
+ggsave(file="output/NMDS core sites prabs mch.pdf", width = 10, height = 6, units = "in")
 
 ```
 
@@ -2259,3 +2256,119 @@ ggplot(ISR_sup_mch_prab_bio_sfd, aes(x=del_mode, y = value)) + geom_violin(alpha
 
 ```
 
+
+
+### Compare NMDS Spread For Figure 2
+<br>
+#### For Subject Type Analysis
+
+```{r}
+# Calculate Centroid Distances
+ISR_all_sites_type_dists <- data.frame(betadisper(vegdist(ISR_all_sites_mch_counts_prab), factor(ISR_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(ISR_all_sites_type_dists) <- "cent_dist"
+
+# Calculate Centroid Distances
+core_all_sites_type_dists <- data.frame(betadisper(vegdist(core_all_sites_mch_counts_prab), factor(core_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(core_all_sites_type_dists) <- "cent_dist"
+
+# Make list of common samples in ISR and Core
+ISR_all_sites_sample_names <- gsub("_ISR", "", row.names(ISR_all_sites_mch_counts_prab))
+
+# Generate common samples
+ISR_core_common_samps <- intersect(ISR_all_sites_sample_names, row.names(core_all_sites_mch_counts_prab))
+length(ISR_core_common_samps) # 641
+
+# Subset ISR table
+
+# Make new column
+ISR_all_sites_type_dists$samps <- gsub("_ISR", "", row.names(ISR_all_sites_type_dists))
+core_all_sites_type_dists$samps <- row.names(core_all_sites_type_dists)
+
+# Subset
+ISR_all_sites_type_dists_matched <- ISR_all_sites_type_dists[ISR_all_sites_type_dists$samps %in% ISR_core_common_samps, ]
+nrow(ISR_all_sites_type_dists_matched) # 641
+
+# Subset core table
+core_all_sites_type_dists_matched <- core_all_sites_type_dists[row.names(core_all_sites_type_dists) %in% ISR_core_common_samps, ]
+nrow(core_all_sites_type_dists_matched) # 641
+
+# Add Core cent dists to ISR cent dists table
+ISR_all_sites_type_dists_matched$core_sub_cent_dists <- core_all_sites_type_dists_matched$cent_dist[match(ISR_all_sites_type_dists_matched$samps, ISR_all_sites_type_dists_matched$samps)]
+colnames(ISR_all_sites_type_dists_matched) <- c("Strain Level \nSubject Type Cent. Dists", "Samples", "Species Level \nSubject Type Cent. Dists")
+
+# Melt table for plotting
+Compare_ISR_core_sub_centdists <- melt(ISR_all_sites_type_dists_matched)
+```
+
+```{r}
+ggplot(Compare_ISR_core_sub_centdists, aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable), lwd=0.2, alpha=0.9, outlier.size = 0.2,  width=0.5) + 
+  scale_fill_manual(values = c("darkred", "darkgreen")) +
+  stat_compare_means(paired = TRUE, label.x.npc = 0.65, label.y.npc = 0.9, label = "p.signif", size=6,
+                     symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05), symbols = c("***", "**", "*", "ns"))) +
+  scale_y_continuous(breaks=c(0.2, 0.4, 0.6, 0.8), limits = c(0.1,0.9), expand = c(0,0)) +
+  annotate(x=0.4, xend=0.4, y=0.2, yend=0.8, lwd=0.3, geom="segment") +
+  labs(x = "", y = "     Centroid Distances (Bray-Curtis)") + theme_classic() + 
+  theme(plot.title = element_blank(), 
+        axis.text.x = element_text(size=9, face="bold", color="black", hjust = 0.5), axis.line.x = element_line(size = 0.2), 
+        axis.text.y = element_text(size=9, face="bold", color="black"), axis.title.y = element_text(size=12, face="bold", color="black", margin = margin(r=10), hjust = 0.35), 
+        axis.line.y = element_blank(),
+        plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
+#ggsave(file="output/Cent Dist Sub Comp.pdf", width = 4, height = 5, units = "in")
+
+```
+
+
+
+
+<br> 
+<br>
+
+
+```{r}
+# For Subject Type Analysis
+# ISR
+ISR_all_sites_site_dists <- data.frame(betadisper(vegdist(ISR_all_sites_mch_counts_prab), factor(ISR_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(ISR_all_sites_site_dists) <- "cent_dist"
+
+# Core Species
+core_all_sites_site_dists <- data.frame(betadisper(vegdist(core_all_sites_mch_counts_prab), factor(core_all_sites_mch_counts_prab.mds.df$type))$distances)
+colnames(core_all_sites_site_dists) <- "cent_dist"
+
+# Subset ISR table
+
+# Make new column
+ISR_all_sites_site_dists$samps <- gsub("_ISR", "", row.names(ISR_all_sites_site_dists))
+core_all_sites_site_dists$samps <- row.names(core_all_sites_site_dists)
+
+# Subset
+ISR_all_sites_site_dists_matched <- ISR_all_sites_site_dists[ISR_all_sites_site_dists$samps %in% ISR_core_common_samps, ]
+nrow(ISR_all_sites_site_dists_matched) # 641
+
+# Subset core table
+core_all_sites_site_dists_matched <- core_all_sites_site_dists[row.names(core_all_sites_site_dists) %in% ISR_core_common_samps, ]
+nrow(core_all_sites_site_dists_matched) # 641
+
+# Combine ISR & core data
+ISR_all_sites_site_dists_matched$core_sub_cent_dists <- core_all_sites_site_dists_matched$cent_dist[match(ISR_all_sites_site_dists_matched$samps, ISR_all_sites_site_dists_matched$samps)]
+colnames(ISR_all_sites_site_dists_matched) <- c("Strain Level \nSampling Site Cent. Dists", "Samples", "Species Level \nSampling Site Cent. Dists")
+Compare_ISR_core_site_centdists <- melt(ISR_all_sites_site_dists_matched)
+
+Compare_ISR_core_site_centdists$site <- all_site_samples_core$site[match(Compare_ISR_core_site_centdists$Samples, all_site_samples_core$samples)]
+```
+
+```{r, echo=FALSE}
+ggplot(Compare_ISR_core_site_centdists, aes(x=variable, y=value)) + facet_wrap(facets = ~site) +
+  geom_boxplot(aes(fill=variable), lwd=0.2, alpha=0.9, outlier.size = 0.2,  width=0.5) + 
+  scale_fill_manual(values = c("darkred", "darkgreen")) +
+  stat_compare_means(paired = TRUE, label.x.npc = 0.65, label.y.npc = 0.9, label = "p.signif", size=6,
+                     symnum.args = list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05), symbols = c("***", "**", "*", "ns"))) +
+  scale_y_continuous(breaks=c(0.2, 0.4, 0.6, 0.8), limits = c(0.1,0.9), expand = c(0,0)) +
+  annotate(x=0.4, xend=0.4, y=0.2, yend=0.8, lwd=0.3, geom="segment") +
+  labs(x = "", y = "     Centroid Distances (Bray-Curtis)") + theme_classic() + 
+  theme(plot.title = element_blank(), 
+        axis.text.x = element_text(size=9, face="bold", color="black", hjust = 0.5), axis.line.x = element_line(size = 0.2), 
+        axis.text.y = element_text(size=9, face="bold", color="black"), axis.title.y = element_text(size=12, face="bold", color="black", margin = margin(r=10), hjust = 0.35), 
+        axis.line.y = element_blank(),
+        plot.margin = unit(c(0.1,0,0,0), "cm"), legend.position = "none")
+#ggsave(file="output/Cent Dist Site Comp.pdf", width = 12, height = 6, units = "in")
+```
