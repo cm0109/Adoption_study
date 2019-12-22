@@ -2,7 +2,7 @@
 title: "Adoption Study Publication Script"
 author: "Chiranjit Mukherjee"
 date: "12/22/2019"
-#output: github_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
