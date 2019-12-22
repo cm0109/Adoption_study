@@ -1,8 +1,8 @@
 ---
 title: "Adoption Study Publication Script"
 author: "Chiranjit Mukherjee"
-date: "12/14/2019"
-output: github_document
+date: "12/22/2019"
+#output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -2255,6 +2255,9 @@ ggplot(ISR_sup_mch_prab_bio_sfd, aes(x=del_mode, y = value)) + geom_violin(alpha
 ```
 
 
+<br>
+<br>
+<br>
 
 ### Compare NMDS Spread For Figure 2
 <br>
@@ -2321,9 +2324,9 @@ ggplot(Compare_ISR_core_sub_centdists, aes(x=variable, y=value)) + geom_boxplot(
 <br> 
 <br>
 
+#### For Site Type Analysis
 
 ```{r}
-# For Subject Type Analysis
 # ISR
 ISR_all_sites_site_dists <- data.frame(betadisper(vegdist(ISR_all_sites_mch_counts_prab), factor(ISR_all_sites_mch_counts_prab.mds.df$type))$distances)
 colnames(ISR_all_sites_site_dists) <- "cent_dist"
